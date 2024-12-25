@@ -1,0 +1,86 @@
+
+
+.select-search-div{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    border: 1px solid #429b6a;
+   border-radius: 25px;
+   margin-top: 50px;
+}
+.select-search-div>input{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding: 10px 20px;
+}
+.select-search-image{
+    border: 1px solid #429b6a;
+    border-radius: 50%;
+    padding: 9px 8px 9px 12px;;
+    background-color: #429b6a;
+}
+
+.agent-p11{
+    font-size: 20px;
+    font-weight: 600;
+
+}
+.select-agent-content{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-between;
+    row-gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.select-agent-content-div{
+    width: 88%;
+    border: 1.5px solid gray;
+    border-radius: 20px;
+    padding: 15px 5px 15px 25px;
+   display: flex;
+    gap: 20px;
+}
+.circle-checkbox {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Same as width for a perfect circle */
+    border-radius: 50%; /* Makes the checkbox circular */
+    border: 2px solid #429b6a;
+    appearance: none; /* Removes default checkbox styles */
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .circle-checkbox:checked {
+    background-color: #429b6a; /* Color when checked */
+    border-color: #429b6a;
+  }
+  
+  .circle-checkbox:focus {
+    box-shadow: 0 0 3px #429b6a; /* Optional: Focus indicator */
+  }
+
+  .agent-show-bottom-button{
+    width: 30%;
+    margin: auto;
+    margin-bottom: 30px;
+   
+}
+.agent-show-bottom-button>button:hover{
+    color: #ffff;
+    background-color: #429b6a;
+}
+.agent-show-bottom-button>button{
+    width: 100%;
+    font-size: 20px;
+    background-color: #ffff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    border: 1px solid #429b6a;
+    cursor: pointer;
+}
+
+  

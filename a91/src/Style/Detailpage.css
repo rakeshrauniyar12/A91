@@ -1,0 +1,23 @@
+.detail-page-main-container {
+  width: 85%;
+  margin: auto;
+  margin-top: 35px;
+  margin-bottom: 50px;
+}
+
+.all-option-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.option-div-active-option{
+  background-color: #429b6a;
+  color: #ffff;
+}
+.all-option-div > div {
+  border: 1px solid #429b6a;
+  border-radius: 25px;
+  text-align: center;
+  padding: 10px 0px;
+  cursor: pointer;
+}

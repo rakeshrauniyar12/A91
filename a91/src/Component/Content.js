@@ -1,6 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
+import HomeDesign1 from "./HomeDesign1";
+import HomeDesign2 from "./HomeDesign2";
+import DetailPage from "./DetailsPage";
+import Login from "./Login";
 
 
 const Content = () => {
@@ -9,6 +13,9 @@ const Content = () => {
       <div style={{ width: "100%", margin: "auto",}}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/homedesignfirst" element={<HomeDesign1 />} />
+          <Route path="/homedesignsecond" element={<HomeDesign2 />} />
+          <Route path="/detailpage" element={<DetailPage />} />
         </Routes>
       </div>
     );

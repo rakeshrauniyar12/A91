@@ -1,13 +1,42 @@
 .navbar-main-container {
   padding: 10px 0px;
+  position: relative;
+}
+#detail-image-11 {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 5px;
+}
+#detail-image-11 > div > p {
+  font-size: 10px;
+  text-align: center;
 }
 .navbar-content {
+ 
   height: 60px;
   width: 97%;
   margin: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.account-details{
+  border: 1px solid gray;
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+.account-option{
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.6;
+}
+.account-option:hover{
+  color: #429b6a;
 }
 .navbar-divider {
   border: 1.3px solid #429b6a;
@@ -20,10 +49,33 @@
   height: 43px;
   margin-top: 12px;
 }
+#like-dis-div {
+  width: 36%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 11px;
+  gap: 10px;
+}
+.divide-line-12 {
+  border: 1px solid #429b6a;
+  height: 40px;
+  margin-right: 8px;
+  margin-left: 15px;
+}
 .home-nav-im-1 {
   height: 20px;
 }
-
+.repor-agent {
+  border-radius: 50px;
+  border: 1px solid #429b6a;
+  display: flex;
+  gap: 10px;
+  width: 20%;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
 .home-nav-im-2 {
   height: 25px;
 }
@@ -56,6 +108,9 @@
   width: 85%;
   margin: auto;
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .budget-div {
   display: flex;
