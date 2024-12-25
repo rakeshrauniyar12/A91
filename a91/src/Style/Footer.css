@@ -8,7 +8,8 @@
   .footer-container {
     width: 80%;
     margin: auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     justify-content: space-between;
   }
   .social-media{
@@ -72,6 +73,36 @@
     margin-top: 20px;
     font-size: 14px;
     color: #666;
+  }
+
+  @media (max-width:768px){
+    .footer-container{
+      width: 100%;
+      grid-template-columns: repeat(2,1fr);
+      gap: 20px;
+    }
+    .footer-info {
+      width: 100%;
+      flex-direction: column;
+    }
+    .about-us {
+      width: 100%;
+  }
+  .connect-with-us {
+    width: 60%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.social-experiance-section {
+  width: 100%;
+}
+.footer-bottom {
+  font-size: 12px;
+}
+.border-footer {
+  width: 100%;
+}
+
   }
   
   

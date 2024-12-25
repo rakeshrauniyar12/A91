@@ -195,3 +195,61 @@
   height: 100%;
   object-fit: cover;
 }
+
+
+@media (max-width:768px){
+  .navbar-content {
+   flex-direction: column;
+   height: auto;
+  }
+  .nav-logo {
+    width: 25%;
+}
+.nav-end-img {
+  width: 10%;
+}
+.nav-end-img>img {
+  object-fit: contain;
+}
+
+
+
+
+.nav-option-1 {
+  width: 82%;
+  margin-top: 15px;
+  height: 40px;
+      margin-bottom: 15px;
+  }
+  
+  .nav-option-11 {
+      width: 25%;
+  }
+  
+  .font-incre {
+      font-size: 16px;
+  }
+  
+  .nav-option-12 {
+      width: 40%;
+      padding-left: 5px;
+
+  }
+  .nav-option-13 {
+   padding-left: 5px;
+  }
+  .divide-line-11 {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.account-details {
+  width: 80%;
+  border: 1px solid gray;
+  position: absolute;
+  top: 29%;
+  right: 4%;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: white;
+}
+}

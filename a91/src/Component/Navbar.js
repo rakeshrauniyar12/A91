@@ -65,9 +65,26 @@ const Navbar = () => {
   return (
     <div className="navbar-main-container">
       <div className="navbar-content">
-        <div className="nav-logo">
+      { !isMobile ? <div className="nav-logo">
+          <img src={logo} />
+        </div>:""}
+        {  isMobile? 
+       <div style={{display:"flex",justifyContent:"space-between"}}>
+       <div className="nav-logo">
           <img src={logo} />
         </div>
+      
+          <div className="nav-end-img">
+            <img src={h1} />
+          </div>
+          <div className="nav-end-img">
+            <img src={partner} />
+          </div>
+          <div className="nav-end-img" style={{cursor:"pointer"}} onClick={()=>handleAccountOption()}>
+            <img src={account} />
+          </div>
+          </div>
+          :""}
         <div className="nav-option-1">
           <div className="nav-option-11">
             <p className="font-incre">City</p>
@@ -89,7 +106,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav-end-option-2">
-          <div className="nav-end-img">
+       {  !isMobile? 
+       <>
+       <div className="nav-end-img">
             <img src={search} />
           </div>
           <div className="nav-end-img">
@@ -101,6 +120,8 @@ const Navbar = () => {
           <div className="nav-end-img" style={{cursor:"pointer"}} onClick={()=>handleAccountOption()}>
             <img src={account} />
           </div>
+          </>
+          :""}
           
           {
             isAccount && 
@@ -267,7 +288,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="divide-line-11"></div>
-          { location.pathname === "/" && (
+          { !isMobile && location.pathname === "/" && (
             <div className="home-image-nav">
               <div>
                 <img className="home-nav-im-1" src={h21} />
