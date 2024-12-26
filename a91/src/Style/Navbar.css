@@ -28,6 +28,7 @@
   right: 5%;
   border-radius: 10px;
   padding: 10px 20px;
+  background-color: white;
 }
 .account-option{
   font-size: 18px;
@@ -88,9 +89,11 @@
 .home-nav-im-4 {
   height: 35px;
 }
+.home-i-div-1{
+  flex-direction: column;
+}
 .home-image-nav > div {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -257,6 +260,10 @@ line-height: 1.6;
   color: #ffff;
 
 }
+
+.like-dis-com-div{
+  flex-direction: row;
+}
 .own-dropdown-11>div>p{
   cursor: pointer;
   font-size: 18px;
@@ -283,11 +290,17 @@ line-height: 1.6;
   .nav-logo {
     width: 25%;
 }
+.home-image-nav > div {
+ flex-direction: column; 
+}
 .nav-down-part-content {
   width: 100%;
    flex-direction: column;
 }
 .nav-down-part {
+  flex-direction: column;
+}
+.like-dis-com-div{
   flex-direction: column;
 }
 .home-image-nav {

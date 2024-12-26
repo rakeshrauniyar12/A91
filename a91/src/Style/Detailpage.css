@@ -7,17 +7,32 @@
 
 .all-option-div {
   display: flex;
-  width: 100%;
+  flex-wrap: wrap; 
   justify-content: space-between;
+  gap: 10px;
 }
 .option-div-active-option{
   background-color: #429b6a;
   color: #ffff;
 }
 .all-option-div > div {
+  flex: 1 1 1 1 1 calc(50% - 10px); 
+  box-sizing: border-box;
   border: 1px solid #429b6a;
   border-radius: 25px;
   text-align: center;
   padding: 10px 0px;
   cursor: pointer;
+}
+
+@media (max-width:768px){
+  .all-option-div > div {
+    flex: 1 1 calc(50% - 10px); 
+    box-sizing: border-box;
+    border: 1px solid #429b6a;
+    border-radius: 25px;
+    text-align: center;
+    padding: 10px 0px;
+    cursor: pointer;
+  }
 }

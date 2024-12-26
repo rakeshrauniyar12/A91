@@ -164,9 +164,25 @@ const Navbar = () => {
           {showPurposeDropdown && 
              <div className="purpose-dropdown-11">
                <div>
-                   <p>Residential</p>
-                   <p>Commercial</p>
-                   <p>Plot</p>
+                   <p onClick={()=>{
+                    setShowPurposeDropdown(false)
+                    setIsPurRotate(!isPurRotate)
+                    navigate("/homedesign")
+                   }}>Residential</p>
+                   <p
+                   onClick={()=>{
+                    setShowPurposeDropdown(false)
+                    setIsPurRotate(!isPurRotate)
+                    navigate("/homedesignfirst")
+                   }}
+                   >Commercial</p>
+                   <p 
+                   onClick={()=>{
+                    setShowPurposeDropdown(false)
+                    setIsPurRotate(!isPurRotate)
+                    navigate("/homedesignsecond")
+                   }}
+                   >Plot</p>
                </div>
              </div>
           }
@@ -357,25 +373,25 @@ const Navbar = () => {
           <div className="divide-line-11"></div>
           </div>
          
-          { !isMobile && location.pathname === "/" && (
+          { !isMobile && location.pathname === "/homedesign" && (
             <div className="home-image-nav">
-              <div>
+              <div className="home-i-div-1">
                 <img className="home-nav-im-1" src={h21} />
                 <p>1BHK</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img className="home-nav-im-2" src={h22} />
                 <p>2BHK</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img src={h23} className="home-nav-im-3" />
                 <p>3BHK</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img src={h24} className="home-nav-im-4" />
                 <p>4BHK</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img src={h25} className="home-nav-im-5" />
                 <p>5BHK</p>
               </div>
@@ -383,23 +399,23 @@ const Navbar = () => {
           )}
           {location.pathname === "/homedesignfirst" && (
             <div className="home-image-nav">
-              <div>
+              <div className="home-i-div-1">
                 <img className="home-nav-im-1" src={p1} />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>1000`}</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img className="home-nav-im-2" src={p1} />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>2000`}</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img src={p1} className="home-nav-im-3" />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>3000`}</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img src={p1} className="home-nav-im-4" />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>4000`}</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img src={p1} className="home-nav-im-5" />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`4000+`}</p>
               </div>
@@ -407,23 +423,23 @@ const Navbar = () => {
           )}
           {location.pathname === "/homedesignsecond" && (
             <div className="home-image-nav">
-              <div>
+              <div className="home-i-div-1">
                 <img className="home-nav-im-1" src={p2} />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>1000`}</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img className="home-nav-im-2" src={p2} />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>2000`}</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img src={p2} className="home-nav-im-3" />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>3000`}</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img src={p2} className="home-nav-im-4" />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>4000`}</p>
               </div>
-              <div>
+              <div className="home-i-div-1">
                 <img src={p2} className="home-nav-im-5" />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`4000+`}</p>
               </div>
@@ -456,7 +472,7 @@ const Navbar = () => {
                 <p>5BHK</p>
               </div>
               </div>
-              <div>
+              <div className="like-dis-com-div">
               <div className="divide-line-12"></div>
                 <div id="like-dis-div">
                <div>

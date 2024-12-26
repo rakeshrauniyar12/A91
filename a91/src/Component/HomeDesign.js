@@ -10,9 +10,31 @@ import note from "../Asset/Home/Icon/note.png"
 import rect from "../Asset/Home/Icon/rect.png"
 import shhare from "../Asset/Home/Icon/shhare.png"
 import video from "../Asset/Home/Icon/video.png"
-const Home = () => {
-  const products = [];
-  for(let r=0;r<6;r++){
+const HomeDesign = () => {
+  const products = [
+    {
+      productImage: h1,
+      productName: "Residential",
+      productAreaName: "Locality",
+      productRent: 20000,
+      productBedType: "3BHK",
+      productArea: "3700sqft",
+      productSaleType: "not for sale",
+      productDistance: "9.8 Km away",
+    },
+    {
+      productImage: h1,
+      productName: "Residential",
+      productAreaName: "Locality",
+      productRent: 20000,
+      productBedType: "3BHK",
+      productArea: "3700sqft",
+      productSaleType: "not for sale",
+      productDistance: "9.8 Km away",
+    },
+   
+  ];
+  for(let r=0;r<10;r++){
     products.push({
       productImage: h1,
       productName: "Residential",
@@ -74,4 +96,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeDesign;

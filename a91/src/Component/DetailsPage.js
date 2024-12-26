@@ -3,6 +3,8 @@ import "../Style/Detailpage.css";
 import SelectAgent from "./SelectAgent";
 import YetToVisit from "./YetToVisit";
 import ScheduleAppointment from "./ScheduleAppoinment"
+import Appointment from "./Appointment";
+import Visited from "./Visited";
 const DetailPage = () => {
   // State to track the active option and components to display
   const [activeOption, setActiveOption] = useState("Select an agent");
@@ -17,9 +19,9 @@ const DetailPage = () => {
       case "Schedule an Appointment":
         return <ScheduleAppointment/>
       case "Appointment Status":
-        return <div>Appointment status content goes here.</div>;
+        return <Appointment/>;
       case "Visited":
-        return <div>Visited content goes here.</div>;
+        return <Visited/>;
       default:
         return null;
     }
