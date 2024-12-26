@@ -397,7 +397,7 @@ const Navbar = () => {
               </div>
             </div>
           )}
-          {location.pathname === "/homedesignfirst" && (
+          {!isMobile && location.pathname === "/homedesignfirst" && (
             <div className="home-image-nav">
               <div className="home-i-div-1">
                 <img className="home-nav-im-1" src={p1} />
@@ -421,7 +421,7 @@ const Navbar = () => {
               </div>
             </div>
           )}
-          {location.pathname === "/homedesignsecond" && (
+          {!isMobile && location.pathname === "/homedesignsecond" && (
             <div className="home-image-nav">
               <div className="home-i-div-1">
                 <img className="home-nav-im-1" src={p2} />
