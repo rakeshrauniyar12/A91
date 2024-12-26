@@ -43,6 +43,7 @@
 }
 .nav-logo {
   width: 15%;
+  cursor: pointer;
 }
 .divide-line-11 {
   border: 1px solid #429b6a;
@@ -187,6 +188,7 @@
 }
 
 .nav-end-img {
+  cursor: pointer;
   width: 14%;
 }
 
@@ -195,8 +197,84 @@
   height: 100%;
   object-fit: cover;
 }
+.city-dropdown-11{
+  position: absolute;
+  top: 44%;
+  background-color: white;
+  border: 1px solid green;
+  z-index: 999;
+  padding: 25px;
+  left: 21%;
+  border-radius: 20px;
+  line-height: 1.6;
+  text-align: center;
+}
+.city-dropdown-11>div>p{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0px 10px;
+}
+.city-dropdown-11>div>p:hover{
+  border-radius: 5px;
+  background-color: #429b6a;
+  color: #ffff;
+ 
 
+}
+.purpose-dropdown-11{
+  width: 14%;
+    position: absolute;
+    top: 45%;
+    left: 52%;
+    border: 1px solid #429b6a;;
+    padding: 16px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 1.6;
+    background-color: white;
+}
+.own-dropdown-11{
+width: 16%;
+position: absolute;
+top: 42%;
+left: 32%;
+background-color: white;
+border: 1px solid green;
+border-radius: 6px;
+padding: 20px;
+text-align: center;
+line-height: 1.6;
+}
+.own-dropdown-11>div>p{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+.own-dropdown-11>div>p:hover{
+  border-radius: 5px;
+  background-color: #429b6a;
+  color: #ffff;
 
+}
+.own-dropdown-11>div>p{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.purpose-dropdown-11>div>p{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.purpose-dropdown-11>div>p:hover{
+  border-radius: 5px;
+  background-color: #429b6a;
+  color: #ffff;
+   
+}
 @media (max-width:768px){
   .navbar-content {
    flex-direction: column;
@@ -204,6 +282,46 @@
   }
   .nav-logo {
     width: 25%;
+}
+.nav-down-part-content {
+  width: 100%;
+   flex-direction: column;
+}
+.nav-down-part {
+  flex-direction: column;
+}
+.home-image-nav {
+  width: 100%;
+  flex-direction: column;
+}
+#like-dis-div {
+  gap: 30px;
+}
+#detail-image-11 {
+gap: 30px;
+}
+.repor-agent {
+  width: 100%;
+  margin-top: 20px;
+}
+.home-image-nav > div {
+  flex-direction: row;
+}
+.own-dropdown-11 {
+  width: 81%;
+  top: 50%;
+  left: 3%;
+}
+.city-dropdown-11 {
+  width: 81%;
+  top: 48%;
+  left: 2%;
+}
+.purpose-dropdown-11 {
+  width: 85%;
+  top: 49%;
+  left: 2%;
+  background-color: white;
 }
 .nav-end-img {
   width: 10%;
@@ -236,6 +354,7 @@
 
   }
   .nav-option-13 {
+    width: 35%;
    padding-left: 5px;
   }
   .divide-line-11 {

@@ -32,6 +32,12 @@ const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [showSignupComponent, setShowSignupComponent] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [showPurposeDropdown,setShowPurposeDropdown] = useState(false);
+  const [showCityDropdown,setShowCityDropdown] = useState(false);
+  const [showOwnDropdown,setShowOwnDropdown] = useState(false);
+  const [isPurRotate,setIsPurRotate] = useState(false);
+  const [isOwnRotate,setIsOwnRotate] = useState(false);
+  const [isCityRotate,setIsCityRotate] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -62,10 +68,27 @@ const Navbar = () => {
       setShowSignupComponent(true);
       setAccount(false);
      }
+     const handlePurposeDropdown = ()=>{
+        setShowPurposeDropdown(!showPurposeDropdown);
+        setIsPurRotate(!isPurRotate)
+     }
+     
+     const handleCityDropdown = ()=>{
+      setShowCityDropdown(!showCityDropdown);
+      setIsCityRotate(!isCityRotate)
+   }
+   const handleOwnDropdown = ()=>{
+    setShowOwnDropdown(!showOwnDropdown);
+    setIsOwnRotate(!isOwnRotate)
+ }
+ const goToDetailPage = ()=>{
+  setAccount(false);
+  navigate("/detailpage");
+ }
   return (
     <div className="navbar-main-container">
       <div className="navbar-content">
-      { !isMobile ? <div className="nav-logo">
+      { !isMobile ? <div className="nav-logo" onClick={()=>{navigate("/")}}>
           <img src={logo} />
         </div>:""}
         {  isMobile? 
@@ -73,11 +96,13 @@ const Navbar = () => {
        <div className="nav-logo">
           <img src={logo} />
         </div>
-      
-          <div className="nav-end-img">
+        <div className="nav-end-img">
+            <img src={search} />
+          </div>
+          <div className="nav-end-img" onClick={()=>{navigate("/")}}>
             <img src={h1} />
           </div>
-          <div className="nav-end-img">
+          <div className="nav-end-img" >
             <img src={partner} />
           </div>
           <div className="nav-end-img" style={{cursor:"pointer"}} onClick={()=>handleAccountOption()}>
@@ -89,21 +114,62 @@ const Navbar = () => {
           <div className="nav-option-11">
             <p className="font-incre">City</p>
             <RiArrowDropDownLine
-              style={{ fontSize: "35px", fontWeight: "600" }}
+              style={{
+                transform: isCityRotate ? "rotate(180deg)" : "rotate(0deg)",
+                transition: isCityRotate ? "transform 0.5s ease" : "transform 0.5s ease",
+                fontSize: "35px", fontWeight: "600", cursor:"pointer" }}
+              onClick={handleCityDropdown}
             />
           </div>
           <div className="nav-option-12">
             <p className="font-incre">Own/Rent</p>
             <RiArrowDropDownLine
-              style={{ fontSize: "35px", fontWeight: "600" }}
+              style={{ 
+                transform: isOwnRotate ? "rotate(180deg)" : "rotate(0deg)",
+                transition: isOwnRotate ? "transform 0.5s ease" : "transform 0.5s ease",
+                fontSize: "35px", fontWeight: "600",cursor:"pointer" }}
+                onClick={handleOwnDropdown}
             />
           </div>
           <div className="nav-option-13">
             <p className="font-incre">Purpose</p>
             <RiArrowDropDownLine
-              style={{ fontSize: "35px", fontWeight: "600" }}
+              style={{ 
+                transform: isPurRotate ? "rotate(180deg)" : "rotate(0deg)",
+                transition: isPurRotate ? "transform 0.5s ease" : "transform 0.5s ease",
+                fontSize: "35px", fontWeight: "600", cursor:"pointer" }}
+              onClick={handlePurposeDropdown}
             />
           </div>
+          {showCityDropdown && 
+             <div className="city-dropdown-11">
+               <div>
+                   <p>Mumbai</p>
+                   <p>Delhi</p>
+                   <p>Kolkata</p>
+                   <p>Bengaluru</p>
+                   <p>Chennai</p>
+                   <p>Hyderabad</p>
+               </div>
+             </div>
+          }
+          {showOwnDropdown && 
+             <div className="own-dropdown-11">
+               <div>
+                   <p>Own</p>
+                   <p>Rent</p>
+               </div>
+             </div>
+          }
+          {showPurposeDropdown && 
+             <div className="purpose-dropdown-11">
+               <div>
+                   <p>Residential</p>
+                   <p>Commercial</p>
+                   <p>Plot</p>
+               </div>
+             </div>
+          }
         </div>
         <div className="nav-end-option-2">
        {  !isMobile? 
@@ -111,7 +177,7 @@ const Navbar = () => {
        <div className="nav-end-img">
             <img src={search} />
           </div>
-          <div className="nav-end-img">
+          <div className="nav-end-img" onClick={()=>{navigate("/")}}>
             <img src={h1} />
           </div>
           <div className="nav-end-img">
@@ -128,7 +194,7 @@ const Navbar = () => {
             <div className="account-details">
                <p className="account-option" onClick={handleLoginClick}>Login</p>
                <p className="account-option" onClick={handleSignupForm}>Register as Individual</p>
-               <p className="account-option">Register as Channel Partner</p>
+               <p className="account-option" onClick={goToDetailPage}>Register as Channel Partner</p>
             </div>
           
           }
@@ -270,6 +336,7 @@ const Navbar = () => {
       <div className="navbar-divider"></div>
       <div className="nav-down-part">
         <div className="nav-down-part-content">
+          <div style={{display:"flex"}}>
           <div>
             <div>
               <img src={filt} />
@@ -288,6 +355,8 @@ const Navbar = () => {
             </div>
           </div>
           <div className="divide-line-11"></div>
+          </div>
+         
           { !isMobile && location.pathname === "/" && (
             <div className="home-image-nav">
               <div>
@@ -387,6 +456,7 @@ const Navbar = () => {
                 <p>5BHK</p>
               </div>
               </div>
+              <div>
               <div className="divide-line-12"></div>
                 <div id="like-dis-div">
                <div>
@@ -407,6 +477,7 @@ const Navbar = () => {
                 <div
                 >
                   <img src={dates} />
+                </div>
                 </div>
               </div>
           )}
