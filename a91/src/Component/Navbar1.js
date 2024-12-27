@@ -26,7 +26,7 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { RiCloseLargeFill } from "react-icons/ri";
 
-const Navbar = () => {
+const Navbar1 = () => {
   const isMobile = window.innerWidth<=768;
   const [isAccount,setAccount] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
@@ -85,11 +85,9 @@ const Navbar = () => {
   setAccount(false);
   navigate("/detailpage");
  }
- if(location.pathname==="/"){
-  return;
- }
+ 
   return (
-    <div className="navbar-main-container">
+    <div className="navbar-main-container" style={{position:"fixed",width:"100%",top:"0",backgroundColor:"#ffff",zIndex:"999"}}>
       <div className="navbar-content">
       { !isMobile ? <div className="nav-logo" onClick={()=>{navigate("/")}}>
           <img src={logo} />
@@ -510,4 +508,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar1;

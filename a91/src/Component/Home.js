@@ -10,6 +10,7 @@ import note from "../Asset/Home/Icon/note.png"
 import rect from "../Asset/Home/Icon/rect.png"
 import shhare from "../Asset/Home/Icon/shhare.png"
 import video from "../Asset/Home/Icon/video.png"
+import Navbar1 from "./Navbar1";
 const Home = () => {
   const products = [];
   for(let r=0;r<6;r++){
@@ -26,6 +27,7 @@ const Home = () => {
   }
   return (
     <div className="home-container">
+      <Navbar1/>
       <div className="product-append-111">
         {products.map((product) => (
           <div className="product-details-div">
