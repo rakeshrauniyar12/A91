@@ -377,7 +377,9 @@ const Navbar = () => {
           </div>
          
           { location.pathname === "/homedesign" && (
-            <div className="home-image-nav">
+            <div className="home-image-nav"
+            style={{flexDirection:location.pathname==="/homedesign"?"row":"column"}}
+            >
               <div className="home-i-div-1">
                 <img className="home-nav-im-1" src={h21} />
                 <p>1BHK</p>
@@ -401,7 +403,9 @@ const Navbar = () => {
             </div>
           )}
           {location.pathname === "/homedesignfirst" && (
-            <div className="home-image-nav">
+            <div className="home-image-nav"
+            style={{flexDirection:location.pathname==="/homedesignfirst"?"row":"column"}}
+            >
               <div className="home-i-div-1">
                 <img className="home-nav-im-1" src={p1} />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>1000`}</p>
