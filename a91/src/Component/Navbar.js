@@ -376,7 +376,7 @@ const Navbar = () => {
           <div className="divide-line-11"></div>
           </div>
          
-          { !isMobile && location.pathname === "/homedesign" && (
+          { location.pathname === "/homedesign" && (
             <div className="home-image-nav">
               <div className="home-i-div-1">
                 <img className="home-nav-im-1" src={h21} />
@@ -400,7 +400,7 @@ const Navbar = () => {
               </div>
             </div>
           )}
-          {!isMobile && location.pathname === "/homedesignfirst" && (
+          {location.pathname === "/homedesignfirst" && (
             <div className="home-image-nav">
               <div className="home-i-div-1">
                 <img className="home-nav-im-1" src={p1} />
@@ -424,9 +424,13 @@ const Navbar = () => {
               </div>
             </div>
           )}
-          {!isMobile && location.pathname === "/homedesignsecond" && (
-            <div className="home-image-nav">
-              <div className="home-i-div-1">
+          { location.pathname === "/homedesignsecond" && (
+            <div className="home-image-nav"
+              style={{flexDirection:location.pathname==="/homedesignsecond"?"row":"column"}}
+            >
+              <div className="home-i-div-1"
+               style={{flexDirection:location.pathname==="/homedesignsecond"?"none":""}}
+              >
                 <img className="home-nav-im-1" src={p2} />
                 <p style={{ fontSize: "8px", fontWeight: "600" }}>{`>1000`}</p>
               </div>
