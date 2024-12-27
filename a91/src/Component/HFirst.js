@@ -40,7 +40,7 @@ const HFirst = ()=>{
    }
     return(
       <>
-      {showFirstComponent ? <div className="hfirst-main-container">
+      {showFirstComponent ? <div className="hfirst-main-container" style={{height:"600px"}}>
             <div className="h-nav-content">
               <div className="h-logo-1"><img src={logo}/></div>
               <div className="h-second-nav">

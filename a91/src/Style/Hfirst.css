@@ -91,7 +91,9 @@
   .hfirst-option {
     flex-direction: column;
     border: none;
-    width: 93%;
+    width: 77%;
+    justify-content: center;
+    align-items: center;
   }
   .select-search-div-1 {
     width: 90%;
@@ -110,7 +112,7 @@
   }
   .h-nav-content {
     width: 98%;
-    justify-content: none;
+   justify-content: space-around;
   }
   .h-second-nav {
     width: 60%;
