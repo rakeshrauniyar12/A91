@@ -11,6 +11,7 @@ import rect from "../Asset/Home/Icon/rect.png"
 import shhare from "../Asset/Home/Icon/shhare.png"
 import video from "../Asset/Home/Icon/video.png"
 import Navbar1 from "./Navbar1";
+import Footer1 from "./Footer1";
 const Home = () => {
   const products = [];
   for(let r=0;r<6;r++){
@@ -72,6 +73,7 @@ const Home = () => {
         ))}
       </div>
       <div className="show-bottom-button"><button>Show more</button></div>
+      <Footer1/>
     </div>
   );
 };

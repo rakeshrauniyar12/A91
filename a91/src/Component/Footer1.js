@@ -6,12 +6,7 @@ import faceb from "../Asset/Footer/faceb.png"
 import insta from "../Asset/Footer/insta.png"
 import twitt from "../Asset/Footer/twitt.png"
 import youtu from "../Asset/Footer/youtu.png"
-import { useLocation } from "react-router-dom";
-const Footer = () => {
-  const location = useLocation();
-  if(location.pathname==="/"){
-    return;
-  }
+const Footer1 = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -128,4 +123,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer1;
