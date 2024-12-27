@@ -133,7 +133,7 @@
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
     padding: 20px;
-    z-index: 15;
+    z-index: 1005;
     opacity: 0;
     animation: slideDown 0.5s forwards;
     overflow: hidden;

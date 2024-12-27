@@ -1,7 +1,7 @@
-/* .hfirst-main-container{
+.hfirst-main-container{
   height: 1000px;
-  overflow-y: scroll;
-} */
+  /* overflow-y: scroll; */
+}
 
 .h-nav-content {
   position: fixed;
@@ -91,6 +91,94 @@
   object-fit: contain;
 }
 
+.city-dropdown-12{
+  position: absolute;
+  top: 89%;
+  background-color: white;
+  border: 1px solid green;
+  z-index: 999;
+  padding: 25px;
+  left: 21%;
+  border-radius: 20px;
+  line-height: 1.6;
+  text-align: center;
+}
+.city-dropdown-12>div>p{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0px 10px;
+}
+.city-dropdown-12>div>p:hover{
+  border-radius: 5px;
+  background-color: #429b6a;
+  color: #ffff;
+ 
+
+}
+.purpose-dropdown-12{
+  width: 14%;
+    position: absolute;
+    top: 89%;
+    left: 52%;
+    border: 1px solid #429b6a;;
+    padding: 16px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 1.6;
+    background-color: white;
+}
+.own-dropdown-12{
+width: 16%;
+position: absolute;
+top: 89%;
+left: 32%;
+background-color: white;
+border: 1px solid green;
+border-radius: 6px;
+padding: 20px;
+text-align: center;
+line-height: 1.6;
+}
+.own-dropdown-12>div>p{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+.own-dropdown-12>div>p:hover{
+  border-radius: 5px;
+  background-color: #429b6a;
+  color: #ffff;
+
+}
+.own-dropdown-12>div>p{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.purpose-dropdown-12>div>p{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.purpose-dropdown-12>div>p:hover{
+  border-radius: 5px;
+  background-color: #429b6a;
+  color: #ffff;
+   
+}
+.account-details1{
+  border: 1px solid gray;
+  position: fixed;
+  top: 14%;
+  right: 3%;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: white;
+  z-index: 1000;
+}
 @media (max-width: 768px) {
   .h-logo-1 {
     width: 35%;
@@ -99,6 +187,21 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .purpose-dropdown-12 {
+    width: 85%;
+    top: 89%;
+    left: 2%;
+  }
+  .own-dropdown-12 {
+    width: 83%;
+    position: absolute;
+    top: 89%;
+    left: 2%;
+  }
+  .city-dropdown-12 {
+    width: 80%;
+    left: 2%;
   }
   .hfirst-option {
     flex-direction: column;
