@@ -1,3 +1,8 @@
+.hfirst-main-container{
+  height: 500px;
+  overflow-y: scroll;
+}
+
 .h-nav-content {
   display: flex;
   justify-content: space-between;
