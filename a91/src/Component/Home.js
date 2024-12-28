@@ -192,7 +192,7 @@ navigate("/detailpage");
           </>
           :
           <>
-          <div style={{display:"flex"}}>
+          <div style={{display:"flex",justifyContent:"space-between",paddingTop:"10px"}}>
           <div className="h-logo-1" onClick={()=>navigate("/")}>
           <img src={logo} alt="Logo" />
         </div>
