@@ -51,7 +51,7 @@ const ScheduleAppointment = ()=>{
            <p style={{fontSize:"17px",fontWeight:"600"
            }}>Clock and calender</p>
           </div>
-            <div className="product-append-111" style={{width:"100%"}}>
+            <div className="product-append-111" style={{width:"100%",marginTop:"30px"}}>
                   {products.map((product) => (
                     <div className="product-details-div">
                        <div className="main-product-ima"><img src={product.productImage}/></div>

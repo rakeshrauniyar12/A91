@@ -29,7 +29,7 @@ const Visited = () => {
           Clock and calender
         </p>
       </div>
-      <div className="product-append-111" style={{ width: "100%" }}>
+      <div className="product-append-111" style={{ width: "100%",marginTop:"30px" }}>
         <div className="product-details-div">
           <div className="main-product-ima">
             <img src={h1} />

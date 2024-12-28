@@ -137,7 +137,7 @@ navigate("/detailpage");
       >
        { !isMobile?
        <>
-       <div className="h-logo-1">
+       <div className="h-logo-1" onClick={()=>navigate("/")}>
             <img src={logo} alt="Logo" />
           </div>
           {showOptionsInNavbar && (
@@ -193,7 +193,7 @@ navigate("/detailpage");
           :
           <>
           <div style={{display:"flex"}}>
-          <div className="h-logo-1">
+          <div className="h-logo-1" onClick={()=>navigate("/")}>
           <img src={logo} alt="Logo" />
         </div>
           <div className="h-second-nav">
@@ -206,7 +206,7 @@ navigate("/detailpage");
           <div>
             <img src={partner} alt="Partner" />
           </div>
-          <div >
+          <div onClick={()=>handleAccountOption()}>
             <img src={account} alt="Account" />
           </div>
         </div>
@@ -344,32 +344,23 @@ navigate("/detailpage");
 
         <form>
            <div className="login-input">
-             {/* <div className="login-first-div">
-                <label style={{fontSize:"12px",color:"#008f3d"}}>Phone Number</label>
-                <select style={{border:"none",backgroundColor:"#d9d9d9"}}>
-                    <option>+91</option>
-                </select>
-               
-             </div> */}
+           
              <div className="login-second-div">
-                <input placeholder="Enter Your Phone Number / Email ID" style={{border:"none",backgroundColor:"#d9d9d9"}}/>
+                <input placeholder="Enter Your Phone Number / Email ID" style={{border:"none"}}/>
              </div>
              <div className="login-third-div">
                 <button>Send OTP</button>
              </div>
             </div>
-               {/* {isMobile? <div className="login-third-div">
-                <button>Send OTP</button>
-             </div>:""} */}
             <div className="login-input">
-             <div className="login-second-div11">
-            
-                <input placeholder="Enter Otp*" className="input-enter-otp" style={{border:"none",backgroundColor:"#d9d9d9"}} required/>
-             </div>
-             <div className="login-third-div">
-                <button>Verify OTP</button>
-             </div>
-            </div>
+           
+           <div className="login-second-div">
+              <input placeholder="Enter Otp" style={{border:"none"}}/>
+           </div>
+           <div className="login-third-div">
+              <button>Verify OTP</button>
+           </div>
+          </div>
            
 
            
@@ -522,7 +513,7 @@ navigate("/detailpage");
         </div>
 
         {showOptionsInNavbar && (
-            <div className="home-container">
+            <div className="home-container" >
               <div style={{display:"flex",width:"85%",margin:"auto"}}>
                         <div>
                           <div>
@@ -543,7 +534,7 @@ navigate("/detailpage");
                         </div>
                         <div className="divide-line-11" style={{marginLeft:"15px"}}></div>
                         </div>
-            <div className="product-append-111">
+            <div className="product-append-111" style={{marginTop:"30px"}}>
               {products.map((product) => (
                 <div className="product-details-div">
                    <div className="main-product-ima"><img src={product.productImage}/></div>

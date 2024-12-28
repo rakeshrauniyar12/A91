@@ -51,7 +51,7 @@ const YetToVisit = ()=>{
            <p style={{fontSize:"17px",fontWeight:"600",color:"red"
            }}>Select one or more properties to proceed, maximum 10 properties can be selected</p>
           </div>
-            <div className="product-append-111" style={{width:"100%"}}>
+            <div className="product-append-111" style={{width:"100%",marginTop:"30px"}}>
                   {products.map((product) => (
                     <div className="product-details-div">
                        <div className="main-product-ima"><img src={product.productImage}/></div>

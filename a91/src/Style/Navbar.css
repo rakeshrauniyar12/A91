@@ -1,6 +1,6 @@
 .navbar-main-container {
-  padding: 10px 0px;
-  position: relative;
+  width: 100%;
+  padding: 10px 0;
 }
 #detail-image-11 {
   display: flex;
@@ -13,15 +13,20 @@
   text-align: center;
 }
 .navbar-content {
- 
+  position: fixed;
   height: 60px;
-  width: 97%;
+  width: 100%;
   margin: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 999;
+  background-color: white;
+  top: 0;
+  padding-top: 5px;
+  border-bottom: 1.5px solid #429b6a;
 }
-.account-details{
+.account-details {
   border: 1px solid gray;
   position: absolute;
   top: 45%;
@@ -30,17 +35,18 @@
   padding: 10px 20px;
   background-color: white;
 }
-.account-option{
+.account-option {
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   line-height: 1.6;
 }
-.account-option:hover{
+.account-option:hover {
   color: #429b6a;
 }
 .navbar-divider {
   border: 1.3px solid #429b6a;
+  margin-top: 105px;
 }
 .nav-logo {
   width: 15%;
@@ -89,7 +95,7 @@
 .home-nav-im-4 {
   height: 35px;
 }
-.home-i-div-1{
+.home-i-div-1 {
   flex-direction: column;
 }
 .home-image-nav > div {
@@ -111,7 +117,7 @@
 .nav-down-part {
   width: 85%;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -200,7 +206,7 @@
   height: 100%;
   object-fit: cover;
 }
-.city-dropdown-11{
+.city-dropdown-11 {
   position: absolute;
   top: 44%;
   background-color: white;
@@ -212,176 +218,169 @@
   line-height: 1.6;
   text-align: center;
 }
-.city-dropdown-11>div>p{
+.city-dropdown-11 > div > p {
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
   padding: 0px 10px;
 }
-.city-dropdown-11>div>p:hover{
+.city-dropdown-11 > div > p:hover {
   border-radius: 5px;
   background-color: #429b6a;
   color: #ffff;
- 
-
 }
-.purpose-dropdown-11{
+.purpose-dropdown-11 {
   width: 14%;
-    position: absolute;
-    top: 45%;
-    left: 52%;
-    border: 1px solid #429b6a;;
-    padding: 16px;
-    border-radius: 20px;
-    text-align: center;
-    line-height: 1.6;
-    background-color: white;
+  position: absolute;
+  top: 45%;
+  left: 52%;
+  border: 1px solid #429b6a;
+  padding: 16px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 1.6;
+  background-color: white;
 }
-.own-dropdown-11{
-width: 16%;
-position: absolute;
-top: 42%;
-left: 32%;
-background-color: white;
-border: 1px solid green;
-border-radius: 6px;
-padding: 20px;
-text-align: center;
-line-height: 1.6;
+.own-dropdown-11 {
+  width: 16%;
+  position: absolute;
+  top: 42%;
+  left: 32%;
+  background-color: white;
+  border: 1px solid green;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.6;
 }
-.own-dropdown-11>div>p{
+.own-dropdown-11 > div > p {
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
 }
-.own-dropdown-11>div>p:hover{
+.own-dropdown-11 > div > p:hover {
   border-radius: 5px;
   background-color: #429b6a;
   color: #ffff;
-
 }
 
-.like-dis-com-div{
+.like-dis-com-div {
   flex-direction: row;
 }
-.own-dropdown-11>div>p{
+.own-dropdown-11 > div > p {
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
 }
-.purpose-dropdown-11>div>p{
+.purpose-dropdown-11 > div > p {
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
 }
-.purpose-dropdown-11>div>p:hover{
+.purpose-dropdown-11 > div > p:hover {
   border-radius: 5px;
   background-color: #429b6a;
   color: #ffff;
-   
 }
-@media (max-width:768px){
+@media (max-width: 768px) {
   .navbar-content {
-   flex-direction: column;
-   height: auto;
+    flex-direction: column;
+    height: auto;
   }
   .nav-logo {
     width: 25%;
-}
-.home-image-nav > div {
- flex-direction: column; 
-}
-.nav-down-part-content {
-  width: 100%;
-   flex-direction: column;
-}
-.nav-down-part {
-  flex-direction: column;
-}
-.like-dis-com-div{
-  flex-direction: column;
-}
-.home-image-nav {
-  width: 100%;
-  flex-direction: column;
-}
-#like-dis-div {
-  gap: 30px;
-}
-#detail-image-11 {
-gap: 30px;
-}
-.repor-agent {
-  width: 100%;
-  margin-top: 20px;
-}
-.home-image-nav > div {
-  flex-direction: row;
-}
-.own-dropdown-11 {
-  width: 81%;
-  top: 50%;
-  left: 3%;
-}
-.city-dropdown-11 {
-  width: 81%;
-  top: 48%;
-  left: 2%;
-}
-.purpose-dropdown-11 {
-  width: 85%;
-  top: 49%;
-  left: 2%;
-  background-color: white;
-}
-.nav-end-img {
-  width: 10%;
-}
-.nav-end-img>img {
-  object-fit: contain;
-}
-
-
-
-
-.nav-option-1 {
-  width: 82%;
-  margin-top: 15px;
-  height: 40px;
-      margin-bottom: 15px;
   }
-  
+  .home-image-nav > div {
+    flex-direction: column;
+  }
+  .nav-down-part-content {
+    width: 100%;
+    flex-direction: column;
+  }
+  .nav-down-part {
+    margin-top: 120px;
+    flex-direction: column;
+  }
+  .like-dis-com-div {
+    flex-direction: column;
+  }
+  .home-image-nav {
+    width: 100%;
+    flex-direction: column;
+  }
+  #like-dis-div {
+    gap: 30px;
+  }
+  #detail-image-11 {
+    gap: 30px;
+  }
+  .repor-agent {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .home-image-nav > div {
+    flex-direction: row;
+  }
+  .own-dropdown-11 {
+    width: 81%;
+    top: 92%;
+    left: 3%;
+  }
+  .city-dropdown-11 {
+    width: 81%;
+    top: 92%;
+    left: 2%;
+  }
+  .purpose-dropdown-11 {
+    width: 85%;
+    top: 92%;
+    left: 2%;
+    background-color: white;
+  }
+  .nav-end-img {
+    width: 10%;
+  }
+  .nav-end-img > img {
+    object-fit: contain;
+  }
+
+  .nav-option-1 {
+    width: 82%;
+    margin-top: 15px;
+    height: 40px;
+    margin-bottom: 15px;
+  }
+
   .nav-option-11 {
-      width: 25%;
+    width: 25%;
   }
-  
-  .font-incre {
-      font-size: 16px;
-  }
-  
-  .nav-option-12 {
-      width: 40%;
-      padding-left: 5px;
 
+  .font-incre {
+    font-size: 16px;
+  }
+
+  .nav-option-12 {
+    width: 40%;
+    padding-left: 5px;
   }
   .nav-option-13 {
     width: 35%;
-   padding-left: 5px;
+    padding-left: 5px;
   }
   .divide-line-11 {
     margin-right: 15px;
     margin-left: 15px;
-}
-.account-details {
-  width: 80%;
-  border: 1px solid gray;
-  position: absolute;
-  top: 29%;
-  right: 4%;
-  border-radius: 10px;
-  padding: 10px 20px;
-  background-color: white;
-}
+  }
+  .account-details {
+    width: 84%;
+    border: 1px solid gray;
+    position: absolute;
+    top: 53%;
+    right: 2%;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: white;
+  }
 }
