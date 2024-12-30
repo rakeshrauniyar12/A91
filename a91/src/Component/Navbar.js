@@ -241,7 +241,7 @@ const Navbar = () => {
               <div
                 className="nav-end-img"
                 onClick={() => {
-                  navigate("/");
+                  navigate("/addproperty");
                 }}
               >
                 <img src={h1} />
@@ -446,7 +446,9 @@ const Navbar = () => {
         </div>
       </div>
       {/* <div className="navbar-divider"></div> */}
-      <div className="nav-down-part">
+      <div className="nav-down-part"
+       style={{display:location.pathname==="/addproperty"?"none":"block"}}
+      >
         <div className="nav-down-part-content">
           <div style={{ display: "flex" }}>
             <div>

@@ -1,0 +1,53 @@
+/* Main Container */
+.add-property-main-container {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+/* Options Container */
+.options-container {
+    border-radius: 40px;
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid gray;
+    padding: 10px 0px;
+    background-color: #f9f9f9;
+}
+.add-select-agent{
+    width: 80%;
+    margin: auto;
+    margin-top: -20px;
+}
+/* Individual Option */
+.option {
+  padding: 8px 10px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Remove Border for Last Option */
+.option:last-child {
+    border-right: none;
+}
+
+/* Active State */
+.option.active {
+     color: #429b6a;
+}
+
+/* Content Container */
+.content-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+}

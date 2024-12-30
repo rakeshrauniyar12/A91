@@ -208,7 +208,7 @@
 }
 .city-dropdown-11 {
   position: absolute;
-  top: 44%;
+  top: 96%;
   background-color: white;
   border: 1px solid green;
   z-index: 999;
@@ -232,7 +232,7 @@
 .purpose-dropdown-11 {
   width: 14%;
   position: absolute;
-  top: 45%;
+  top: 96%;
   left: 52%;
   border: 1px solid #429b6a;
   padding: 16px;
@@ -244,7 +244,7 @@
 .own-dropdown-11 {
   width: 16%;
   position: absolute;
-  top: 42%;
+  top: 96%;
   left: 32%;
   background-color: white;
   border: 1px solid green;

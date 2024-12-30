@@ -178,7 +178,7 @@ navigate("/detailpage");
             <div>
               <img src={search} alt="Search" />
             </div>
-            <div>
+            <div onClick={()=>navigate("/addproperty")}>
               <img src={h1} alt="H1" />
             </div>
             <div>
@@ -200,7 +200,7 @@ navigate("/detailpage");
           <div>
             <img src={search} alt="Search" />
           </div>
-          <div>
+          <div onClick={()=>navigate("/addproperty")}>
             <img src={h1} alt="H1" />
           </div>
           <div>
@@ -346,7 +346,7 @@ navigate("/detailpage");
            <div className="login-input">
            
              <div className="login-second-div">
-                <input placeholder="Enter Your Phone Number / Email ID" style={{border:"none"}}/>
+                <input placeholder="Enter Phone Number / Email ID" style={{border:"none"}}/>
              </div>
              <div className="login-third-div">
                 <button>Send OTP</button>

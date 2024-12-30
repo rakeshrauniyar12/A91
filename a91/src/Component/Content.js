@@ -5,6 +5,7 @@ import HomeDesign from "./HomeDesign";
 import HomeDesign2 from "./HomeDesign2";
 import DetailPage from "./DetailsPage";
 import Home from "./Home";
+import AddProperty from "./AddProperty";
 
 
 const Content = () => {
@@ -17,6 +18,7 @@ const Content = () => {
           <Route path="/homedesign" element={<HomeDesign />} />
           <Route path="/homedesignsecond" element={<HomeDesign2 />} />
           <Route path="/detailpage" element={<DetailPage />} />
+          <Route path="/addproperty" element={<AddProperty />} />
         </Routes>
       </div>
     );
