@@ -84,12 +84,18 @@ const Navbar = () => {
     setAccount(false);
     navigate("/detailpage");
   };
+  const goToPropertyPage = () => {
+    setAccount(false);
+    navigate("/property");
+  };
   if (location.pathname === "/") {
     return;
   }
   return (
     <div className="navbar-main-container">
-      <div className="navbar-content">
+      <div className="navbar-content"
+       style={{justifyContent: location.pathname==="/property"?"space-between":""}}
+      >
         {!isMobile ? (
           <div
             className="nav-logo"
@@ -104,7 +110,9 @@ const Navbar = () => {
         )}
         {isMobile ? (
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div className="nav-logo">
+            <div className="nav-logo"  onClick={() => {
+              navigate("/");
+            }}>
               <img src={logo} />
             </div>
             <div className="nav-end-img">
@@ -113,7 +121,7 @@ const Navbar = () => {
             <div
               className="nav-end-img"
               onClick={() => {
-                navigate("/");
+                navigate("/addproperty");
               }}
             >
               <img src={h1} />
@@ -132,7 +140,9 @@ const Navbar = () => {
         ) : (
           ""
         )}
-        <div className="nav-option-1">
+        <div className="nav-option-1"
+          style={{display:(location.pathname==="/property")?"none":""}}
+        >
           <div className="nav-option-11">
             <p className="font-incre">City</p>
             <RiArrowDropDownLine
@@ -232,7 +242,9 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <div className="nav-end-option-2">
+        <div className="nav-end-option-2"
+          style={{marginRight:location.pathname==="/property"?"20px":""}}
+        >
           {!isMobile ? (
             <>
               <div className="nav-end-img">
@@ -271,6 +283,9 @@ const Navbar = () => {
               </p>
               <p className="account-option" onClick={goToDetailPage}>
                 Register as Channel Partner
+              </p>
+              <p className="account-option" onClick={goToPropertyPage}>
+               Property
               </p>
             </div>
           )}
@@ -447,7 +462,7 @@ const Navbar = () => {
       </div>
       {/* <div className="navbar-divider"></div> */}
       <div className="nav-down-part"
-       style={{display:location.pathname==="/addproperty"?"none":"block"}}
+       style={{display:(location.pathname==="/addproperty" || location.pathname==="/property")?"none":""}}
       >
         <div className="nav-down-part-content">
           <div style={{ display: "flex" }}>

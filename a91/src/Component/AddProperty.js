@@ -3,8 +3,10 @@ import "../Style/AddProperty.css";
 import Photograph from "./Photograph";
 import ElectricityBill from "./ElectricityBill";
 import SelectAgent from "./SelectAgent";
+import PropertyDetails from "./PropertyDetails";
 
 const AddProperty = () => {
+    const isMobile = window.innerWidth<=768;
     const [selectedOption, setSelectedOption] = useState("");
 
     const handleOptionClick = (option) => {
@@ -27,7 +29,7 @@ const AddProperty = () => {
                         key={"Property Details"}
                         className={`option ${selectedOption === "Property Details" ? "active" : ""}`}
                         onClick={() => handleOptionClick("Property Details")}
-                        style={{borderRight:"2px solid black",borderLeft:"2px solid black"}}
+                        style={{borderRight:!isMobile?"2px solid black":"",borderLeft:!isMobile?"2px solid black":""}}
                     >
                    Property Details
                     </div>
@@ -35,7 +37,7 @@ const AddProperty = () => {
                         key={"Photographs"}
                         className={`option ${selectedOption === "Photographs" ? "active" : ""}`}
                         onClick={() => handleOptionClick("Photographs")}
-                        style={{borderRight:"2px solid black"}}
+                        style={{borderRight:!isMobile?"2px solid black":""}}
                     >
                      Photographs
                     </div>
@@ -53,7 +55,7 @@ const AddProperty = () => {
             {/* Display Content */}
             <div className="content-container">
                 {selectedOption === "Electricity Bill" && <ElectricityBill/>}
-                {selectedOption === "Property Details" && <div>Property Details Component</div>}
+                {selectedOption === "Property Details" &&  <PropertyDetails/>}
                 {selectedOption === "Photographs" && <Photograph/>}
                 {selectedOption === "Select Agent" && <div className="add-select-agent"><SelectAgent/></div>}
             </div>

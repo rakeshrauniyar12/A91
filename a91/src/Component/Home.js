@@ -115,7 +115,10 @@ const goToDetailPage = ()=>{
 setAccount(false);
 navigate("/detailpage");
 }
-
+const goToPropertyPage = ()=>{
+  setAccount(false);
+  navigate("/property");
+  }
  const products = [];
   for(let r=0;r<6;r++){
     products.push({
@@ -325,6 +328,9 @@ navigate("/detailpage");
                <p className="account-option" onClick={handleLoginClick}>Login</p>
                <p className="account-option" onClick={handleSignupForm}>Register as Individual</p>
                <p className="account-option" onClick={goToDetailPage}>Register as Channel Partner</p>
+               <p className="account-option" onClick={goToPropertyPage}>
+               Property
+              </p>
             </div>
           
           }
