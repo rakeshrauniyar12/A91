@@ -8,6 +8,9 @@ import twitt from "../Asset/Footer/twitt.png"
 import youtu from "../Asset/Footer/youtu.png"
 const Footer1 = () => {
   return (
+    <>
+    <div className="footer-first-line"></div>
+    <div className="footer-2-line"></div>
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
@@ -120,6 +123,7 @@ const Footer1 = () => {
         <p>© 2024 www.House91.com. All rights reserved.</p>
       </div>
     </footer>
+    </>
   );
 };
 

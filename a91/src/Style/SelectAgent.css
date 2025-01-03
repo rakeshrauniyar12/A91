@@ -2,7 +2,7 @@
   width: 30%;
   margin: auto;
   display: flex;
-  border: 1px solid #429b6a;
+  border: 1px solid #00913A;
   border-radius: 25px;
   margin-top: 50px;
 }
@@ -15,14 +15,14 @@
   padding: 10px 20px;
 }
 .select-search-image {
-  border: 1px solid #429b6a;
+  border: 1px solid #00913A;
   border-radius: 50%;
   padding: 9px 8px 9px 12px;
-  background-color: #429b6a;
+  background-color: #00913A;
 }
 
 .agent-p11 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
 .select-agent-content {
@@ -45,19 +45,19 @@
   width: 20px; /* Adjust size as needed */
   height: 20px; /* Same as width for a perfect circle */
   border-radius: 50%; /* Makes the checkbox circular */
-  border: 2px solid #429b6a;
+  border: 2px solid #00913A;
   appearance: none; /* Removes default checkbox styles */
   outline: none;
   cursor: pointer;
 }
 
 .circle-checkbox:checked {
-  background-color: #429b6a; /* Color when checked */
-  border-color: #429b6a;
+  background-color: #00913A; /* Color when checked */
+  border-color: #00913A;
 }
 
 .circle-checkbox:focus {
-  box-shadow: 0 0 3px #429b6a; /* Optional: Focus indicator */
+  box-shadow: 0 0 3px #00913A; /* Optional: Focus indicator */
 }
 
 .agent-show-bottom-button {
@@ -67,7 +67,7 @@
 }
 .agent-show-bottom-button > button:hover {
   color: #ffff;
-  background-color: #429b6a;
+  background-color: #00913A;
 }
 .agent-show-bottom-button > button {
   width: 100%;
@@ -75,7 +75,7 @@
   background-color: #ffff;
   padding: 10px 30px;
   border-radius: 20px;
-  border: 1px solid #429b6a;
+  border: 1px solid #00913A;
   cursor: pointer;
 }
 

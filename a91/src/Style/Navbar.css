@@ -6,7 +6,8 @@
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  gap: 5px;
+  column-gap: 8px;
+  text-align: center;
 }
 #detail-image-11 > div > p {
   font-size: 10px;
@@ -24,7 +25,7 @@
   background-color: white;
   top: 0;
   padding-top: 5px;
-  border-bottom: 1.5px solid #429b6a;
+  border-bottom: 1.5px solid #00913a;
 }
 .account-details {
   border: 1px solid gray;
@@ -42,10 +43,10 @@
   line-height: 1.6;
 }
 .account-option:hover {
-  color: #429b6a;
+  color: #00913a;
 }
 .navbar-divider {
-  border: 1.3px solid #429b6a;
+  border: 1.3px solid #00913a;
   margin-top: 105px;
 }
 .nav-logo {
@@ -53,20 +54,19 @@
   cursor: pointer;
 }
 .divide-line-11 {
-  border: 1px solid #429b6a;
-  height: 43px;
-  margin-top: 12px;
+  width: 2px;
+  height: 70%;
+  background-color: #00913a;
+  margin: 0px 20px;
 }
 #like-dis-div {
-  width: 36%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin-top: 11px;
-  gap: 10px;
+  column-gap: 10px;
 }
 .divide-line-12 {
-  border: 1px solid #429b6a;
+  border: 1px solid #00913a;
   height: 40px;
   margin-right: 8px;
   margin-left: 15px;
@@ -76,7 +76,7 @@
 }
 .repor-agent {
   border-radius: 50px;
-  border: 1px solid #429b6a;
+  border: 1px solid #00913a;
   display: flex;
   gap: 10px;
   width: 20%;
@@ -115,12 +115,16 @@
   object-fit: cover;
 }
 .nav-down-part {
-  width: 85%;
+  position: sticky;
+  width: 100%;
   margin: auto;
-  margin-top: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  top: 4.2rem;
+  z-index: 998;
+  background-color: white;
+  padding: 1rem;
 }
 .budget-div {
   display: flex;
@@ -135,14 +139,14 @@
   align-items: center;
 }
 .nav-min {
-  border: 1px solid #429b6a;
+  border: 1px solid #00913a;
   padding: 5px 30px;
   text-align: center;
   border-radius: 15px;
 }
 .nav-down-part-content {
-  width: 40%;
   display: flex;
+  max-height: fit-content;
   justify-content: space-between;
 }
 .home-image-nav {
@@ -156,7 +160,7 @@
 .nav-option-1 {
   border-radius: 15px;
   height: 50px;
-  border: 1px solid #429b6a;
+  border: 1px solid #00913a;
   padding: 0px 25px;
   width: 45%;
   display: flex;
@@ -173,8 +177,8 @@
 .nav-option-12 {
   width: 45%;
   display: flex;
-  border-right: 2px solid #429b6a;
-  border-left: 2px solid #429b6a;
+  border-right: 2px solid #00913a;
+  border-left: 2px solid #00913a;
   justify-content: center;
   align-items: center;
   margin: 10px 0px;
@@ -186,7 +190,7 @@
   align-items: center;
 }
 .font-incre {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 600;
 }
 .nav-end-option-2 {
@@ -226,7 +230,7 @@
 }
 .city-dropdown-11 > div > p:hover {
   border-radius: 5px;
-  background-color: #429b6a;
+  background-color: #00913a;
   color: #ffff;
 }
 .purpose-dropdown-11 {
@@ -234,7 +238,7 @@
   position: absolute;
   top: 96%;
   left: 52%;
-  border: 1px solid #429b6a;
+  border: 1px solid #00913a;
   padding: 16px;
   border-radius: 20px;
   text-align: center;
@@ -260,7 +264,7 @@
 }
 .own-dropdown-11 > div > p:hover {
   border-radius: 5px;
-  background-color: #429b6a;
+  background-color: #00913a;
   color: #ffff;
 }
 
@@ -281,7 +285,7 @@
 }
 .purpose-dropdown-11 > div > p:hover {
   border-radius: 5px;
-  background-color: #429b6a;
+  background-color: #00913a;
   color: #ffff;
 }
 @media (max-width: 768px) {
@@ -312,6 +316,9 @@
   }
   #like-dis-div {
     gap: 30px;
+  }
+  .nav-min {
+    padding: 2px 9px;
   }
   #detail-image-11 {
     gap: 30px;
@@ -348,9 +355,9 @@
 
   .nav-option-1 {
     width: 82%;
-    margin-top: 15px;
-    height: 40px;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    height: 30px;
+    margin-bottom: 7px;
   }
 
   .nav-option-11 {
@@ -358,7 +365,7 @@
   }
 
   .font-incre {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .nav-option-12 {
@@ -372,6 +379,12 @@
   .divide-line-11 {
     margin-right: 15px;
     margin-left: 15px;
+    margin-top: 4px;
+  }
+
+  .budget-div {
+    flex-direction: row;
+    column-gap: 5px;
   }
   .account-details {
     width: 84%;

@@ -22,6 +22,13 @@
     margin-top: 10px;
     margin-bottom: 20px;
 }
+.footer-first-line{
+  border: 4px solid #00913A;
+}
+.footer-2-line{
+  border: 4px solid black;
+  margin-top: 2px;
+}
   .footer-icon{
     width: 20%;
   }

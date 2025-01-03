@@ -1,6 +1,7 @@
 .electricity-main-container {
   width: 73%;
   margin: auto;
+  margin-top: 20px;
 }
 
 .elect-p {
@@ -24,7 +25,7 @@
   margin-left: 31px;
 }
 .elect-main-content-1-p1{
-    width: 45%;
+    width: 55%;
     border-right: 2px solid black;
     font-weight: 600;
 }
@@ -69,7 +70,7 @@
 }
 
 .bot-content-link:hover{
-    background-color: #429b6a;
+    background-color: #00913A;
     color: #ffff;
 }
 

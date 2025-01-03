@@ -15,12 +15,12 @@
 .two-btn-div>button{
     padding: 6px 10px;
     border-radius: 20px;
-    border: 1px solid #429b6a;
+    border: 1px solid #00913A;
     font-weight: 600;
     cursor: pointer;
 }
 .two-btn-div>button:hover{
-    background-color: #429b6a;
+    background-color: #00913A;
     color: #ffff;
 }
 .two-btn-div1{
@@ -34,11 +34,11 @@
     width: 90%;
     padding: 6px 10px;
     border-radius: 20px;
-    border: 1px solid #429b6a;
+    border: 1px solid #00913A;
     font-weight: 600;
     cursor: pointer;
 }
 .two-btn-div1>button:hover{
-    background-color: #429b6a;
+    background-color: #00913A;
     color: #ffff;
 }

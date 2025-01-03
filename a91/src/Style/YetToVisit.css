@@ -1,13 +1,41 @@
+
+.bookmark-checkbox-2[type="checkbox"] {
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: transparent;
+  border: 2px solid #333;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative; /* Required for positioning the tick mark */
+  display: inline-block;
+  margin: 0;
+}
+
+.bookmark-checkbox-2[type="checkbox"]:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+.bookmark-checkbox-2[type="checkbox"]:checked::after {
+  content: "✓"; /* Tick mark character */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem; /* Adjust size as needed */
+  color: white; /* Color of the tick mark */
+}
 .yet-first-sec{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 10px;
     margin-top: 20px;
     margin-right: 10px;
 }
 .product-details-div {
     position: relative; /* Ensures proper positioning of the overlay */
-    width: 90%; /* Adjust as per your requirements */
     overflow: hidden; /* Hides anything spilling outside */
   }
   

@@ -11,6 +11,7 @@ import h24 from "../Asset/Navbar/h24.png";
 import h25 from "../Asset/Navbar/h25.png";
 import p1 from "../Asset/Navbar/p1.png";
 import p2 from "../Asset/Navbar/p2.png";
+import { GiSettingsKnobs } from "react-icons/gi";
 import partner from "../Asset/Navbar/partner.png";
 import compare from "../Asset/Navbar/compare.png";
 import dates from "../Asset/Navbar/dates.png";
@@ -24,7 +25,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { RiCloseLargeFill } from "react-icons/ri";
-
+import { BiSearchAlt } from "react-icons/bi";
+import { AiFillHome } from "react-icons/ai";
+import { FaHandshake } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";
+import { GrCompare } from "react-icons/gr";
+import { MdOutlineDateRange } from "react-icons/md";
+import { BiSolidLike, BiSolidDislike } from "react-icons/bi";
+import { TbHomeFilled } from "react-icons/tb";
 const Navbar = () => {
   const isMobile = window.innerWidth <= 768;
   const [isAccount, setAccount] = useState(false);
@@ -93,8 +101,13 @@ const Navbar = () => {
   }
   return (
     <div className="navbar-main-container">
-      <div className="navbar-content"
-       style={{justifyContent: location.pathname==="/property"?"space-between":""}}
+      <div
+        className="navbar-content"
+        style={{
+          justifyContent:
+            location.pathname === "/property" ? "space-between" : "",
+        
+        }}
       >
         {!isMobile ? (
           <div
@@ -110,38 +123,41 @@ const Navbar = () => {
         )}
         {isMobile ? (
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div className="nav-logo"  onClick={() => {
-              navigate("/");
-            }}>
-              <img src={logo} />
-            </div>
-            <div className="nav-end-img">
-              <img src={search} />
-            </div>
             <div
-              className="nav-end-img"
+              className="nav-logo"
               onClick={() => {
-                navigate("/addproperty");
+                navigate("/");
               }}
             >
-              <img src={h1} />
+              <img src={logo} />
             </div>
-            <div className="nav-end-img">
-              <img src={partner} />
-            </div>
-            <div
-              className="nav-end-img"
-              style={{ cursor: "pointer" }}
-              onClick={() => handleAccountOption()}
-            >
-              <img src={account} />
+            <div className="h-second-nav">
+              <div>
+                <BiSearchAlt size={35} />
+              </div>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate("/addproperty")}
+              >
+                <AiFillHome size={35} />
+              </div>
+              <div>
+                <FaHandshake size={40} />
+              </div>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => handleAccountOption()}
+              >
+                <FaUser size={30} />
+              </div>
             </div>
           </div>
         ) : (
           ""
         )}
-        <div className="nav-option-1"
-          style={{display:(location.pathname==="/property")?"none":""}}
+        <div
+          className="nav-option-1"
+          style={{ display: location.pathname === "/property" ? "none" : "" }}
         >
           <div className="nav-option-11">
             <p className="font-incre">City</p>
@@ -242,33 +258,33 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <div className="nav-end-option-2"
-          style={{marginRight:location.pathname==="/property"?"20px":""}}
+        <div
+          className="nav-end-option-2"
+          style={{
+            marginRight: location.pathname === "/property" ? "20px" : "",
+          }}
         >
           {!isMobile ? (
-            <>
-              <div className="nav-end-img">
-                <img src={search} />
+            <div className="h-second-nav">
+              <div>
+                <BiSearchAlt size={35} />
               </div>
               <div
-                className="nav-end-img"
-                onClick={() => {
-                  navigate("/addproperty");
-                }}
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate("/addproperty")}
               >
-                <img src={h1} />
+                <AiFillHome size={35} />
               </div>
-              <div className="nav-end-img">
-                <img src={partner} />
+              <div>
+                <FaHandshake size={40} />
               </div>
               <div
-                className="nav-end-img"
                 style={{ cursor: "pointer" }}
                 onClick={() => handleAccountOption()}
               >
-                <img src={account} />
+                <FaUser size={30} />
               </div>
-            </>
+            </div>
           ) : (
             ""
           )}
@@ -285,7 +301,7 @@ const Navbar = () => {
                 Register as Channel Partner
               </p>
               <p className="account-option" onClick={goToPropertyPage}>
-               Property
+                Property
               </p>
             </div>
           )}
@@ -303,7 +319,7 @@ const Navbar = () => {
                   </div>
 
                   <form>
-                    <div className="login-input" style={{marginTop:"20px"}}>
+                    <div className="login-input" style={{ marginTop: "20px" }}>
                       <div className="login-second-div">
                         <input
                           placeholder="Enter Phone Number / Email ID"
@@ -314,7 +330,7 @@ const Navbar = () => {
                         <button>Send Otp</button>
                       </div>
                     </div>
-                     <div className="login-input">
+                    <div className="login-input">
                       <div className="login-second-div">
                         <input
                           placeholder="Enter Otp"
@@ -461,14 +477,27 @@ const Navbar = () => {
         </div>
       </div>
       {/* <div className="navbar-divider"></div> */}
-      <div className="nav-down-part"
-       style={{display:(location.pathname==="/addproperty" || location.pathname==="/property")?"none":""}}
+      {/* <div
+        className="nav-down-part"
+        
       >
-        <div className="nav-down-part-content">
-          <div style={{ display: "flex" }}>
+        <div
+          className="nav-down-part-content"
+          // style={{ border: "1px solid red" }}
+        >
+         
+
+          {location.pathname === "/homedesign" && (
+            <>
+             <div style={{ display: "flex" }}>
             <div>
               <div>
-                <img src={filt} />
+                <GiSettingsKnobs
+                  size={!isMobile ? 35 : 24}
+                  style={{
+                    transform: "rotate(90deg)",
+                  }}
+                />
               </div>
               <p>Filter</p>
             </div>
@@ -485,9 +514,7 @@ const Navbar = () => {
             </div>
             <div className="divide-line-11"></div>
           </div>
-
-          {location.pathname === "/homedesign" && (
-            <div
+          <div
               className="home-image-nav"
               style={{
                 flexDirection:
@@ -515,6 +542,8 @@ const Navbar = () => {
                 <p>5BHK</p>
               </div>
             </div>
+            </>
+         
           )}
           {location.pathname === "/homedesignfirst" && (
             <div
@@ -584,62 +613,80 @@ const Navbar = () => {
           )}
 
           {location.pathname === "/detailpage" && (
-            <div
-              className="home-image-nav"
-              style={
-                location.pathname === "/detailpage"
-                  ? { alignItems: "center" }
-                  : {}
-              }
-            >
-              <div id="detail-image-11">
+            
+            <div style={{ display: "flex",alignItems:"center" }}>
+            <div >
+              <div>
+                <GiSettingsKnobs
+                  size={!isMobile ? 32 : 24}
+                  style={{
+                    transform: "rotate(90deg)",
+                  }}
+                />
+              </div>
+              <p>Filter</p>
+            </div>
+            <div className="divide-line-11"></div>
+            <div className="budget-div">
+              <div>
+                <p>₹ Budget</p>
+              </div>
+              <div className="div-min-max">
+                <div className="nav-min">Min</div>
+                <p>To</p>
+                <div className="nav-min">Max</div>
+              </div>
+            </div>
+            <div className="divide-line-11"></div>
+            <div id="detail-image-11">
                 <div>
-                  <img className="home-nav-im-1" src={h21} />
+                   <TbHomeFilled size={16}/>
                   <p>1BHK</p>
                 </div>
                 <div>
-                  <img className="home-nav-im-2" src={h22} />
+                <TbHomeFilled size={20}/>
                   <p>2BHK</p>
                 </div>
                 <div>
-                  <img src={h23} className="home-nav-im-3" />
+                <TbHomeFilled size={24}/>
                   <p>3BHK</p>
                 </div>
                 <div>
-                  <img src={h24} className="home-nav-im-4" />
+                <TbHomeFilled size={28}/>
                   <p>4BHK</p>
                 </div>
                 <div>
-                  <img src={h25} className="home-nav-im-5" />
+                <TbHomeFilled size={32}/>
                   <p>5BHK</p>
                 </div>
               </div>
-              <div className="like-dis-com-div">
-                <div className="divide-line-12"></div>
+             
+              <div className="divide-line-11"></div>
                 <div id="like-dis-div">
                   <div>
-                    <img className="home-nav-im-1" src={dislike} />
+                   <BiSolidLike size={24}/>
                     <p
                       style={{ fontSize: "8px", fontWeight: "600" }}
                     >{`1000`}</p>
                   </div>
                   <div>
-                    <img className="home-nav-im-1" src={like} />
+                   <BiSolidDislike size={24}/>
                     <p
                       style={{ fontSize: "8px", fontWeight: "600" }}
                     >{`500`}</p>
                   </div>
                 </div>
-                <div className="divide-line-12"></div>
+                <div className="divide-line-11"></div>
                 <div>
-                  <img src={compare} />
+                  <GrCompare size={30}/>
                 </div>
-                <div className="divide-line-12"></div>
+                <div className="divide-line-11"></div>
                 <div>
-                  <img src={dates} />
+                  <MdOutlineDateRange size={30}/>
                 </div>
-              </div>
-            </div>
+             
+          </div>
+          
           )}
         </div>
         {location.pathname === "/detailpage" && (
@@ -650,7 +697,7 @@ const Navbar = () => {
             <p>Report an agent</p>
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

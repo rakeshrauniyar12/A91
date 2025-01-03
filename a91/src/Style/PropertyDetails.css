@@ -10,6 +10,7 @@
     grid-template-rows: auto;
     column-gap: 20px;
     row-gap: 30px;
+    margin-top: 20px;
 }
 .pro-1{
     padding: 15px 10px;
@@ -78,7 +79,7 @@
 }
 
 .bottom-btn-21-1:hover, .bottom-btn-21-2:hover{
-    background-color: #429b6a;
+    background-color: #00913A;
     color: #ffff;
 }
 

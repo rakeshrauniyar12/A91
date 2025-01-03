@@ -13,7 +13,11 @@ const Footer = () => {
     return;
   }
   return (
+    <>
+      <div className="footer-first-line"></div>
+      <div className="footer-2-line"></div>
     <footer className="footer">
+    
       <div className="footer-container">
         <div className="footer-section">
           <h4>COMPANY</h4>
@@ -125,6 +129,7 @@ const Footer = () => {
         <p>© 2024 www.House91.com. All rights reserved.</p>
       </div>
     </footer>
+    </>
   );
 };
 

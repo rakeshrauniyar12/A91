@@ -20,10 +20,7 @@ import { MdAccountBox } from "react-icons/md";
 const Visited = () => {
   return (
     <div className="yet-main-container">
-      <div className="yet-first-sec">
-        <img src={rect} />
-        <p>Select All</p>
-      </div>
+    <div className="yet-first-sec"><input type="checkbox" className="bookmark-checkbox-2" /><p>Select All</p></div>
       <div style={{ textAlign: "center", marginBottom: "70px" }}>
         <p style={{ fontSize: "17px", fontWeight: "600" }}>
           Clock and calender
