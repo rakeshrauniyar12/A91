@@ -66,30 +66,49 @@ const Photograph = () => {
             style={{ display: "none" }}
             onChange={handleAddPhoto}
           />
-          <label htmlFor="upload-photo" className="add-photo-label"
-          style={{cursor:"pointer"}}
+          <label
+            htmlFor="upload-photo"
+            className="add-photo-label"
+            style={{ cursor: "pointer" }}
           >
-            <div className="add-photo-icon"><IoMdCamera/></div>
-            <p style={{fontSize:"16px",fontWeight:"600",color:"#429b6a"}}>Add a Photo</p>
+            <div className="add-photo-icon">
+              <IoMdCamera />
+            </div>
+            <p
+              style={{
+                fontSize: "16px",
+                fontWeight: "600",
+                color: "var(--primary)",
+              }}
+            >
+              Add a Photo
+            </p>
           </label>
         </div>
         {photos.map((photo) => (
           <div className="photo-card" key={photo.id}>
             <img src={photo.src} alt={photo.alt} />
-            <button className="delete-btn" onClick={() => handleDeletePhoto(photo.id)}>
+            <button
+              className="delete-btn"
+              onClick={() => handleDeletePhoto(photo.id)}
+            >
               ✖
             </button>
-            <button className="reload-btn" onClick={() => handleReload(photo.id)}>
-            ↻
-          </button>
+            <button
+              className="reload-btn"
+              onClick={() => handleReload(photo.id)}
+            >
+              ↻
+            </button>
           </div>
         ))}
       </div>
 
       {/* Video Upload Section */}
-      <h1 className="photo-h1" style={{marginTop:"26px"}}>Video</h1>
+      <h1 className="photo-h1" style={{ marginTop: "26px" }}>
+        Video
+      </h1>
       <div className="video-grid">
-     
         <div className="add-video-card">
           <input
             type="file"
@@ -98,17 +117,32 @@ const Photograph = () => {
             style={{ display: "none" }}
             onChange={handleAddVideo}
           />
-          <label htmlFor="upload-video" className="add-video-label"
-             style={{cursor:"pointer"}}
+          <label
+            htmlFor="upload-video"
+            className="add-video-label"
+            style={{ cursor: "pointer" }}
           >
-            <div className="add-video-icon"><GoVideo/></div>
-            <p style={{fontSize:"16px",fontWeight:"600",color:"#429b6a"}}>Add a Video</p>
+            <div className="add-video-icon">
+              <GoVideo />
+            </div>
+            <p
+              style={{
+                fontSize: "16px",
+                fontWeight: "600",
+                color: "var(--primary)",
+              }}
+            >
+              Add a Video
+            </p>
           </label>
         </div>
         {videos.map((video) => (
           <div className="video-card" key={video.id}>
             <video src={video.src} controls />
-            <button className="delete-btn" onClick={() => handleDeleteVideo(video.id)}>
+            <button
+              className="delete-btn"
+              onClick={() => handleDeleteVideo(video.id)}
+            >
               ✖
             </button>
           </div>

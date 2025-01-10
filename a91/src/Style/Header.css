@@ -1,0 +1,12 @@
+.header-main-container-content {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  align-items: center;
+  border-bottom: 2px solid var(--primary);
+}

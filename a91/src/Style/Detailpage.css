@@ -1,29 +1,31 @@
 .detail-page-main-container {
-  width: 85%;
+  width: 100%;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 50px;
 }
 .options-container-2 {
-  border-radius: 15px;
-  width: 100%;
+  border-radius: 50px;
+  width: 80%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-  rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  padding: 10px 20px;
+  border: 2px solid lightgray;
+  padding: 10px 0px;
 }
 .all-option-div {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-top: 40px;
+  margin-top: 50px;
+  position: sticky;
+  background-color: white;
+  top: 20.5%;
+  z-index: 997;
 }
 .option-div-active-option {
-  background-color: #00913a;
+  background-color: var(--primary);
   color: #ffff;
 }
 
@@ -31,7 +33,7 @@
   .all-option-div > div {
     flex: 1 1 calc(50% - 10px);
     box-sizing: border-box;
-    border: 1px solid #00913a;
+    border: 1px solid var(--primary);
     border-radius: 25px;
     text-align: center;
     padding: 10px 0px;

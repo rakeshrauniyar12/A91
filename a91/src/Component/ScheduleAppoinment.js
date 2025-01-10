@@ -1,103 +1,246 @@
-import React from "react";
-import "../Style/YetToVisit.css"
-import rect from "../Asset/Home/Icon/rect.png"
-import h1 from "../Asset/Home/h1.png";
-import locat from "../Asset/Home/Icon/location.png"
-import bed from "../Asset/Home/Icon/bed.png"
-import like from "../Asset/Home/Icon/dislike.png"
-import dislike from "../Asset/Home/Icon/like.png"
-import fit from "../Asset/Home/Icon/fit.png"
-import note from "../Asset/Home/Icon/note.png"
-import shhare from "../Asset/Home/Icon/shhare.png"
-import video from "../Asset/Home/Icon/video.png"
+import React, { useState } from "react";
+import "../Style/YetToVisit.css";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { MobileTimePicker } from "@mui/x-date-pickers/MobileTimePicker";
+import TextField from "@mui/material/TextField";
+import ApartmentCard from "./ApartmentCard";
+import h2 from "../Asset/Home/h1.png";
 
-const ScheduleAppointment = ()=>{
-     const products = [
-        {
-          productImage: h1,
-          productName: "Residential",
-          productAreaName: "Locality",
-          productRent: 20000,
-          productBedType: "3BHK",
-          productArea: "3700sqft",
-          productSaleType: "not for sale",
-          productDistance: "9.8 Km away",
-        },
-        {
-          productImage: h1,
-          productName: "Residential",
-          productAreaName: "Locality",
-          productRent: 20000,
-          productBedType: "3BHK",
-          productArea: "3700sqft",
-          productSaleType: "not for sale",
-          productDistance: "9.8 Km away",
-        },
-        {
-            productImage: h1,
-            productName: "Residential",
-            productAreaName: "Locality",
-            productRent: 20000,
-            productBedType: "3BHK",
-            productArea: "3700sqft",
-            productSaleType: "not for sale",
-            productDistance: "9.8 Km away",
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          "& fieldset": {
+            borderColor: "var(--primary) !important",
           },
-      ];
-    return(
-        <div className="yet-main-container">
-            <div className="yet-first-sec"><input type="checkbox" className="bookmark-checkbox-2" /><p>Select All</p></div>
-          <div style={{textAlign:"center",marginBottom:"70px"}}>
-                 
-          </div>
-            <div className="product-append-111" style={{width:"100%",marginTop:"30px"}}>
-                  {products.map((product) => (
-                    <div className="product-details-div">
-                       <div className="main-product-ima"><img src={product.productImage}/></div>
-                       <div className="product-details-content-ss">
-                       <p style={{color:"#429b6a",fontSize:"20px",fontWeight:"600"}}>{product.productName}</p>
-                       <div><img src={rect}/></div>
-                       </div>
-                       <p>{product.productAreaName}</p>
-                       <div className="product-details-content-ss">
-                        <p style={{marginTop:"15px",color:"#429b6a",fontWeight:"600"}}>{`Rent: Rs. ${product.productRent}`}</p>
-                        <div className="product-details-content-ss1">
-                          <div><img src={like}/></div>
-                          <div><img src={dislike}/></div>
-                          </div>
-                       </div>
-                       <div className="product-details-content-ss">
-                        <p>{`Sale: ${product.productSaleType}`}</p>
-                        <div className="product-details-content-ss1">
-                          <div><img src={video}/></div>
-                          <div><img src={note}/></div>
-                          </div>
-                       </div>
-                       <div className="product-details-content-ss11">
-                        <div><img src={bed}/></div>
-                        <p>{product.productBedType}</p>
-                       </div>
-                       <div className="product-details-content-ss11" style={{marginTop:"10px",marginBottom:"10px"}}>
-                        <div><img src={fit}/></div>
-                        <p>{product.productArea}</p>
-                       </div>
-                       <div className="product-details-content-ss">
-                        <div className="product-details-content-ss11">
-                        <div><img src={locat}/></div>
-                        <p>{product.productDistance}</p>
-                        </div>
-                        <div>
-                          <img src={shhare}/>
-                        </div>
-                       </div>
-                    </div>
-                  ))}
-                </div>
-                <div style={{marginTop:"70px"}}>
-                <div className="agent-show-bottom-button"><button>Request For Appointment</button></div>
-                </div>
+        },
+      },
+    },
+    MuiPickersDay: {
+      styleOverrides: {
+        root: {
+          "&.Mui-selected": {
+            backgroundColor: "var(--primary) !important", // Green for selected date
+            color: "white !important", // White text
+          },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: "var(--primary) !important", // Always green label
+        },
+      },
+    },
+    MuiClock: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "white !important",
+        },
+        clock: {
+          backgroundColor: "var(--primary) !important", // Round dialer is green
+        },
+      },
+    },
+    MuiClockNumber: {
+      styleOverrides: {
+        root: {
+          color: "white !important", // Numbers are white
+        },
+      },
+    },
+    MuiClockPointer: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "white !important",
+        },
+        thumb: {
+          backgroundColor: "white !important",
+          borderColor: "var(--primary) !important",
+        },
+      },
+    },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          justifyContent: "center",
+          "& button": {
+            backgroundColor: "white !important",
+            color: "var(--primary) !important",
+            "&:hover": {
+              backgroundColor: "var(--primary) !important",
+              color: "white !important",
+            },
+          },
+        },
+      },
+    },
+  },
+});
+
+const ScheduleAppointment = () => {
+  const visitedApartments = [
+    {
+      productImage: h2,
+      productName: "Residential",
+      productAreaName: "Locality",
+      productRent: 20000,
+      productBedType: "3BHK",
+      productArea: "3700sqft",
+      productSaleType: "not for sale",
+      productDistance: "9.8 Km away",
+      appointmentStatus: "Visited on 12-Sep-24",
+      isAgentView: false,
+      leftBtn: "Not Visited",
+      rightBtn: "Report",
+      date: "12-Sep-2024 22:15",
+      isAvailable: true,
+    },
+    {
+      productImage: h2,
+      productName: "Residential",
+      productAreaName: "Locality",
+      productRent: 25000,
+      productBedType: "3BHK",
+      productArea: "3700sqft",
+      productSaleType: "not for sale",
+      productDistance: "9.8 Km away",
+      appointmentStatus: "Last Visited on 12-Sep-24 Past Visits(xx)",
+      isAgentView: false,
+      leftBtn: "Not Visited",
+      rightBtn: "Report",
+      date: "12-Aug-2024 22:15",
+      isAvailable: true,
+    },
+    {
+      productImage: h2,
+      productName: "Residential",
+      productAreaName: "Locality",
+      productRent: 30000,
+      productBedType: "3BHK",
+      productArea: "3700sqft",
+      productSaleType: "not for sale",
+      productDistance: "9.8 Km away",
+      appointmentStatus: "Visited on 12-Sep-24",
+      isAgentView: false,
+      leftBtn: "Not Visited",
+      rightBtn: "Report",
+      date: "12-Nov-2024 22:15",
+      isAvailable: true,
+    },
+  ];
+
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedProperties, setSelectedProperties] = useState([]);
+
+  const currentDate = new Date();
+
+  const handleSelectAll = (isChecked) => {
+    if (isChecked) {
+      setSelectedProperties(visitedApartments.map((_, index) => index));
+    } else {
+      setSelectedProperties([]);
+    }
+  };
+
+  const handlePropertySelect = (index) => {
+    if (selectedProperties.includes(index)) {
+      setSelectedProperties(selectedProperties.filter((i) => i !== index));
+    } else {
+      setSelectedProperties([...selectedProperties, index]);
+    }
+  };
+
+  const handleRequestAppointment = () => {
+    if (selectedProperties.length === 0) {
+      alert("Please select at least one property.");
+      return;
+    }
+
+    const selectedApartments = selectedProperties.map(
+      (index) => visitedApartments[index]
+    );
+
+    alert(
+      `Appointment scheduled for:\n\n${selectedApartments
+        .map((apartment) => apartment.productName)
+        .join(
+          ", "
+        )}\n\nDate: ${selectedDate.toLocaleDateString()} Time: ${selectedDate.toLocaleTimeString()}`
+    );
+  };
+
+  return (
+    <div className="yet-main-container">
+      <div className="yet-first-sec">
+        <input
+          type="checkbox"
+          className="bookmark-checkbox-2"
+          checked={selectedProperties.length === visitedApartments.length}
+          onChange={(e) => handleSelectAll(e.target.checked)}
+        />
+        <p>Select All</p>
+      </div>
+      <div style={{ textAlign: "center", marginBottom: "70px" }}>
+        <ThemeProvider theme={theme}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              <div style={{ marginRight: "10px" }}>
+                <DatePicker
+                  label="Select Date"
+                  value={selectedDate}
+                  onChange={(newValue) => setSelectedDate(newValue)}
+                  minDate={currentDate}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </div>
+              <div>
+                <MobileTimePicker
+                  label="Select Time"
+                  value={selectedDate}
+                  onChange={(newValue) => setSelectedDate(newValue)}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </div>
+            </div>
+          </LocalizationProvider>
+        </ThemeProvider>
+      </div>
+      <div
+        className="product-append-111"
+        style={{ width: "100%", marginTop: "30px" }}
+      >
+        {visitedApartments.map((product, index) => (
+          <ApartmentCard
+            key={index}
+            product={product}
+            isSelected={selectedProperties.includes(index)}
+            onSelect={() => handlePropertySelect(index)}
+          />
+        ))}
+      </div>
+      <div style={{ marginTop: "70px" }}>
+        <div className="agent-show-bottom-button">
+          <button onClick={handleRequestAppointment}>
+            Request For Appointment
+          </button>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default ScheduleAppointment;

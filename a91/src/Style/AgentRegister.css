@@ -1,0 +1,178 @@
+.agentRegisterContainerMainPage {
+  margin-top: 80px;
+  padding: 25px 50px;
+  overflow: auto;
+}
+
+.agentRegisterTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 30%;
+  margin: auto;
+}
+.agentRegisterTop > img {
+  width: 100px;
+}
+.agentRegisterTop > span {
+  font-weight: 600;
+  font-size: 35px;
+}
+.agentRegisterTop > p {
+  display: flex;
+  align-items: center;
+  font-size: 35px;
+  text-align: "center";
+  font-weight: 600;
+  margin-left: 30px;
+}
+
+.agentDescriptionDiv {
+  width: 100%;
+  margin-top: 30px;
+}
+.agentDescriptionDiv > p {
+  line-height: 28px;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.connectCollabConvertTextDiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.connectCollabConvertTextDiv > p {
+  font-weight: 600;
+  font-size: 26px;
+  word-spacing: 10px;
+}
+.whyA91Div {
+  border: 2px solid lightgray;
+  border-radius: 50px;
+  margin-top: 50px;
+  padding: 40px;
+}
+.stepsToRegisterAgentDiv {
+  border: 2px solid lightgray;
+  min-height: 1000px;
+  border-radius: 50px;
+  padding: 25px 50px;
+}
+
+.stepsToRegisterNumberContainer {
+  width: 100%;
+  position: relative;
+  margin-top: -60px;
+}
+
+.stepsDesc_1 {
+  width: 28%;
+  height: fit-content;
+}
+.stepsDesc_2 {
+  width: 40%;
+  height: fit-content;
+}
+
+.stepsToRegisterNumber_1 {
+  padding-left: 100px;
+  display: flex;
+}
+.stepsToRegisterNumber_2 {
+  padding-left: 147px;
+  display: flex;
+  position: absolute;
+  top: 38%;
+  left: 0%;
+}
+.stepsToRegisterNumber_3 {
+  padding-left: 320px;
+  display: flex;
+  position: absolute;
+  top: 86.2%;
+  left: 0%;
+}
+.stepsToRegisterNumber_4 {
+  padding-left: 435px;
+  display: flex;
+  position: absolute;
+  top: 125%;
+  left: 0%;
+}
+.stepsToRegisterNumber_1 > div > h1,
+.stepsToRegisterNumber_2 > div > h1,
+.stepsToRegisterNumber_3 > div > h1,
+.stepsToRegisterNumber_4 > div > h1 {
+  font-size: 25rem;
+  font-weight: bold;
+  font-family: "Barlow", serif;
+}
+
+.stepsToRegisterNumber_1 > div > h2,
+.stepsToRegisterNumber_1 > div > p,
+.stepsToRegisterNumber_2 > div > h2,
+.stepsToRegisterNumber_2 > div > p,
+.stepsToRegisterNumber_3 > div > h2,
+.stepsToRegisterNumber_3 > div > p,
+.stepsToRegisterNumber_4 > div > h2,
+.stepsToRegisterNumber_4 > div > p {
+  text-align: left;
+  margin: 0;
+}
+
+.stepsToRegisterNumber_1 > div > h2,
+.stepsToRegisterNumber_2 > div > h2,
+.stepsToRegisterNumber_3 > div > h2,
+.stepsToRegisterNumber_4 > div > h2 {
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.stepsToRegisterNumber_1 > div > h2 {
+  margin-top: 150px;
+}
+.stepsToRegisterNumber_2 > div > h2 {
+  margin-top: 170px;
+}
+.stepsToRegisterNumber_3 > div > h2 {
+  margin-top: 140px;
+}
+.stepsToRegisterNumber_4 > div > h2 {
+  margin-top: 170px;
+}
+.stepsToRegisterNumber_1 > div > p,
+.stepsToRegisterNumber_2 > div > p,
+.stepsToRegisterNumber_3 > div > p,
+.stepsToRegisterNumber_4 > div > p {
+  width: 100%;
+  font-weight: bold;
+  line-height: 24px;
+}
+
+.registerStartButtonDiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.registerStartButtonDiv > button {
+  width: 60%;
+  padding: 10px;
+  border: 2px solid lightgray;
+  outline: none;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: white;
+  margin-top: 40px;
+  border-radius: 50px;
+}
+.registerStartButtonDiv > button:hover {
+  cursor: pointer;
+  background-color: var(--primary);
+  color: white;
+  border: 2px solid var(--primary);
+}

@@ -81,7 +81,7 @@ h2 {
 }
 
 .delete-btn:hover {
-  color: #00913A;
+  color: var(--primary);
 }
 
 .reload-btn {
@@ -102,7 +102,7 @@ h2 {
   margin-bottom: 29px;
 }
 .reload-btn:hover {
-  color: #00913A;
+  color: var(--primary);
 }
 
 @media (max-width: 768px) {
