@@ -10,6 +10,8 @@ import Property from "./Property";
 import AgentRegister from "./AgentRegister";
 import AgentOnboardOption from "./AgentOnboardOption";
 import ChannelPartner from "./ChannelPartner";
+import CompareApartments from "./CompareApartments";
+import PropertyDetails from "./PropertyDetails";
 
 const Content = () => {
   return (
@@ -21,6 +23,8 @@ const Content = () => {
         <Route path="/homedesignsecond" element={<Plot />} />
         <Route path="/detailpage" element={<DetailPage />} />
         <Route path="/channelpartner" element={<ChannelPartner />} />
+        <Route path="/propertydetail" element={<PropertyDetails />} />
+        <Route path="/compareapartment" element={<CompareApartments />} />
         <Route path="/addproperty" element={<AddProperty />} />
         <Route path="/property" element={<Property />} />
         <Route path="/agentregister" element={<AgentRegister />} />

@@ -1,15 +1,34 @@
+@font-face {
+  font-family: "Aptos";
+  src: url(/aptos-font/aptos.ttf);
+}
+@font-face {
+  font-family: "Aptos-bold";
+  src: url(/aptos-font/aptos-bold.ttf);
+}
+@font-face {
+  font-family: "Britannic";
+  src: url(/Britannic/Britannic\ Bold\ Regular.ttf);
+}
+
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Aptos", sans-serif;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Britannic", sans-serif;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

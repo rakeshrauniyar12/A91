@@ -6,15 +6,19 @@ import { MdOutlineDateRange } from "react-icons/md";
 import { BiSolidLike, BiSolidDislike, BiShapeSquare } from "react-icons/bi";
 import { IoWarning } from "react-icons/io5";
 import repor from "../Asset/Navbar/repor.png";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../Style/FilterMinMax.css";
 import { TbHomeFilled } from "react-icons/tb";
 import { PiBuildingApartmentFill } from "react-icons/pi";
+import { useFilterState } from "./FIlterStateProvider";
+
 function FilterMinMax({ toggleFilterModal, isLogin, width }) {
+  const {filterState, setFilterState}  = useFilterState();
   const location = useLocation();
+  const navigate = useNavigate();
   const isMobile = window.innerWidth <= 768;
   const [activeOption, setActiveOption] = useState("Select an agent");
-
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -22,6 +26,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
   const [active, setActive] = useState(null);
 
   const handleClick = (index) => {
+    setFilterState("Compare");
     setActive(index);
   };
   return (
@@ -33,6 +38,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
         }}
         className="sticky-filter-2"
       >
+      
         <div onClick={toggleFilterModal} style={{ cursor: "pointer" }}>
           <div>
             <GiSettingsKnobs
@@ -247,7 +253,8 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
             </div>
           </div>
         )}
-        {location.pathname === "/homedesign" && (
+        {(location.pathname === "/homedesign" ||
+          location.pathname === "/propertydetail") && (
           <div
             style={{ display: "flex", height: "100%", alignItems: "flex-end" }}
           >

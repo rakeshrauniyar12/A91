@@ -11,18 +11,25 @@ import sec7 from "../Asset/Content/sec7.png"
 import img1 from "../Asset/Content/imfooter.png"
 import sec8 from "../Asset/Content/sec8.png"
 import { Link } from "react-router-dom";
+import logo from "../Asset/Navbar/a91.png";
 const ChannelPartner = ()=>{
     const isMobile = window.innerWidth <= 768;
     return(
         <div className="partner-cont">
             <div className="part-first-container">
-            <h1 className="part-heading">A <span style={{color:"#008f3d"}}>91</span>: Your Trusted Partner in Real Estate</h1>
+            <div className="agentRegisterTop" style={{width:"58%"}}>
+                   <img src={logo} alt="a91-logo" />
+                   <span>:</span>
+                   <p>
+                   Your Trusted Partner in Real Estate
+                   </p>
+                 </div>
             <h2 style={{color:"#008f3d",fontSize:"24px"}}>Connect. Collaborate. Close.</h2>
             <h2 style={{fontSize:"15px",lineHeight:"25.06px"}}>A91 is the platform where real estate professionals and property owners come together to make property transactions seamless and successful. We empower real estate channel partners to access high-quality leads, showcase their listings, and close deals faster. At A91, we believe that collaboration drives success, and we are committed to providing an easy-to-use platform that helps you grow your real estate business.</h2>
             </div>
            <div className="part-join-us">
-              <h1 style={{fontSize:"20px",lineHeight:"29.48px"}}>Why Join A91 as a Channel Partner?</h1>
-              <p style={{fontSize:"10px",color:"#919191",lineHeight:"14.74px"}}>
+              <h1 style={{fontSize:"25px",lineHeight:"29.48px",marginBottom:"7px"}}>Why Join A91 as a Channel Partner?</h1>
+              <p style={{fontSize:"15px",color:"#919191",lineHeight:"14.74px"}}>
               Becoming a channel partner with A91 opens up numerous opportunities for growth and success in the competitive real estate market. Here are some key benefits:
               </p>
            </div>

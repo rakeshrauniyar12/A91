@@ -9,10 +9,9 @@ import Visited from "./Visited";
 import CompareApartments from "./CompareApartments";
 import FilterMinMax from "./FilterMinMax";
 import FilterModal from "./FilterModal";
-import FilterOption from "./FilterOption";
-
-const DetailPage = () => {
-  const isMobile = window.innerWidth <= 768;
+import { useFilterState } from "./FIlterStateProvider";
+const DetailPage = ({setCompareComponent}) => {
+  const {filterState, setFilterState}  = useFilterState();
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const toggleFilterModal = () => {
     setIsFilterModalOpen(!isFilterModalOpen);
@@ -26,7 +25,7 @@ const DetailPage = () => {
 
   // Component rendering based on the active option
   const renderContent = () => {
-    switch (activeOption) {
+    switch (filterState) {
       case "Select an agent":
         return <SelectAgent />;
       case "Yet to visit":
@@ -63,9 +62,9 @@ const DetailPage = () => {
             <div
               key={"Electricity Bill"}
               className={`option ${
-                activeOption === "Select an agent" ? "active" : ""
+                filterState === "Select an agent" ? "active" : ""
               }`}
-              onClick={() => setActiveOption("Select an agent")}
+              onClick={() => setFilterState("Select an agent")}
             >
               <p>Select an agent</p>
             </div>
@@ -73,9 +72,9 @@ const DetailPage = () => {
             <div
               key={"Property Details"}
               className={`option ${
-                activeOption === "Yet to visit" ? "active" : ""
+                filterState === "Yet to visit" ? "active" : ""
               }`}
-              onClick={() => setActiveOption("Yet to visit")}
+              onClick={() => setFilterState("Yet to visit")}
             >
               <p>Yet to visit</p>
             </div>
@@ -83,9 +82,9 @@ const DetailPage = () => {
             <div
               key={"Photographs"}
               className={`option ${
-                activeOption === "Schedule an Appointment" ? "active" : ""
+                filterState === "Schedule an Appointment" ? "active" : ""
               }`}
-              onClick={() => setActiveOption("Schedule an Appointment")}
+              onClick={() => setFilterState("Schedule an Appointment")}
             >
               <p>Schedule an Appointment</p>
             </div>
@@ -93,17 +92,17 @@ const DetailPage = () => {
             <div
               key={"Select Agent"}
               className={`option ${
-                activeOption === "Appointment Status" ? "active" : ""
+                filterState === "Appointment Status" ? "active" : ""
               }`}
-              onClick={() => setActiveOption("Appointment Status")}
+              onClick={() => setFilterState("Appointment Status")}
             >
               <p>Appointment Status</p>
             </div>
             <div className="vertical-line"></div>
             <div
               key={"Select Agent"}
-              className={`option ${activeOption === "Visited" ? "active" : ""}`}
-              onClick={() => setActiveOption("Visited")}
+              className={`option ${filterState === "Visited" ? "active" : ""}`}
+              onClick={() => setFilterState("Visited")}
               style={{
                 borderTopRightRadius: "40px",
                 borderBottomRightRadius: "40px",

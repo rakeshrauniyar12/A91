@@ -4,6 +4,7 @@ import Photograph from "./Photograph";
 import ElectricityBill from "./ElectricityBill";
 import SelectAgent from "./SelectAgent";
 import PropertyDetails from "./PropertyDetails";
+import AddPropertyDetails from "./AddPropertyDetails";
 
 const AddProperty = () => {
   const isMobile = window.innerWidth <= 768;
@@ -71,7 +72,7 @@ const AddProperty = () => {
       {/* Display Content */}
       <div className="content-container">
         {selectedOption === "Electricity Bill" && <ElectricityBill />}
-        {selectedOption === "Property Details" && <PropertyDetails />}
+        {selectedOption === "Property Details" && <AddPropertyDetails />}
         {selectedOption === "Photographs" && <Photograph />}
         {selectedOption === "Select Agent" && (
           <div className="add-select-agent">

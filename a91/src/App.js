@@ -2,19 +2,18 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Content from "./Component/Content";
 import Footer from "./Component/Footer";
 import Header from "./Component/Header.js";
-// import Navbar from "./Component/Navbar.js";
-
+import { FilterStateProvider } from "./Component/FIlterStateProvider.js";
 
 function App() {
-
   return (
     <Router>
-    <div className="App">
-       <Header/>
-       {/* <Navbar/> */}
-       <Content/>
-       <Footer/>
-    </div>
+      <FilterStateProvider> {/* Wrap your components here */}
+        <div className="App">
+          <Header />
+          <Content />
+          <Footer />
+        </div>
+      </FilterStateProvider>
     </Router>
   );
 }

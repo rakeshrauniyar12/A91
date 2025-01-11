@@ -15,6 +15,7 @@ import { IoCallOutline } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Style/Appointment.css";
+import { useNavigate } from "react-router-dom";
 
 const ApartmentCard = ({
   product,
@@ -23,7 +24,9 @@ const ApartmentCard = ({
   isSelected,
   onSelect,
   onReportClick,
+  hideCheckbox
 }) => {
+  const navigate = useNavigate();
   const [calendarVisible, setCalendarVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -37,11 +40,15 @@ const ApartmentCard = ({
     setSelectedDate(date);
     handleCalendarClick();
   };
+  const handleClick = () => {
+    navigate("/propertydetail", { state: { product } });
+  };
 
   return (
     <div
       className="product-details-div"
-      style={{ backgroundColor: product?.bgColor }}
+      style={{ backgroundColor: product?.bgColor,cursor: "pointer" }}
+      onClick={handleClick}
     >
       {!product?.isAvailable && (
         <div className="noLongerAvailable">
@@ -50,7 +57,7 @@ const ApartmentCard = ({
       )}
       <div className="main-product-ima">
         <img src={product?.productImage} />
-        {product?.isAvailable && (
+        {product?.isAvailable && hideCheckbox && (
           <div className="bookmark-checkbox-1">
             <input type="checkbox" checked={isSelected} onChange={onSelect} />
           </div>

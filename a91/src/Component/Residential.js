@@ -4,7 +4,6 @@ import h1 from "../Asset/Home/h1.png";
 import ApartmentCard from "./ApartmentCard";
 import FilterMinMax from "./FilterMinMax";
 import FilterModal from "./FilterModal";
-import FilterOption from "./FilterOption";
 const Residential = () => {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false); 
   const toggleFilterModal = () => {
