@@ -3,12 +3,11 @@ import "../Style/AddProperty.css";
 import Photograph from "./Photograph";
 import ElectricityBill from "./ElectricityBill";
 import SelectAgent from "./SelectAgent";
-import PropertyDetails from "./PropertyDetails";
 import AddPropertyDetails from "./AddPropertyDetails";
 
 const AddProperty = () => {
   const isMobile = window.innerWidth <= 768;
-  const [selectedOption, setSelectedOption] = useState("Electricity Bill");
+  const [selectedOption, setSelectedOption] = useState("Unique Id");
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -18,17 +17,15 @@ const AddProperty = () => {
     <div className="add-property-main-container">
       <div className="options-container">
         <div
-          key={"Electricity Bill"}
-          className={`option ${
-            selectedOption === "Electricity Bill" ? "active" : ""
-          }`}
-          onClick={() => handleOptionClick("Electricity Bill")}
+          key={"Unique Id"}
+          className={`option ${selectedOption === "Unique Id" ? "active" : ""}`}
+          onClick={() => handleOptionClick("Unique Id")}
           style={{
             borderTopLeftRadius: "40px",
             borderBottomLeftRadius: "40px",
           }}
         >
-          Electricity Bill
+          Unique Id
         </div>
 
         <div
@@ -71,7 +68,7 @@ const AddProperty = () => {
 
       {/* Display Content */}
       <div className="content-container">
-        {selectedOption === "Electricity Bill" && <ElectricityBill />}
+        {selectedOption === "Unique Id" && <ElectricityBill />}
         {selectedOption === "Property Details" && <AddPropertyDetails />}
         {selectedOption === "Photographs" && <Photograph />}
         {selectedOption === "Select Agent" && (

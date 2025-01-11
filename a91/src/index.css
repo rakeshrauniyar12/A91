@@ -19,8 +19,8 @@
 body {
   font-family: "Aptos", sans-serif;
 }
-p{
-  font-family: "Aptos", sans-serif; 
+p {
+  font-family: "Aptos", sans-serif;
 }
 h1,
 h2,
@@ -29,12 +29,6 @@ h4,
 h5,
 h6 {
   font-family: "Britannic", sans-serif;
-}
-
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 :root {

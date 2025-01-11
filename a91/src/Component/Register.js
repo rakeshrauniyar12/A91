@@ -1,5 +1,5 @@
 import React from "react";
-import "../Style/Login.css"
+import "../Style/Login.css";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { RiCloseLargeFill } from "react-icons/ri";
@@ -80,8 +80,10 @@ function Register({ setShowSignupComponent, setAccount, setShowLogin }) {
                   style={{
                     display: "flex",
                     border: "1px solid gray",
-                    borderRadius: "50px",
                     paddingLeft: "20px",
+                    width: "90%",
+                    margin: "auto",
+                    borderRadius: "15px",
                   }}
                 >
                   <select

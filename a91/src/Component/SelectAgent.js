@@ -139,7 +139,7 @@ const SelectAgent = () => {
           </div>
         ))}
       </div>
-      <div style={{ marginTop: "70px" }}>
+      <div className="selectAgentBtnMainContainer">
         <div className="agent-show-bottom-button">
           <button>Show more</button>
         </div>

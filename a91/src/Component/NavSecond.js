@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import "../Style/NavSecond.css";
+
 function NavSecond() {
   const navigate = useNavigate();
   const location = useLocation();

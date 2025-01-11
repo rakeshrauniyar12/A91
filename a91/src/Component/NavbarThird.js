@@ -53,7 +53,6 @@ function NavbarThird({
     <div className="h-second-nav">
       <div
         className="search-dropdown-main"
-        // onClick={handleSearchDropdown}
         onClick={() => handleDropdownToggle("search")}
       >
         <BiSearchAlt size={45} />

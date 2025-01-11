@@ -72,8 +72,10 @@ const AgentOnboardOption = () => {
               style={{
                 display: "flex",
                 border: "1px solid gray",
-                borderRadius: "50px",
                 paddingLeft: "20px",
+                width: "90%",
+                margin: "auto",
+                borderRadius: "15px",
               }}
             >
               <select
@@ -258,7 +260,7 @@ const AgentOnboardOption = () => {
                       <p>For Rental:</p>
                     </div>
                     <div className="commission_value">
-                      <input type="text" placeholder="One Month Rent " />
+                      <input type="text" placeholder="One Month Rent" />
                     </div>
                   </div>
                   <div>

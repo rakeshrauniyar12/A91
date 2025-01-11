@@ -13,12 +13,12 @@ import { PiBuildingApartmentFill } from "react-icons/pi";
 import { useFilterState } from "./FIlterStateProvider";
 
 function FilterMinMax({ toggleFilterModal, isLogin, width }) {
-  const {filterState, setFilterState}  = useFilterState();
+  const { filterState, setFilterState } = useFilterState();
   const location = useLocation();
   const navigate = useNavigate();
   const isMobile = window.innerWidth <= 768;
   const [activeOption, setActiveOption] = useState("Select an agent");
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -38,7 +38,6 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
         }}
         className="sticky-filter-2"
       >
-      
         <div onClick={toggleFilterModal} style={{ cursor: "pointer" }}>
           <div>
             <GiSettingsKnobs
@@ -51,10 +50,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
           <p>Filter</p>
         </div>
         <div className="temp_vr"></div>
-        {/* <div
-          className="vertical-line"
-          style={{ marginRight: "15px", marginLeft: "15px" }}
-        ></div> */}
+
         <div className="budget-div-1" style={{ width: width }}>
           <div className="budget-rupee-icon">
             <MdCurrencyRupee size={24} style={{ marginRight: "10px" }} />
@@ -66,7 +62,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
               <input type="text" className="input-text" placeholder="Max" />
             </div>
             <div>
-              <p style={{ fontSize: "13px" }}>Budget</p>
+              <p>Budget</p>
             </div>
           </div>
         </div>
@@ -431,13 +427,25 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
 
             <div className="temp_vr"></div>
             <div id="like-dis-div">
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
                 <BiSolidLike size={30} />
-                <p style={{ fontSize: "8px", fontWeight: "600" }}>{`1000`}</p>
+                <p style={{ fontWeight: "600" }}>{`1000`}</p>
               </div>
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
                 <BiSolidDislike size={30} />
-                <p style={{ fontSize: "8px", fontWeight: "600" }}>{`500`}</p>
+                <p style={{ fontWeight: "600" }}>{`500`}</p>
               </div>
             </div>
 
@@ -474,7 +482,6 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
                       : "black",
                   fontWeight:
                     active === 5 && activeOption == "Compare" ? "bold" : "",
-                  fontSize: "10px",
                   marginTop: 2,
                 }}
               >
@@ -501,7 +508,6 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
                 style={{
                   color: active === 6 ? "var(--primary)" : "black",
                   fontWeight: active === 6 ? "bold" : "",
-                  fontSize: "10px",
                   marginTop: 4,
                 }}
               >
@@ -517,7 +523,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
         <div className="repor-agent">
           <div className="reportAgentDiv">
             <IoWarning color="red" size={26} style={{ marginRight: 7 }} />
-            <p>Report an agent</p>
+            <p style={{ fontSize: "16px" }}>Report an agent</p>
           </div>
         </div>
       ) : (

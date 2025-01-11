@@ -5,7 +5,7 @@ import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
 const ElectricityBill = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedBESCOM, setSelectedBESCOM] = useState("5621044001");
+  const [selectedBESCOM, setSelectedBESCOM] = useState("");
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -25,11 +25,40 @@ const ElectricityBill = () => {
 
   return (
     <div className="electricity-main-container">
-      <p className="elect-p">Enter electricity bill details</p>
+      <div className="elect-main-content">
+        <div className="elect-main-content-1">
+          <p className="elect-main-content-1-p1">
+            City
+            {isDropdownOpen ? (
+              <BiChevronUp size={20} style={{ marginLeft: "10px" }} />
+            ) : (
+              <BiChevronDown size={20} style={{ marginLeft: "10px" }} />
+            )}
+          </p>
+        </div>
+        <div className="vertical-line"></div>
+        <div className="elect-main-content-2">
+          <p
+            className="elect-main-content-1-p2"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            Type of Property
+            {isDropdownOpen ? (
+              <BiChevronUp size={20} style={{ marginLeft: "10px" }} />
+            ) : (
+              <BiChevronDown size={20} style={{ marginLeft: "10px" }} />
+            )}
+          </p>
+        </div>
+      </div>
       <div className="elect-main-content">
         <div className="elect-main-content-1">
           <p className="elect-main-content-1-p1" onClick={toggleDropdown}>
-            {bescomNames[selectedBESCOM] || "Select BESCOM"}
+            {bescomNames[selectedBESCOM] || "Select service provider"}
             {isDropdownOpen ? (
               <BiChevronUp size={20} style={{ marginLeft: "10px" }} />
             ) : (
@@ -47,7 +76,10 @@ const ElectricityBill = () => {
         </div>
         <div className="vertical-line"></div>
         <div className="elect-main-content-2">
-          <p className="elect-main-content-1-p2">{selectedBESCOM}</p>
+          <p className="elect-main-content-1-p2">
+            {selectedBESCOM ||
+              "Enter consumer number / Customer Id / Account ID"}
+          </p>
         </div>
         <div className="elect-main-content-3">
           <BiSearchAlt size={40} color="white" />
