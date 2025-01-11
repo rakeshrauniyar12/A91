@@ -19,7 +19,9 @@
 body {
   font-family: "Aptos", sans-serif;
 }
-
+p{
+  font-family: "Aptos", sans-serif; 
+}
 h1,
 h2,
 h3,
