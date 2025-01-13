@@ -43,6 +43,9 @@ const Header = ({setPropertyOption}) => {
     setAccount(false);
     setShowLogin(false);
     setShowSignupComponent(false);
+    if(location.pathname==="/residential"){
+      setActiveDropdown("Residential")
+    }
     setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
   const handleOptionClick = (path) => {
@@ -74,69 +77,14 @@ const Header = ({setPropertyOption}) => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-  useEffect(() => {
-    const handleScrolls = () => {
-      const scrollY = window.scrollY;
-      const maxScroll = 200; // Total scroll range
-      const offset = maxScroll * 0.9; // 90% of the scroll range
-
-      let newOpacity = 1;
-      let newHeight = 200; // Full height of the image
-
-      if (scrollY > offset) {
-        // Start reducing opacity and height after 90% of the scroll range
-        newOpacity = Math.max(1 - (scrollY - offset) / (maxScroll - offset), 0);
-        newHeight = Math.max(200 * newOpacity, 0); // Reduce height proportionally
-      }
-
-      setOpacity(newOpacity);
-      setImageHeight(newHeight);
-    };
-
-    window.addEventListener("scroll", handleScrolls);
-
-    return () => {
-      window.removeEventListener("scroll", handleScrolls);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const hfirstOption = document.querySelector(".header-main-container");
-      const navbar = document.querySelector(".h-logo-1");
-
-      if (hfirstOption && navbar) {
-        const hfirstOffsetTop = hfirstOption.offsetTop;
-        const navbarHeight = navbar.offsetHeight;
-        console.log("Navbar Height:", navbarHeight);
-        console.log("hfirstOffsetTop:", hfirstOffsetTop);
-        if (scrollPosition + navbarHeight >= hfirstOffsetTop) {
-       
-            setShowOptionsInNavbar(true);
-         
-          
-          console.log("Hello Scroll");
-        } else {
-          setShowOptionsInNavbar(false);
-        }
-      }
-      console.log("Scroll Position:", scrollPosition);
-
-      console.log("showOptionsInNavbar:", showOptionsInNavbar);
-      setShowFirstComponent(scrollPosition === 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+ 
 
   const location = useLocation();
   const hiddenPaths = ["/", "/agentregister", "/property"];
   const showOptionsInNavbars = !hiddenPaths.includes(location.pathname);
+  if(location.pathname==="/"){
+    return;
+  }
   return (
     <div className="header-main-container">
       <div className="header-main-container-content">
@@ -145,7 +93,7 @@ const Header = ({setPropertyOption}) => {
         </div>
 
         {/* city,purpose, own option at navbar */}
-        {((showOptionsInNavbar || showOptionsInNavbars)) && 
+        {( showOptionsInNavbars) && 
           <div className="nav-sec-11" style={{ width: "45%" }}>
           <div className="nav-option-1">
             <div className="nav-option-11">

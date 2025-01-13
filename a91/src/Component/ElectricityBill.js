@@ -5,9 +5,12 @@ import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
 const ElectricityBill = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
+  const [citySelected, setCitySelected] = useState("City");
   const [selectedBESCOM, setSelectedBESCOM] = useState("");
 
   const toggleDropdown = () => {
+    setIsCityDropdownOpen(false)
     setIsDropdownOpen(!isDropdownOpen);
   };
 
@@ -15,7 +18,14 @@ const ElectricityBill = () => {
     setSelectedBESCOM(value);
     setIsDropdownOpen(false);
   };
-
+  const handleCitySelection = (value) => {
+    setCitySelected(value);
+    setIsCityDropdownOpen(false);
+  };
+  const handleCityDropdown = () => {
+    setIsDropdownOpen(false)
+    setIsCityDropdownOpen(!isCityDropdownOpen);
+  };
   const bescomNames = {
     5621044001: "BESCOM",
     5621044002: "BESCOM2",
@@ -27,14 +37,24 @@ const ElectricityBill = () => {
     <div className="electricity-main-container">
       <div className="elect-main-content">
         <div className="elect-main-content-1">
-          <p className="elect-main-content-1-p1">
-            City
-            {isDropdownOpen ? (
+          <p className="elect-main-content-1-p1" onClick={handleCityDropdown}>
+            {citySelected}
+            {isCityDropdownOpen ? (
               <BiChevronUp size={20} style={{ marginLeft: "10px" }} />
             ) : (
               <BiChevronDown size={20} style={{ marginLeft: "10px" }} />
             )}
           </p>
+          {isCityDropdownOpen && (
+            <div className="bescom-dropdown">
+              <p onClick={() => handleCitySelection("Mumbai")}>Mumbai</p>
+              <p onClick={() => handleCitySelection("Bengaluru")}>Bengaluru</p>
+              <p onClick={() => handleCitySelection("Delhi")}>Delhi</p>
+              <p onClick={() => handleCitySelection("Kolkata")}>Kolkata</p>
+              <p onClick={() => handleCitySelection("Chennai")}>Chennai</p>
+              <p onClick={() => handleCitySelection("Hyderabad")}>Hyderabad</p>
+            </div>
+          )}
         </div>
         <div className="vertical-line"></div>
         <div className="elect-main-content-2">

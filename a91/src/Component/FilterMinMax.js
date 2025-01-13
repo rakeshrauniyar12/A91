@@ -463,6 +463,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                 cursor:"pointer"
               }}
             >
               <GrCompare
@@ -491,11 +492,17 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
 
             <div className="temp_vr"></div>
             <div
-              onClick={() => handleClick(6)}
+             onClick={() => {
+              handleClick(6);
+              setFilterState(
+                "Select an agent"
+              );
+            }}
               style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                cursor:"pointer"
               }}
             >
               <MdOutlineDateRange

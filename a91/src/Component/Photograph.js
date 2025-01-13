@@ -148,11 +148,11 @@ const Photograph = () => {
           </div>
         ))}
       </div>
-      {/* <div>
-        <button>Back</button>
-        <button>Save as draft</button>
-        <button>Continue</button>
-      </div> */}
+      <div className="bottom-btn-21" style={{width:"100%"}}>
+        <div className="bottom-btn-21-1">Back</div>
+        <div className="bottom-btn-21-2">Save as Draft</div>
+        <div className="bottom-btn-21-2">Continue</div>
+      </div>
     </div>
   );
 };
