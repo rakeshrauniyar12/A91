@@ -403,21 +403,21 @@ const Home = () => {
               <div>
                 <p
                   onClick={() =>
-                    handlePurposeSelection("Residential", "/homedesign")
+                    handlePurposeSelection("Residential", "/residential")
                   }
                 >
                   Residential
                 </p>
                 <p
                   onClick={() =>
-                    handlePurposeSelection("Commercial", "/homedesignfirst")
+                    handlePurposeSelection("Commercial", "/commercial")
                   }
                 >
                   Commercial
                 </p>
                 <p
                   onClick={() =>
-                    handlePurposeSelection("Plot", "/homedesignsecond")
+                    handlePurposeSelection("Plot", "/plot")
                   }
                 >
                   Plot

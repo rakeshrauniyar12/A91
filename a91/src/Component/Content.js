@@ -18,9 +18,9 @@ const Content = () => {
     <div style={{ width: "100%", margin: "auto" }}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/homedesignfirst" element={<Commercial />} />
-        <Route path="/homedesign" element={<Residential />} />
-        <Route path="/homedesignsecond" element={<Plot />} />
+        <Route path="/commercial" element={<Commercial />} />
+        <Route path="/residential" element={<Residential />} />
+        <Route path="/plot" element={<Plot />} />
         <Route path="/detailpage" element={<DetailPage />} />
         <Route path="/channelpartner" element={<ChannelPartner />} />
         <Route path="/propertydetail" element={<PropertyDetails />} />

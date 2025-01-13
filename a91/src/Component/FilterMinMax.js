@@ -67,7 +67,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
           </div>
         </div>
 
-        {location.pathname === "/homedesignfirst" && (
+        {location.pathname === "/commercial" && (
           <div
             style={{
               display: "flex",
@@ -160,7 +160,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
             </div>
           </div>
         )}
-        {location.pathname === "/homedesignsecond" && (
+        {location.pathname === "/plot" && (
           <div
             style={{ display: "flex", height: "100%", alignItems: "flex-end" }}
           >
@@ -249,7 +249,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
             </div>
           </div>
         )}
-        {(location.pathname === "/homedesign" ||
+        {(location.pathname === "/residential" ||
           location.pathname === "/propertydetail") && (
           <div
             style={{ display: "flex", height: "100%", alignItems: "flex-end" }}
