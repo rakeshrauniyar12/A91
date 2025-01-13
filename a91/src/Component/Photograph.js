@@ -148,6 +148,11 @@ const Photograph = () => {
           </div>
         ))}
       </div>
+      {/* <div>
+        <button>Back</button>
+        <button>Save as draft</button>
+        <button>Continue</button>
+      </div> */}
     </div>
   );
 };

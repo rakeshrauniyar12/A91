@@ -9,7 +9,7 @@ function App() {
     <Router>
       <FilterStateProvider> {/* Wrap your components here */}
         <div className="App">
-          <Header />
+          <Header setPropertyOption={false}/>
           <Content />
           <Footer />
         </div>

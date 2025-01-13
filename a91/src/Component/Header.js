@@ -14,7 +14,7 @@ import { FaCalculator } from "react-icons/fa";
 import Login from "./Login";
 import Register from "./Register";
 
-const Header = () => {
+const Header = ({setPropertyOption}) => {
   const navigate = useNavigate();
   const [opacity, setOpacity] = useState(1);
   const [imageHeight, setImageHeight] = useState(200);
@@ -68,6 +68,7 @@ const Header = () => {
   };
   const goToDetailPage = () => {
     setAccount(false);
+    setActiveDropdown(null);
     navigate("/channelpartner");
   };
   const handleCloseModal = () => {
@@ -111,7 +112,10 @@ const Header = () => {
         console.log("Navbar Height:", navbarHeight);
         console.log("hfirstOffsetTop:", hfirstOffsetTop);
         if (scrollPosition + navbarHeight >= hfirstOffsetTop) {
-          setShowOptionsInNavbar(true);
+       
+            setShowOptionsInNavbar(true);
+         
+          
           console.log("Hello Scroll");
         } else {
           setShowOptionsInNavbar(false);
@@ -132,7 +136,6 @@ const Header = () => {
 
   const location = useLocation();
   const hiddenPaths = ["/", "/agentregister", "/property"];
-
   const showOptionsInNavbars = !hiddenPaths.includes(location.pathname);
   return (
     <div className="header-main-container">
@@ -140,7 +143,9 @@ const Header = () => {
         <div className="h-logo-1" onClick={() => navigate("/")}>
           <img src={logo} alt="Logo" />
         </div>
-        {(showOptionsInNavbar || showOptionsInNavbars) && 
+
+        {/* city,purpose, own option at navbar */}
+        {((showOptionsInNavbar || showOptionsInNavbars)) && 
           <div className="nav-sec-11" style={{ width: "45%" }}>
           <div className="nav-option-1">
             <div className="nav-option-11">
@@ -334,7 +339,7 @@ const Header = () => {
           </div>
         </div>
         }
-
+     {/* search, home icon, account options at navbar */}
 <div className="h-second-nav">
       <div
         className="search-dropdown-main"

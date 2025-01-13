@@ -23,13 +23,15 @@ const InactiveProperty = () => {
       productSaleType: "not for sale",
       productDistance: "9.8 Km away",
       isAvailable: true,
+       leftBtn:"Edit",
+      rightBtn:"Active"
     });
   }
   return (
     <div className="active-main-container">
       <div className="product-append-111">
         {products.map((product) => (
-    <ApartmentCard product={product}/>
+    <ApartmentCard product={product} isInActive={true}/>
         ))}
       </div>
     </div>

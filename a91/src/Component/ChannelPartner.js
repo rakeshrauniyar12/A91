@@ -165,7 +165,7 @@ const ChannelPartner = ()=>{
                 </div>:""}
             </div>
            </div>
-           <h1 style={{fontSize:"20px",margin:"40px 10px",textAlign:"center"}}>How to Become a Channel Partner with A91 <span style={{color:"#008f3d"}}>91</span>?</h1>
+           <h1 style={{fontSize:"20px",margin:"40px 10px",textAlign:"center"}}>How to Become a Channel Partner with A91 ?</h1>
 
            {isMobile?<div className="page-image-section">
               {/* <img src={imfooter1}/>

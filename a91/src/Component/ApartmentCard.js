@@ -11,7 +11,7 @@ import { CiUser } from "react-icons/ci";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
-
+import { TbBellRingingFilled } from "react-icons/tb";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Style/Appointment.css";
@@ -24,7 +24,9 @@ const ApartmentCard = ({
   isSelected,
   onSelect,
   onReportClick,
-  hideCheckbox
+  hideCheckbox,
+  isActive,
+  isInActive,
 }) => {
   const navigate = useNavigate();
   const [calendarVisible, setCalendarVisible] = useState(false);
@@ -47,7 +49,7 @@ const ApartmentCard = ({
   return (
     <div
       className="product-details-div"
-      style={{ backgroundColor: product?.bgColor,cursor: "pointer" }}
+      style={{ backgroundColor: product?.bgColor, cursor: "pointer" }}
       onClick={handleClick}
     >
       {!product?.isAvailable && (
@@ -128,15 +130,24 @@ const ApartmentCard = ({
           alignItems: "center",
         }}
       >
-        <div className="productDetailsDiv_">
+      { (!isInActive && !isActive)? <div className="productDetailsDiv_">
           <div className="productKey_">
             <IoLocationSharp size={26} />
           </div>
           <div className="productValue_">
             <p>{product?.productDistance}</p>
           </div>
+        </div>:
+        <div className="productDetailsDiv_">
+        <div className="productKey_">
+          <SlCalender size={26} />
         </div>
-
+        <div className="productValue_">
+          <p>{`No of Days Inactive: xx`}</p>
+        </div>
+      </div>
+        }
+      
         {!isAppointmentStatus && (
           <div>
             <IoShareSocialSharp size={26} />
@@ -219,7 +230,20 @@ const ApartmentCard = ({
           )}
         </div>
       )}
-
+       { isInActive && 
+          <div style={{display:"flex",gap:"20px"}}>
+             <TbBellRingingFilled size={26}/>
+             <p>Remind on: dd-mm-yyyy</p>
+          </div>
+       }
+      {(isActive || isInActive) && (
+        <div className="appointmentVisitedContainer">
+          <div>
+            <button>{product?.leftBtn}</button>
+            <button>{product?.rightBtn}</button>
+          </div>
+        </div>
+      )}
       {calendarVisible && (
         <div className="calender_date_picker_div">
           <DatePicker
