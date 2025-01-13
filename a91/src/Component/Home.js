@@ -3,7 +3,7 @@ import "../Style/Hfirst.css";
 import "../Style/Home.css";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import header from "../Asset/Home/header11.png";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import h2 from "../Asset/Home/h1.png";
 import logo from "../Asset/Navbar//a91.png";
 import { FaChevronRight } from "react-icons/fa";
@@ -19,15 +19,16 @@ import FilterModal from "./FilterModal";
 import FilterMinMax from "./FilterMinMax";
 import Login from "./Login";
 import Register from "./Register";
-
+import { useFilterState } from "./FIlterStateProvider";
 const Home = () => {
   const navigate = useNavigate();
+  const {selectedPurpose,setSelectedPurpose}  = useFilterState();
   // const [isAccount, setAccount] = useState(false);
   // const [showSignupComponent, setShowSignupComponent] = useState(false);
   // const [showLogin, setShowLogin] = useState(false);
   const [selectedCityBanner, setSelectedCityBanner] = useState(null);
   const [selectedOwnOrRent, setSelectedOwnOrRent] = useState(null);
-  const [selectedPurposeBanner, setSelectedPurposeBanner] = useState(null);
+  // const [selectedPurposeBanner, setSelectedPurposeBanner] = useState(null);
   // const [showCityDropdown, setShowCityDropdown] = useState(false);
   // const [activeDropdown, setActiveDropdown] = useState(null);
   // const [showPurposeDropdown, setShowPurposeDropdown] = useState(false);
@@ -62,7 +63,7 @@ const Home = () => {
   // const [showOptionsInNavbar, setShowOptionsInNavbar] = useState(false);
   const [selectedCity, setSelectedCity] = useState("City");
   const [selectedOwnRent, setSelectedOwnRent] = useState("Own/Rent");
-  const [selectedPurpose, setSelectedPurpose] = useState("Purpose");
+  // const [selectedPurpose, setSelectedPurpose] = useState("Purpose");
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [showPurposeDropdown, setShowPurposeDropdown] = useState(false);
@@ -112,6 +113,11 @@ const Home = () => {
     setAccount(false);
     setActiveDropdown(null);
     navigate("/channelpartner");
+  };
+  const goToDashboard = () => {
+    setAccount(false);
+    setActiveDropdown(null);
+    navigate("/dashboard");
   };
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -188,7 +194,7 @@ const Home = () => {
       setIsPurRotateHeader(false);
     }
   };
-
+ 
   const handleCitySelection = (city) => {
     setSelectedCityBanner(city);
     setShowCityDropdownHeader(false);
@@ -232,7 +238,7 @@ const Home = () => {
   };
 
   const handlePurposeSelection = (purpose, route) => {
-    setSelectedPurposeBanner(purpose);
+    setSelectedPurpose(purpose);
     setShowPurposeDropdownHeader(false); // Close the dropdown
     setIsPurRotateHeader(false); // Rotate the arrow back
     navigate(route);
@@ -285,7 +291,8 @@ const Home = () => {
 
     return () => clearTimeout(timer);
   }, [showText, isDeleting, loopNum, typingSpeed]);
-
+  const location = useLocation();
+ 
   return (
     <div className="hfirst-main-container" style={{ marginTop: 120 }}>
       <div className="header-main-container">
@@ -606,6 +613,15 @@ const Home = () => {
                 >
                   Register as Channel Partner
                 </p>
+                <p
+                  className="account-option"
+                  onClick={() => {
+                    goToDashboard();
+                    setActiveDropdown(null);
+                  }}
+                >
+                  Dashboard
+                </p>
               </div>
             )}
           </div>
@@ -783,9 +799,9 @@ const Home = () => {
               onClick={handlePurposeDropdownHeader}
             >
               <p style={{ fontSize: "18px", fontWeight: "600" }}>
-                {selectedPurposeBanner ? (
+                {selectedPurpose!=="Purpose" ? (
                   <span style={{ color: "var(--primary)", fontWeight: "bold" }}>
-                    {selectedPurposeBanner}
+                    {selectedPurpose}
                   </span>
                 ) : (
                   <>

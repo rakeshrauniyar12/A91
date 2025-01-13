@@ -13,8 +13,9 @@ import { FaUser } from "react-icons/fa";
 import { FaCalculator } from "react-icons/fa";
 import Login from "./Login";
 import Register from "./Register";
-
-const Header = ({setPropertyOption}) => {
+import { useFilterState } from "./FIlterStateProvider";
+const Header = () => {
+   const {selectedPurpose,setSelectedPurpose}  = useFilterState();
   const navigate = useNavigate();
   const [opacity, setOpacity] = useState(1);
   const [imageHeight, setImageHeight] = useState(200);
@@ -26,7 +27,7 @@ const Header = ({setPropertyOption}) => {
   const [showOptionsInNavbar, setShowOptionsInNavbar] = useState(false);
   const [selectedCity, setSelectedCity] = useState("City");
   const [selectedOwnRent, setSelectedOwnRent] = useState("Own/Rent");
-  const [selectedPurpose, setSelectedPurpose] = useState("Purpose");
+  // const [selectedPurpose, setSelectedPurpose] = useState("Purpose");
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [showPurposeDropdown, setShowPurposeDropdown] = useState(false);

@@ -12,6 +12,7 @@ import AgentOnboardOption from "./AgentOnboardOption";
 import ChannelPartner from "./ChannelPartner";
 import CompareApartments from "./CompareApartments";
 import PropertyDetails from "./PropertyDetails";
+import Dashboard from "./Dashboard";
 
 const Content = () => {
   return (
@@ -29,6 +30,7 @@ const Content = () => {
         <Route path="/property" element={<Property />} />
         <Route path="/agentregister" element={<AgentRegister />} />
         <Route path="/agentonboardprocess" element={<AgentOnboardOption />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
