@@ -75,6 +75,11 @@ const Header = () => {
     setActiveDropdown(null);
     navigate("/channelpartner");
   };
+  const goToDashboard = () => {
+    setAccount(false);
+    setActiveDropdown(null);
+    navigate("/dashboard");
+  };
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
@@ -403,6 +408,15 @@ const Header = () => {
           >
             Register as Channel Partner
           </p>
+          <p
+                  className="account-option"
+                  onClick={() => {
+                    goToDashboard();
+                    setActiveDropdown(null);
+                  }}
+                >
+                  Dashboard
+                </p>
         </div>
       )}
     </div>

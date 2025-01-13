@@ -55,7 +55,7 @@ const ConcentricDonutChart = ({ title, data, colors, innerText }) => {
       .append("text")
       .attr("transform", (d) => `translate(${outerArc.centroid(d)})`)
       .attr("dy", "0.35em")
-      .attr("font-size", "26px")
+      .attr("font-size", "16px")
       .attr("text-anchor", "middle")
       .text(innerText)
       .text((d) => `${d.data.label}, ${d.data.value}`);
@@ -74,11 +74,12 @@ const ConcentricDonutChart = ({ title, data, colors, innerText }) => {
 
     // Add inner text
     svg
-      .append("text")
-      .attr("text-anchor", "middle")
-      .style("font-size", "24px")
-      .style("font-weight", "bold")
-      .text(innerText);
+    .append("text")
+    .attr("text-anchor", "middle")
+    .style("font-size", "215px") // Increased size
+    .style("font-weight", "bold")
+    .attr("y", 70)
+    .text(innerText);
 
   }, [data, colors, innerText]);
 
@@ -133,7 +134,7 @@ const Dashboard = () => {
   return (
     <div style={{ display: "flex", justifyContent: "space-around",marginTop:"120px" }}>
       <div>
-        <p style={{textAlign:"center",fontSize:"18px",fontWeight:"600"}}>All Properties</p>
+        <p style={{textAlign:"center",fontSize:"18px",fontWeight:"600",marginBottom:"30px"}}>All Properties</p>
       <ConcentricDonutChart
         data={propertiesData}
         colors={propertiesColors}
@@ -145,8 +146,8 @@ const Dashboard = () => {
       </div>
         </div>
         <div>
+        <p style={{textAlign:"center",fontSize:"18px",fontWeight:"600",marginBottom:"30px"}}>All Seekers</p>
       <ConcentricDonutChart
-        title="All Seekers"
         data={seekersData}
         colors={seekersColors}
         innerText="+"
