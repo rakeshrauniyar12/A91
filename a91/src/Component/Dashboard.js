@@ -100,7 +100,7 @@ const ConcentricDonutChart = ({ title, data, colors, innerText }) => {
 };
 
 const Dashboard = () => {
-  const [selectedOption, setSelectedOption] = useState("Active Property");
+  const [selectedOption, setSelectedOption] = useState("My Dashboard");
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
