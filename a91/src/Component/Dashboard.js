@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 
 const ConcentricDonutChart = ({ title, data, colors, innerText }) => {
@@ -23,11 +23,20 @@ const ConcentricDonutChart = ({ title, data, colors, innerText }) => {
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
     // Create two arcs for concentric donuts
-    const outerArc = d3.arc().innerRadius(radius * 0.7).outerRadius(radius);
-    const innerArc = d3.arc().innerRadius(radius * 0.4).outerRadius(radius * 0.7);
+    const outerArc = d3
+      .arc()
+      .innerRadius(radius * 0.7)
+      .outerRadius(radius);
+    const innerArc = d3
+      .arc()
+      .innerRadius(radius * 0.4)
+      .outerRadius(radius * 0.7);
 
     // Pie generators for data
-    const pie = d3.pie().value((d) => d.value).sort(null);
+    const pie = d3
+      .pie()
+      .value((d) => d.value)
+      .sort(null);
 
     // Draw outer arcs
     svg
@@ -74,13 +83,12 @@ const ConcentricDonutChart = ({ title, data, colors, innerText }) => {
 
     // Add inner text
     svg
-    .append("text")
-    .attr("text-anchor", "middle")
-    .style("font-size", "215px") // Increased size
-    .style("font-weight", "bold")
-    .attr("y", 70)
-    .text(innerText);
-
+      .append("text")
+      .attr("text-anchor", "middle")
+      .style("font-size", "215px") // Increased size
+      .style("font-weight", "bold")
+      .attr("y", 70)
+      .text(innerText);
   }, [data, colors, innerText]);
 
   return (
@@ -92,6 +100,11 @@ const ConcentricDonutChart = ({ title, data, colors, innerText }) => {
 };
 
 const Dashboard = () => {
+  const [selectedOption, setSelectedOption] = useState("Active Property");
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+  };
   // Data for All Properties
   const propertiesData = {
     inner: [
@@ -132,36 +145,130 @@ const Dashboard = () => {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-around",marginTop:"120px" }}>
-      <div>
-        <p style={{textAlign:"center",fontSize:"18px",fontWeight:"600",marginBottom:"30px"}}>All Properties</p>
-      <ConcentricDonutChart
-        data={propertiesData}
-        colors={propertiesColors}
-        innerText="+"
-      />
-      <div style={{textAlign:"center",margin:"20px"}}>
-      <p  style={{fontSize:"18px",fontWeight:"600"}}>Total No. of Properties : XXX</p>
-      <p style={{fontSize:"18px",fontWeight:"600"}}>Total Projected Revenue : INRXXX</p>
+    <div>
+      <div
+        className="options-container-1"
+        style={{ top: "11.4%", gridTemplateColumns: "repeat(4,1fr)" }}
+      >
+        <div
+          key={"Electricity Bill"}
+          className={`option ${
+            selectedOption === "My Dashboard" ? "active" : ""
+          }`}
+          onClick={() => handleOptionClick("My Dashboard")}
+          style={{
+            borderTopLeftRadius: "40px",
+            borderBottomLeftRadius: "40px",
+          }}
+        >
+          My Dashboard
+        </div>
+        <div
+          key={"Property Details"}
+          className={`option ${
+            selectedOption === "My Properties" ? "active" : ""
+          }`}
+          onClick={() => handleOptionClick("My Properties")}
+          style={{
+            borderRight: "2px solid black",
+            borderLeft: "2px solid black",
+          }}
+        >
+          My Properties
+        </div>
+        <div
+          key={"Photographs"}
+          className={`option ${
+            selectedOption === "My Seekers" ? "active" : ""
+          }`}
+          onClick={() => handleOptionClick("My Seekers")}
+          style={{ borderRight: "2px solid black" }}
+        >
+          My Seekers
+        </div>
+        <div
+          key={"Photographs"}
+          className={`option ${
+            selectedOption === "My Calender" ? "active" : ""
+          }`}
+          onClick={() => handleOptionClick("My Calender")}
+          style={{ borderRadius: "40px" }}
+        >
+          My Calender
+        </div>
       </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          marginTop: "120px",
+        }}
+      >
+        <div>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "18px",
+              fontWeight: "600",
+              marginBottom: "30px",
+            }}
+          >
+            All Properties
+          </p>
+          <ConcentricDonutChart
+            data={propertiesData}
+            colors={propertiesColors}
+            innerText="+"
+          />
+          <div style={{ textAlign: "center", margin: "20px" }}>
+            <p style={{ fontSize: "18px", fontWeight: "600" }}>
+              Total No. of Properties : XXX
+            </p>
+            <p style={{ fontSize: "18px", fontWeight: "600" }}>
+              Total Projected Revenue : INRXXX
+            </p>
+          </div>
         </div>
         <div>
-        <p style={{textAlign:"center",fontSize:"18px",fontWeight:"600",marginBottom:"30px"}}>All Seekers</p>
-      <ConcentricDonutChart
-        data={seekersData}
-        colors={seekersColors}
-        innerText="+"
-      />
-      <div style={{textAlign:"center",margin:"20px"}}>
-       <p style={{fontSize:"18px",fontWeight:"600"}}>Total No. of Seekers : XXX</p>
-      <p style={{fontSize:"18px",fontWeight:"600"}}>Total Projected Revenue : INRXXX</p>
-      </div>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "18px",
+              fontWeight: "600",
+              marginBottom: "30px",
+            }}
+          >
+            All Seekers
+          </p>
+          <ConcentricDonutChart
+            data={seekersData}
+            colors={seekersColors}
+            innerText="+"
+          />
+          <div style={{ textAlign: "center", margin: "20px" }}>
+            <p style={{ fontSize: "18px", fontWeight: "600" }}>
+              Total No. of Seekers : XXX
+            </p>
+            <p style={{ fontSize: "18px", fontWeight: "600" }}>
+              Total Projected Revenue : INRXXX
+            </p>
+          </div>
         </div>
+      </div>
+      <div style={{ width: "90%", margin: "auto" }}>
+        <textarea
+          placeholder="New Notification"
+          className="property-text-area-1"
+        ></textarea>
+      </div>
+      <div style={{ width: "90%", margin: "auto" }}>
+        <textarea
+          placeholder="Tasks"
+          className="property-text-area-1"
+        ></textarea>
+      </div>
     </div>
   );
 };
 
 export default Dashboard;
-
-
-

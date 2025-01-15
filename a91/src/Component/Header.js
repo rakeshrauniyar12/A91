@@ -86,7 +86,7 @@ const Header = () => {
  
 
   const location = useLocation();
-  const hiddenPaths = ["/", "/agentregister", "/property"];
+  const hiddenPaths = ["/", "/agentregister", "/property","/dashboard"];
   const showOptionsInNavbars = !hiddenPaths.includes(location.pathname);
   if(location.pathname==="/"){
     return;

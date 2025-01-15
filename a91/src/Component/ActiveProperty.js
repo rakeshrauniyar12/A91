@@ -10,6 +10,11 @@ import {
   FaTh,
   FaBars,
 } from "react-icons/fa";
+import { IoIosList } from "react-icons/io";
+import { CiHashtag } from "react-icons/ci";
+import { PiSquaresFour } from "react-icons/pi";
+import { FaListUl } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { IoHomeOutline } from "react-icons/io5";
 import { BiSearchAlt } from "react-icons/bi";
 
@@ -17,7 +22,10 @@ const ActiveProperty = () => {
   const [showTableView, setShowTableView] = useState(false);
 
   const handleShowTableView = () => {
-    setShowTableView(!showTableView);
+    setShowTableView(true);
+  };
+  const handleShowView = () => {
+    setShowTableView(false);
   };
   const products = [];
   for (let r = 0; r < 3; r++) {
@@ -54,14 +62,15 @@ const ActiveProperty = () => {
             fontWeight: "500",
           }}
         />
-        <FaList
+        
+        <IoIosList
           style={{
             cursor: "pointer",
             fontSize: "36px",
             fontWeight: "500",
           }}
         />
-        <FaHashtag
+        <CiHashtag
           style={{
             cursor: "pointer",
             fontSize: "36px",
@@ -69,20 +78,23 @@ const ActiveProperty = () => {
            
           }}
         />
-        <FaTh
+       
+        <PiSquaresFour
           style={{
             cursor: "pointer",
             fontSize: "36px",
             fontWeight: "500",
-           
+            color:!showTableView?"var(--primary)":"black"
           }}
+          onClick={handleShowView}
         />
-        <FaBars
+        <div style={{width:"3px",height:"30px",backgroundColor:"black"}}></div>
+        <RxHamburgerMenu
           style={{
             cursor: "pointer",
             fontSize: "36px",
             fontWeight: "500",
-            
+             color:showTableView?"var(--primary)":"black"
           }}
           onClick={handleShowTableView}
         />
