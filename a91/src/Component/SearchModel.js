@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../Style/SearchModel.css";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { MdCurrencyRupee } from "react-icons/md";
-import { useFilterState } from "./FilterStateProvider";
+import { useFilterState } from "./FIlterStateProvider";
 
 const SearchModel = ({ isOpen, onClose }) => {
   const {

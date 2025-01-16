@@ -7,7 +7,7 @@ const FilterStateContext = createContext();
 // Create a custom hook for easier access
 export const useFilterState = () => useContext(FilterStateContext);
 
-export const FilterStateProvider = ({ children }) => {
+ const FilterStateProvider = ({ children }) => {
   const navigate = useNavigate();
   const [filterState, setFilterState] = useState("Select an agent");
   const [selectedPurpose, setSelectedPurpose] = useState("Purpose");
@@ -190,3 +190,6 @@ export const FilterStateProvider = ({ children }) => {
     </FilterStateContext.Provider>
   );
 };
+
+
+export default FilterStateProvider;

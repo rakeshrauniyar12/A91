@@ -10,7 +10,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "../Style/FilterMinMax.css";
 import { TbHomeFilled } from "react-icons/tb";
 import { PiBuildingApartmentFill } from "react-icons/pi";
-import { useFilterState } from "./FilterStateProvider";
+import { useFilterState } from "./FIlterStateProvider";
 
 function FilterMinMax({ toggleFilterModal, isLogin, width }) {
   const {

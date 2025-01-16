@@ -19,7 +19,8 @@ import FilterModal from "./FilterModal";
 import FilterMinMax from "./FilterMinMax";
 import Login from "./Login";
 import Register from "./Register";
-import { useFilterState } from "./FilterStateProvider";
+import { useFilterState } from "./FIlterStateProvider"; // Ensure the casing matches
+
 const Home = () => {
   const navigate = useNavigate();
   const {

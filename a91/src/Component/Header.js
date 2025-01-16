@@ -13,7 +13,7 @@ import { FaUser } from "react-icons/fa";
 import { FaCalculator } from "react-icons/fa";
 import Login from "./Login";
 import Register from "./Register";
-import { useFilterState } from "./FilterStateProvider";
+import { useFilterState } from "./FIlterStateProvider";
 const Header = () => {
   const {
     setIsOwnRotate,
