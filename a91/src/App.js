@@ -9,8 +9,6 @@ function App() {
   return (
     <Router>
       <FilterStateProvider>
-        {" "}
-        {/* Wrap your components here */}
         <div className="App">
           <Header />
           <Content />
