@@ -51,12 +51,12 @@ export const FilterStateProvider = ({ children }) => {
   });
 
   const [selectedValues, setSelectedValues] = useState({
-    city: "",
-    locality: "",
-    ownRent: "",
-    purpose: "",
-    bedroom: "",
-    bathroom: "",
+    city: "City",
+    locality: "Locality",
+    ownRent: "Own/Rent",
+    purpose: "Purpose",
+    bedroom: "Bedroom",
+    bathroom: "Bathroom",
   });
 
   const dropdownOptions = {
