@@ -102,7 +102,7 @@ const AgentRegister = () => {
           </div>
         </div>
       </div>
-      <div className="registerStartButtonDiv">
+      <div className="registerStartButtonDiv" >
         <button onClick={() => navigate("/agentonboardprocess")}>
           Click here to Sign-up
         </button>

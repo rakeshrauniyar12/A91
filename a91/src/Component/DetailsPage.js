@@ -9,9 +9,9 @@ import Visited from "./Visited";
 import CompareApartments from "./CompareApartments";
 import FilterMinMax from "./FilterMinMax";
 import FilterModal from "./FilterModal";
-import { useFilterState } from "./FIlterStateProvider";
-const DetailPage = ({setCompareComponent}) => {
-  const {filterState, setFilterState}  = useFilterState();
+import { useFilterState } from "./FilterStateProvider";
+const DetailPage = ({ setCompareComponent }) => {
+  const { filterState, setFilterState } = useFilterState();
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const toggleFilterModal = () => {
     setIsFilterModalOpen(!isFilterModalOpen);

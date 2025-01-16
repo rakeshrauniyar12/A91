@@ -2,15 +2,17 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Content from "./Component/Content";
 import Footer from "./Component/Footer";
 import Header from "./Component/Header.js";
-import { FilterStateProvider } from "./Component/FIlterStateProvider.js";
+import { FilterStateProvider } from "./Component/FilterStateProvider.js";
 import Dashboard from "./Component/Dashboard.js";
 
 function App() {
   return (
     <Router>
-      <FilterStateProvider> {/* Wrap your components here */}
+      <FilterStateProvider>
+        {" "}
+        {/* Wrap your components here */}
         <div className="App">
-          <Header setPropertyOption={false}/>
+          <Header />
           <Content />
           <Footer />
         </div>

@@ -10,10 +10,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "../Style/FilterMinMax.css";
 import { TbHomeFilled } from "react-icons/tb";
 import { PiBuildingApartmentFill } from "react-icons/pi";
-import { useFilterState } from "./FIlterStateProvider";
+import { useFilterState } from "./FilterStateProvider";
 
 function FilterMinMax({ toggleFilterModal, isLogin, width }) {
-  const { filterState, setFilterState } = useFilterState();
+  const {
+    filterState,
+    setFilterState,
+    isFilterModalOpen,
+    setIsFilterModalOpen,
+  } = useFilterState();
   const location = useLocation();
   const navigate = useNavigate();
   const isMobile = window.innerWidth <= 768;
@@ -463,7 +468,7 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                 cursor:"pointer"
+                cursor: "pointer",
               }}
             >
               <GrCompare
@@ -492,17 +497,15 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
 
             <div className="temp_vr"></div>
             <div
-             onClick={() => {
-              handleClick(6);
-              setFilterState(
-                "Select an agent"
-              );
-            }}
+              onClick={() => {
+                handleClick(6);
+                setFilterState("Select an agent");
+              }}
               style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                cursor:"pointer"
+                cursor: "pointer",
               }}
             >
               <MdOutlineDateRange

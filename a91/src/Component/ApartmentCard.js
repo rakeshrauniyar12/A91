@@ -66,7 +66,7 @@ const ApartmentCard = ({
         )}
       </div>
       <div className="first-div">
-        <div className="first-div-left" style={{ flex: 1 }}>
+        <div className="first-div-left" style={{ flex: 1,display:"flex",flexDirection:"column",rowGap:"10px" }}>
           <p
             style={{
               color: "var(--primary)",

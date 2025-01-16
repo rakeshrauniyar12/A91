@@ -19,63 +19,63 @@ import FilterModal from "./FilterModal";
 import FilterMinMax from "./FilterMinMax";
 import Login from "./Login";
 import Register from "./Register";
-import { useFilterState } from "./FIlterStateProvider";
+import { useFilterState } from "./FilterStateProvider";
 const Home = () => {
   const navigate = useNavigate();
-  const {selectedPurpose,setSelectedPurpose}  = useFilterState();
-  // const [isAccount, setAccount] = useState(false);
-  // const [showSignupComponent, setShowSignupComponent] = useState(false);
-  // const [showLogin, setShowLogin] = useState(false);
-  const [selectedCityBanner, setSelectedCityBanner] = useState(null);
-  const [selectedOwnOrRent, setSelectedOwnOrRent] = useState(null);
-  // const [selectedPurposeBanner, setSelectedPurposeBanner] = useState(null);
-  // const [showCityDropdown, setShowCityDropdown] = useState(false);
-  // const [activeDropdown, setActiveDropdown] = useState(null);
-  // const [showPurposeDropdown, setShowPurposeDropdown] = useState(false);
-  // const [showOwnDropdown, setShowOwnDropdown] = useState(false);
-  // const [isPurRotate, setIsPurRotate] = useState(false);
-  const [isPurRotateHeader, setIsPurRotateHeader] = useState(false);
-  // const [isOwnRotate, setIsOwnRotate] = useState(false);
-  const [isOwnRotateHeader, setIsOwnRotateHeader] = useState(false);
-  // const [isCityRotate, setIsCityRotate] = useState(false);
-  const [isCityRotateHeader, setIsCityRotateHeader] = useState(false);
-  const [showOwnDropdownHeader, setShowOwnDropdownHeader] = useState(false);
-  const [showPurposeDropdownHeader, setShowPurposeDropdownHeader] =
-    useState(false);
-  const [showCityDropdownHeader, setShowCityDropdownHeader] = useState(false);
-  const [showFirstComponent, setShowFirstComponent] = useState(true);
-  const [showOptionsInNavbar, setShowOptionsInNavbar] = useState(false);
-  const [searchDropdown, setSearchDropdown] = useState(false);
+  const {
+    setIsOwnRotate,
+    setShowPurposeDropdown,
+    setIsPurRotate,
+    handleOptionClick,
+    selectedPurpose,
+    setSelectedPurpose,
+    showLogin,
+    setShowLogin,
+    selectedValues,
+    selectValue,
+    showSignupComponent,
+    setShowSignupComponent,
+    isDefaultValue,
+    setShowCityDropdown,
+    setIsCityRotate,
+    setShowOwnDropdown,
+    setAccount,
+    activeDropdown,
+    setActiveDropdown,
+    selectedCity,
+    setSelectedCity,
+    isModalOpen,
+    setIsModalOpen,
+    goToDashboard,
+    goToDetailPage,
+    goToPropertyPage,
+    selectedOwnOrRent,
+    setSelectedOwnOrRent,
+    opacity,
+    setOpacity,
+    showOwnDropdownHeader,
+    setShowOwnDropdownHeader,
+    showPurposeDropdownHeader,
+    setShowPurposeDropdownHeader,
+    showCityDropdownHeader,
+    setShowCityDropdownHeader,
+    isPurRotateHeader,
+    isOwnRotateHeader,
+    isCityRotateHeader,
+    imageHeight,
+    setImageHeight,
+    showOptionsInNavbar,
+    setShowOptionsInNavbar,
+    setIsPurRotateHeader,
+    setIsOwnRotateHeader,
+    setIsCityRotateHeader,
+    isFilterModalOpen,
+    setIsFilterModalOpen,
+    setShowFirstComponent,
+    selectedCityBanner,
+    setSelectedCityBanner,
+  } = useFilterState();
   const isMobile = window.innerWidth <= 768;
-  const [opacity, setOpacity] = useState(1);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  const [imageHeight, setImageHeight] = useState(200);
-  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
-
-  const [homeDropdownOpen, setHomeDropdownOpen] = useState(false);
-  // const [opacity, setOpacity] = useState(1);
-  // const [imageHeight, setImageHeight] = useState(200);
-  // const [showFirstComponent, setShowFirstComponent] = useState(true);
-  // const [homeDropdownOpen, setHomeDropdownOpen] = useState(false);
-  const [showSignupComponent, setShowSignupComponent] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-  const [isAccount, setAccount] = useState(false);
-  // const [showOptionsInNavbar, setShowOptionsInNavbar] = useState(false);
-  const [selectedCity, setSelectedCity] = useState("City");
-  const [selectedOwnRent, setSelectedOwnRent] = useState("Own/Rent");
-  // const [selectedPurpose, setSelectedPurpose] = useState("Purpose");
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [showCityDropdown, setShowCityDropdown] = useState(false);
-  const [showPurposeDropdown, setShowPurposeDropdown] = useState(false);
-  const [showOwnDropdown, setShowOwnDropdown] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isPurRotate, setIsPurRotate] = useState(false);
-
-  const [isOwnRotate, setIsOwnRotate] = useState(false);
-
-  const [isCityRotate, setIsCityRotate] = useState(false);
-  const isDefaultValue = (value, defaultValue) => value === defaultValue;
-
   const handleDropdownToggle = (dropdownName) => {
     setShowCityDropdownHeader(false);
     setShowOwnDropdownHeader(false);
@@ -88,11 +88,7 @@ const Home = () => {
     setShowSignupComponent(false);
     setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
-  const handleOptionClick = (path) => {
-    navigate(path);
-    setHomeDropdownOpen(false);
-    setActiveDropdown(null);
-  };
+
   const handleLoginClick = () => {
     setShowLogin(!showLogin);
     setAccount(false);
@@ -104,26 +100,14 @@ const Home = () => {
     setShowSignupComponent(true);
     setAccount(false);
   };
-  const goToPropertyPage = () => {
-    setAccount(false);
-    setActiveDropdown(null);
-    navigate("/property");
-  };
-  const goToDetailPage = () => {
-    setAccount(false);
-    setActiveDropdown(null);
-    navigate("/channelpartner");
-  };
-  const goToDashboard = () => {
-    setAccount(false);
-    setActiveDropdown(null);
-    navigate("/dashboard");
-  };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
 
   const toggleFilterModal = () => {
+    console.log("Hello Filter Modal");
+    console.log(isFilterModalOpen);
     setIsFilterModalOpen(!isFilterModalOpen);
   };
 
@@ -194,7 +178,7 @@ const Home = () => {
       setIsPurRotateHeader(false);
     }
   };
- 
+
   const handleCitySelection = (city) => {
     setSelectedCityBanner(city);
     setShowCityDropdownHeader(false);
@@ -291,8 +275,7 @@ const Home = () => {
 
     return () => clearTimeout(timer);
   }, [showText, isDeleting, loopNum, typingSpeed]);
-  const location = useLocation();
- 
+
   return (
     <div className="hfirst-main-container" style={{ marginTop: 120 }}>
       <div className="header-main-container">
@@ -310,7 +293,7 @@ const Home = () => {
                     <input
                       className="font-incre"
                       style={{
-                        color: isDefaultValue(selectedCity, "City")
+                        color: isDefaultValue(selectedValues.city, "City")
                           ? "black"
                           : "var(--primary)",
                         fontWeight: "bold",
@@ -328,13 +311,13 @@ const Home = () => {
                     <p
                       className="font-incre"
                       style={{
-                        color: isDefaultValue(selectedCity, "City")
+                        color: isDefaultValue(selectedValues.city, "City")
                           ? "black"
                           : "var(--primary)",
                         fontWeight: "bold",
                       }}
                     >
-                      {selectedCity}
+                      {selectedValues.city || "City"}
                     </p>
                   )}
 
@@ -366,13 +349,13 @@ const Home = () => {
                           <p
                             key={city}
                             onClick={() => {
-                              setSelectedCity(city);
+                              selectValue("city", city);
                               setShowCityDropdown(false);
                               setIsCityRotate(false);
                               setActiveDropdown(null);
                             }}
                           >
-                            {city}
+                            {city || "City"}
                           </p>
                         ))}
                       </div>
@@ -385,13 +368,13 @@ const Home = () => {
                   <p
                     className="font-incre"
                     style={{
-                      color: isDefaultValue(selectedOwnRent, "Own/Rent")
+                      color: isDefaultValue(selectedValues.ownRent, "Own/Rent")
                         ? "black"
                         : "var(--primary)",
                       fontWeight: "bold",
                     }}
                   >
-                    {selectedOwnRent}
+                    {selectedValues.ownRent || "Own/Rent"}
                   </p>
                   <RiArrowDropDownLine
                     style={{
@@ -414,7 +397,7 @@ const Home = () => {
                           <p
                             key={option}
                             onClick={() => {
-                              setSelectedOwnRent(option);
+                              selectValue("ownRent", option);
                               setShowOwnDropdown(false);
                               setIsOwnRotate(false);
                               setActiveDropdown(null);
@@ -433,13 +416,13 @@ const Home = () => {
                   <p
                     className="font-incre"
                     style={{
-                      color: isDefaultValue(selectedPurpose, "Purpose")
+                      color: isDefaultValue(selectedValues.purpose, "Purpose")
                         ? "black"
                         : "var(--primary)",
                       fontWeight: "bold",
                     }}
                   >
-                    {selectedPurpose}
+                    {selectedValues.purpose || "Purpose"}
                   </p>
                   <RiArrowDropDownLine
                     style={{
@@ -460,7 +443,7 @@ const Home = () => {
                       <div>
                         <p
                           onClick={() => {
-                            setSelectedPurpose("Residential");
+                            selectValue("purpose", "Residential");
                             setShowPurposeDropdown(false);
                             setIsPurRotate(false);
                             navigate("/residential");
@@ -471,7 +454,7 @@ const Home = () => {
                         </p>
                         <p
                           onClick={() => {
-                            setSelectedPurpose("Commercial");
+                            selectValue("purpose", "Commercial");
                             setShowPurposeDropdown(false);
                             setIsPurRotate(false);
                             navigate("/commercial");
@@ -482,7 +465,7 @@ const Home = () => {
                         </p>
                         <p
                           onClick={() => {
-                            setSelectedPurpose("Plot");
+                            selectValue("purpose", "Plot");
                             setShowPurposeDropdown(false);
                             setIsPurRotate(false);
                             navigate("/plot");
@@ -799,7 +782,7 @@ const Home = () => {
               onClick={handlePurposeDropdownHeader}
             >
               <p style={{ fontSize: "18px", fontWeight: "600" }}>
-                {selectedPurpose!=="Purpose" ? (
+                {selectedPurpose !== "Purpose" ? (
                   <span style={{ color: "var(--primary)", fontWeight: "bold" }}>
                     {selectedPurpose}
                   </span>

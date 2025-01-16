@@ -319,7 +319,6 @@
 .productDetailsDiv_ {
   display: flex;
   align-items: center;
-  margin: 8px 0;
 }
 
 .productDetailsDiv_ > .productKey_ {

@@ -2,39 +2,16 @@ import React, { useState } from "react";
 import "../Style/SearchModel.css";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { MdCurrencyRupee } from "react-icons/md";
+import { useFilterState } from "./FilterStateProvider";
 
 const SearchModel = ({ isOpen, onClose }) => {
-  const [showCityDropdown, setShowCityDropdown] = useState(false);
-  const [showLocalityDropdown, setShowLocalityDropdown] = useState(false);
-  const [showOwnRentDropdown, setShowOwnRentDropdown] = useState(false);
-  const [showPurposeDropdown, setShowPurposeDropdown] = useState(false);
-  const [showBedroomDropdown, setShowBedroomDropdown] = useState(false);
-  const [showBathroomDropdown, setShowBathroomDropdown] = useState(false);
-
-  const toggleDropdown = (dropdown) => {
-    switch (dropdown) {
-      case "city":
-        setShowCityDropdown(!showCityDropdown);
-        break;
-      case "locality":
-        setShowLocalityDropdown(!showLocalityDropdown);
-        break;
-      case "ownRent":
-        setShowOwnRentDropdown(!showOwnRentDropdown);
-        break;
-      case "purpose":
-        setShowPurposeDropdown(!showPurposeDropdown);
-        break;
-      case "bedroom":
-        setShowBedroomDropdown(!showBedroomDropdown);
-        break;
-      case "bathroom":
-        setShowBathroomDropdown(!showBathroomDropdown);
-        break;
-      default:
-        break;
-    }
-  };
+  const {
+    dropdownState,
+    selectedValues,
+    dropdownOptions,
+    selectValue,
+    toggleDropdown,
+  } = useFilterState();
 
   if (!isOpen) return null;
 
@@ -45,46 +22,71 @@ const SearchModel = ({ isOpen, onClose }) => {
         <div className="search-form">
           <div className="row-first">
             <div className="row-1">
-              <p onClick={() => toggleDropdown("city")}>City</p>
-              {showCityDropdown && (
+              <p onClick={() => toggleDropdown("city")}>
+                {selectedValues.city || "City"}
+              </p>
+              {dropdownState.city && (
                 <div className="dropdown-options">
-                  <p>Mumbai</p>
-                  <p>Delhi</p>
-                  <p>Kolkata</p>
-                  <p>Bengaluru</p>
+                  {dropdownOptions.city.map((city, index) => (
+                    <p key={index} onClick={() => selectValue("city", city)}>
+                      {city}
+                    </p>
+                  ))}
                 </div>
               )}
             </div>
             <div className="vertical-line-21"></div>
             <div className="row-2">
-              <p onClick={() => toggleDropdown("locality")}>Locality</p>
-              {showLocalityDropdown && (
+              <p onClick={() => toggleDropdown("locality")}>
+                {selectedValues.locality || "Locality"}
+              </p>
+              {dropdownState.locality && (
                 <div className="dropdown-options">
-                  <p>Locality 1</p>
-                  <p>Locality 2</p>
-                  <p>Locality 3</p>
+                  {dropdownOptions.locality.map((locality, index) => (
+                    <p
+                      key={index}
+                      onClick={() => selectValue("locality", locality)}
+                    >
+                      {locality}
+                    </p>
+                  ))}
                 </div>
               )}
             </div>
           </div>
           <div className="row-first">
             <div className="row-1">
-              <p onClick={() => toggleDropdown("ownRent")}>Own/Rent</p>
-              {showOwnRentDropdown && (
+              <p onClick={() => toggleDropdown("ownRent")}>
+                {selectedValues.ownRent || "Own/Rent"}
+              </p>
+              {dropdownState.ownRent && (
                 <div className="dropdown-options">
-                  <p>Own</p>
-                  <p>Rent</p>
+                  {dropdownOptions.ownRent.map((ownRent, index) => (
+                    <p
+                      key={index}
+                      onClick={() => selectValue("ownRent", ownRent)}
+                    >
+                      {ownRent}
+                    </p>
+                  ))}
                 </div>
               )}
             </div>
             <div className="vertical-line-21"></div>
             <div className="row-2">
-              <p onClick={() => toggleDropdown("purpose")}>Purpose</p>
-              {showPurposeDropdown && (
+              <p onClick={() => toggleDropdown("purpose")}>
+                {selectedValues.purpose || "Purpose"}
+              </p>
+              {dropdownState.purpose && (
                 <div className="dropdown-options">
-                  <p>Residential</p>
-                  <p>Commercial</p>
-                  <p>Plot</p>
+                  {dropdownOptions.purpose.map((purpose, index) => (
+                    <p
+                      key={index}
+                      onClick={() => selectValue("purpose", purpose)}
+                    >
+                      {purpose}
+                    </p>
+                  ))}
                 </div>
               )}
             </div>
@@ -123,25 +125,37 @@ const SearchModel = ({ isOpen, onClose }) => {
           </div>
           <div className="row-first">
             <div className="row-1">
-              <p onClick={() => toggleDropdown("bedroom")}>No of Bedroom</p>
-              {showBedroomDropdown && (
+              <p onClick={() => toggleDropdown("bedroom")}>
+                {selectedValues.bedroom || "No of Bedroom"}
+              </p>
+              {dropdownState.bedroom && (
                 <div className="dropdown-options">
-                  <p>1</p>
-                  <p>2</p>
-                  <p>3</p>
-                  <p>4+</p>
+                  {dropdownOptions.bedroom.map((bedroom, index) => (
+                    <p
+                      key={index}
+                      onClick={() => selectValue("bedroom", bedroom)}
+                    >
+                      {bedroom}
+                    </p>
+                  ))}
                 </div>
               )}
             </div>
             <div className="vertical-line-21"></div>
             <div className="row-2">
-              <p onClick={() => toggleDropdown("bathroom")}>No of Bathroom</p>
-              {showBathroomDropdown && (
+              <p onClick={() => toggleDropdown("bathroom")}>
+                {selectedValues.bathroom || "No of Bathroom"}
+              </p>
+              {dropdownState.bathroom && (
                 <div className="dropdown-options">
-                  <p>1</p>
-                  <p>2</p>
-                  <p>3</p>
-                  <p>4+</p>
+                  {dropdownOptions.bathroom.map((bathroom, index) => (
+                    <p
+                      key={index}
+                      onClick={() => selectValue("bathroom", bathroom)}
+                    >
+                      {bathroom}
+                    </p>
+                  ))}
                 </div>
               )}
             </div>
