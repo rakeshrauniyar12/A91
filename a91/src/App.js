@@ -2,8 +2,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Content from "./Component/Content";
 import Footer from "./Component/Footer";
 import Header from "./Component/Header.js";
-import { FilterStateProvider } from "./Component/FilterStateProvider.js";
-import Dashboard from "./Component/Dashboard.js";
+import  FilterStateProvider  from "./Component/FilterStateProvider.js";
+
 
 function App() {
   return (
