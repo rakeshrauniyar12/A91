@@ -103,7 +103,7 @@ const MyDashboard = () => {
     const propertiesData = {
         inner: [
           { label: "Inactive", value: 20 },
-          { label: "Draft", value: 4 },
+          { label: "Under Negotiation", value: 4 },
           { label: "Active", value: 10 },
         ],
         outer: [
@@ -117,7 +117,7 @@ const MyDashboard = () => {
       const seekersData = {
         inner: [
           { label: "Inactive", value: 20 },
-          { label: "Draft", value: 4 },
+          { label: "Under Negotiation", value: 4 },
           { label: "Leads", value: 10 },
         ],
         outer: [
