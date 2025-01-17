@@ -389,7 +389,7 @@ const Header = () => {
                   setActiveDropdown(null);
                 }}
               >
-                Register as Channel Partner
+                Register as An Agent
               </p>
               <p
                 className="account-option"

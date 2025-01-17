@@ -17,7 +17,7 @@ const ChannelPartner = ()=>{
     return(
         <div className="partner-cont">
             <div className="part-first-container">
-            <div className="agentRegisterTop" style={{width:"58%"}}>
+            <div className="agentRegisterTop" style={{width:"52%"}}>
                    <img src={logo} alt="a91-logo" />
                    <span>:</span>
                    <p>
