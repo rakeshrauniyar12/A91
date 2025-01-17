@@ -13,6 +13,7 @@ import ChannelPartner from "./ChannelPartner";
 import CompareApartments from "./CompareApartments";
 import PropertyDetails from "./PropertyDetails";
 import Dashboard from "./Dashboard";
+import ActiveProperty from "./ActiveProperty";
 
 const Content = () => {
   return (
@@ -26,6 +27,7 @@ const Content = () => {
         <Route path="/channelpartner" element={<ChannelPartner />} />
         <Route path="/propertydetail" element={<PropertyDetails />} />
         <Route path="/compareapartment" element={<CompareApartments />} />
+        <Route path="/activeproperty" element={<ActiveProperty />} />
         <Route path="/addproperty" element={<AddProperty />} />
         <Route path="/property" element={<Property />} />
         <Route path="/agentregister" element={<AgentRegister />} />
