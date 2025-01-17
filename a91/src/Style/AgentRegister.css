@@ -169,6 +169,7 @@
   background-color: white;
   margin-top: 40px;
   border-radius: 50px;
+  z-index: 10000;
 }
 .registerStartButtonDiv > button:hover {
   cursor: pointer;
