@@ -1,0 +1,38 @@
+.nav-option-1 {
+  border-radius: 50px;
+  height: 50px;
+  border: 2px solid lightgray;
+  padding: 0px 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-option-11 {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-option-12 {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.nav-option-13 {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.font-incre {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}

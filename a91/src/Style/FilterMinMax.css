@@ -1,0 +1,51 @@
+.sticky-filter-1 {
+  position: sticky;
+  top: 4.5rem;
+  background-color: #fff;
+  padding: 1.5rem 4rem;
+  z-index: 998;
+  animation-delay: 0.2s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.temp_vr {
+  width: 2px;
+  height: 100%;
+  background-color: black;
+  margin: 0 15px;
+}
+.schedule-like-vetical {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sticky-filter-2 {
+  display: flex;
+  align-items: flex-end;
+}
+
+.schedule-like-vetical {
+  display: flex;
+}
+#detail-image-11 {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  column-gap: 8px;
+  text-align: center;
+}
+#detail-image-11 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#detail-image-11 > div > p {
+  font-size: 10px;
+  text-align: center;
+}
+
+.sticky-filter-1 p {
+  font-size: 12px;
+}
