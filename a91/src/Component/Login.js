@@ -68,17 +68,22 @@ function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
     });
   };
   const handleLogin = async (e = null, email) => {
+    console.log("Line 71")
     if (e) e.preventDefault();
     if (e!==null && !isEmailOtpValid) {
       alert("Please validate your OTP before logging in.");
       return;
     }
+    console.log("Line 77")
     try {
+      console.log("Line 79",email)
       const response = await loginUser(email);
+      console.log("Line 80")
       if (response) {
         login(response.token);
         setShowLogin(false);
         alert("Login successful!");
+        console.log("Line 82")
       } else {
         alert("Login failed. Please try again.");
       }
@@ -101,7 +106,7 @@ function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
             />
           </div>
 
-          <form onSubmit={handleLogin}>
+          <form onSubmit={(e)=>{handleLogin(e, email)}}>
             <div className="login-input">
               <div className="login-second-div">
                 <input

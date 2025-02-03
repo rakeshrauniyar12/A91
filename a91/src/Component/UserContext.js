@@ -18,6 +18,7 @@ export const UserContext = ({ children }) => {
     localStorage.setItem("authToken", token);
     setIsLoggedIn(true);
     try {
+      console.log("User COntext",token)
       const userData = await fetchUser(token);
       console.log("UserDara", userData);
       setCurrentUser(userData);

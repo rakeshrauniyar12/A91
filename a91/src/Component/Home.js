@@ -23,8 +23,6 @@ import { useFilterState } from "./FIlterStateProvider"; // Ensure the casing mat
 import { useAuth } from "./UserContext.js";
 const Home = () => {
   const { currentUser, isLoggedIn, logout } = useAuth();
-  console.log("Home",currentUser)
-  console.log("Home Islog",isLoggedIn)
   const navigate = useNavigate();
   const {
     setIsOwnRotate,
@@ -642,7 +640,7 @@ const Home = () => {
                         setActiveDropdown(null);
                       }}
                     >
-                   My Profile
+                      My Profile
                     </p>
 
                     <p
@@ -652,7 +650,7 @@ const Home = () => {
                         setActiveDropdown(null);
                       }}
                     >
-                   Add Family Member  
+                      Add Family Member
                     </p>
                     <p
                       className="account-option"
@@ -666,11 +664,11 @@ const Home = () => {
                     <p
                       className="account-option"
                       onClick={() => {
-                         navigate("/property")
+                        navigate("/property");
                         setActiveDropdown(null);
                       }}
                     >
-                     My Properties
+                      My Properties
                     </p>
                     <p
                       className="account-option"
@@ -679,7 +677,7 @@ const Home = () => {
                         setActiveDropdown(null);
                       }}
                     >
-                     My Requirements
+                      My Requirements
                     </p>
                     <p
                       className="account-option"
@@ -688,7 +686,7 @@ const Home = () => {
                         setActiveDropdown(null);
                       }}
                     >
-                    Calender
+                      Calender
                     </p>
                     <p
                       className="account-option"
@@ -697,7 +695,7 @@ const Home = () => {
                         setActiveDropdown(null);
                       }}
                     >
-                    History
+                      History
                     </p>
                     <p
                       className="account-option"
@@ -706,7 +704,7 @@ const Home = () => {
                         setActiveDropdown(null);
                       }}
                     >
-                    Find an Agent
+                      Find an Agent
                     </p>
                     <p
                       className="account-option"
@@ -715,16 +713,16 @@ const Home = () => {
                         setActiveDropdown(null);
                       }}
                     >
-                     Contact Us
+                      Contact Us
                     </p>
                     <p
                       className="account-option"
                       onClick={() => {
-                       logout();
-                       handleDropdownToggle(null);
+                        logout();
+                        handleDropdownToggle(null);
                       }}
                     >
-                     Sign Out
+                      Sign Out
                     </p>
                   </div>
                 )}
