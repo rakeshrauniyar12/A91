@@ -8,7 +8,7 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase.js";
 import { useAuth } from "./UserContext.js";
 function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
-  const { currentUser,isLoggedIn,login,setUser } = useAuth();
+  const { currentUser, isLoggedIn, login, setUser } = useAuth();
   const [email, setEmail] = useState("");
   const [emailOtp, setEmailOtp] = useState("");
   const [emailOtpSent, setEmailOtpSent] = useState(false);
@@ -32,7 +32,6 @@ function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
     try {
       const response = await sendOtp(email);
       if (response) {
-        
         setEmailOtpSent(true);
         alert("OTP sent to your email.");
       } else {
@@ -63,22 +62,23 @@ function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
     }
   };
   const googleLogin = async () => {
+    const e = null;
     signInWithPopup(auth, provider).then(async (result) => {
-     setEmail(result.user.email);
+      handleLogin(e, result.user.email);
     });
   };
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    // if (!isEmailOtpValid) {
-    //   alert("Please validate your OTP before logging in.");
-    //   return;
-    // }
+  const handleLogin = async (e = null, email) => {
+    if (e) e.preventDefault();
+    if (e!==null && !isEmailOtpValid) {
+      alert("Please validate your OTP before logging in.");
+      return;
+    }
     try {
       const response = await loginUser(email);
       if (response) {
         login(response.token);
-        alert("Login successful!");
         setShowLogin(false);
+        alert("Login successful!");
       } else {
         alert("Login failed. Please try again.");
       }

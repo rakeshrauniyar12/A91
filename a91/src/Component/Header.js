@@ -453,7 +453,7 @@ const Header = () => {
                            <p
                              className="account-option"
                              onClick={() => {
-                               goToDashboard();
+                              navigate("/property")
                                setActiveDropdown(null);
                              }}
                            >
@@ -489,7 +489,7 @@ const Header = () => {
                            <p
                              className="account-option"
                              onClick={() => {
-                               goToDashboard();
+                              navigate("/detailpage")
                                setActiveDropdown(null);
                              }}
                            >
@@ -498,7 +498,6 @@ const Header = () => {
                            <p
                              className="account-option"
                              onClick={() => {
-                               goToDashboard();
                                setActiveDropdown(null);
                              }}
                            >

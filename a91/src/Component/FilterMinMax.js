@@ -470,6 +470,10 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
                     ? "Compare"
                     : "Select an agent"
                 );
+                location.pathname === "/residential" && navigate("/detailpage", { state: "Compare" }) ||
+                location.pathname==="/commercial" &&  navigate("/detailpage",{state:"Compare"}) ||
+                location.pathname==="/plot" &&  navigate("/detailpage",{state:"Compare"}) 
+                  
               }}
               style={{
                 display: "flex",
