@@ -58,7 +58,7 @@ const ApartmentCard = ({
       )}
       <div className="main-product-ima" onClick={handleClick}>
         <img src={product?.productImage} />
-        {product?.isAvailable && hideCheckbox && (
+        {product?.isAvailable  && (
           <div className="bookmark-checkbox-1">
             <input type="checkbox" checked={isSelected} onChange={onSelect} />
           </div>
