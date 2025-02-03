@@ -179,14 +179,10 @@ function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
               )}
             </div>
 
-            <div className="link-ff">
-              <Link className="link-forgot">Forgot Password..?</Link>
-            </div>
             <div className="regis-input1">
               <input type="checkbox" className="regi-inpu" required />
               <p>
-                By clicking you agree to{" "}
-                <Link className="p-link">Terms and Conditions</Link>
+                By clicking you agree to Login for 30days.
               </p>
             </div>
             <button
