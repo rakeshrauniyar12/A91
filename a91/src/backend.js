@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:3001/api";
-// const apiUrl ="https://a91-backend.onrender.com/api"
+// const apiUrl = "http://localhost:3001/api";
+const apiUrl ="https://a91-backend.onrender.com/api"
 
 const registerUser = async (userData) => {
   try {
@@ -90,4 +90,18 @@ const sendOtp = async (email) => {
       return false; // Error in OTP validation
     }
   };
-export { registerUser,sendOtp,validateOtp,loginUser };
+
+  const fetchUser = async (token) => {
+    try {
+        const response = await axios.get(`${apiUrl}/auth/getuser`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching user:", error.response?.data || error.message);
+        throw error;
+    }
+};
+export { registerUser,sendOtp,validateOtp,loginUser,fetchUser };

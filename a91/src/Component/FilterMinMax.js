@@ -11,8 +11,10 @@ import "../Style/FilterMinMax.css";
 import { TbHomeFilled } from "react-icons/tb";
 import { PiBuildingApartmentFill } from "react-icons/pi";
 import { useFilterState } from "./FIlterStateProvider";
+import { useAuth } from "./UserContext.js";
 
 function FilterMinMax({ toggleFilterModal, isLogin, width }) {
+  const { currentUser, isLoggedIn, logout } = useAuth();
   const {
     filterState,
     setFilterState,
@@ -342,11 +344,14 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
                 </p>
               </div>
             </div>
+        
           </div>
         )}
-        {isLogin ? (
+        {isLoggedIn ? (
           <div className="schedule-like-vetical">
-            <div className="temp_vr"></div>
+          { location.pathname==="/detailpage" &&
+          <>
+          <div className="temp_vr"></div>
             <div id="detail-image-11">
               <div onClick={() => handleClick(0)}>
                 <TbHomeFilled
@@ -429,6 +434,8 @@ function FilterMinMax({ toggleFilterModal, isLogin, width }) {
                 </p>
               </div>
             </div>
+            </>
+            }
 
             <div className="temp_vr"></div>
             <div id="like-dis-div">

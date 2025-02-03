@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 import { loginUser, sendOtp, validateOtp } from "../backend";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase.js";
-
+import { useAuth } from "./UserContext.js";
 function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
+  const { currentUser,isLoggedIn,login,setUser } = useAuth();
   const [email, setEmail] = useState("");
   const [emailOtp, setEmailOtp] = useState("");
   const [emailOtpSent, setEmailOtpSent] = useState(false);
@@ -31,6 +32,7 @@ function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
     try {
       const response = await sendOtp(email);
       if (response) {
+        
         setEmailOtpSent(true);
         alert("OTP sent to your email.");
       } else {
@@ -61,25 +63,20 @@ function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
     }
   };
   const googleLogin = async () => {
-    //     const provider = new GoogleAuthProvider();
-    //     provider.addScope("email");
-    // provider.addScope("profile");
-    //     console.log("Prov",provider)
     signInWithPopup(auth, provider).then(async (result) => {
-      console.log("Result", result);
-      setShowLogin(false);
-      // const userDetails= await registerUserWithGoogle(result.user.email);
+     setEmail(result.user.email);
     });
   };
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (!isEmailOtpValid) {
-      alert("Please validate your OTP before logging in.");
-      return;
-    }
+    // if (!isEmailOtpValid) {
+    //   alert("Please validate your OTP before logging in.");
+    //   return;
+    // }
     try {
       const response = await loginUser(email);
       if (response) {
+        login(response.token);
         alert("Login successful!");
         setShowLogin(false);
       } else {
@@ -190,7 +187,7 @@ function Login({ setShowSignupComponent, setAccount, setShowLogin }) {
             <button
               type="submit"
               className="reg-btn1"
-              disabled={!isEmailOtpValid}
+              // disabled={!isEmailOtpValid}
             >
               Login
             </button>

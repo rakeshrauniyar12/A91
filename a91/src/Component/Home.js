@@ -20,8 +20,11 @@ import FilterMinMax from "./FilterMinMax";
 import Login from "./Login";
 import Register from "./Register";
 import { useFilterState } from "./FIlterStateProvider"; // Ensure the casing matches
-
+import { useAuth } from "./UserContext.js";
 const Home = () => {
+  const { currentUser, isLoggedIn, logout } = useAuth();
+  console.log("Home",currentUser)
+  console.log("Home Islog",isLoggedIn)
   const navigate = useNavigate();
   const {
     setIsOwnRotate,
@@ -76,7 +79,6 @@ const Home = () => {
     selectedCityBanner,
     setSelectedCityBanner,
   } = useFilterState();
-  
   const isMobile = window.innerWidth <= 768;
   const handleDropdownToggle = (dropdownName) => {
     setShowCityDropdownHeader(false);
@@ -90,7 +92,7 @@ const Home = () => {
     setShowSignupComponent(false);
     setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
- 
+
   const handleLoginClick = () => {
     setShowLogin(!showLogin);
     setAccount(false);
@@ -135,7 +137,7 @@ const Home = () => {
     return () => {
       window.removeEventListener("scroll", handleScrolls);
     };
-  }, []);
+  });
   const navbarRef = useRef(null);
   const hFirstOptionRef = useRef(null);
 
@@ -144,7 +146,7 @@ const Home = () => {
       const scrollPosition = window.scrollY;
       const navbarHeight = navbarRef.current?.offsetHeight || 0;
       const hFirstOffsetTop = hFirstOptionRef.current?.offsetTop || 0;
-// hjbgs
+      // hjbgs
       // Show tions in navbar when scrolled past a threshold
       setShowOptionsInNavbar(scrollPosition + navbarHeight >= hFirstOffsetTop);
 
@@ -285,7 +287,11 @@ const Home = () => {
     <div className="hfirst-main-container" style={{ marginTop: 120 }}>
       <div className="header-main-container">
         <div className="header-main-container-content">
-          <div ref={navbarRef} className="h-logo-1" onClick={() => navigate("/")}>
+          <div
+            ref={navbarRef}
+            className="h-logo-1"
+            onClick={() => navigate("/")}
+          >
             <img src={logo} alt="Logo" />
           </div>
 
@@ -563,54 +569,166 @@ const Home = () => {
                 style={{ cursor: "pointer" }}
               />
             </div>
-            <div
-              style={{ cursor: "pointer" }}
-              // onClick={() => handleAccountOption()}
-              onClick={() => handleDropdownToggle("account")}
-            >
-              <FaUser size={40} />
-            </div>
-            {activeDropdown === "account" && (
-              // {isAccount && (
-              <div className="account-details1">
-                <p
-                  className="account-option"
-                  onClick={() => {
-                    handleLoginClick();
-                    setActiveDropdown(null);
-                  }}
+            {!isLoggedIn ? (
+              <>
+                <div
+                  style={{ cursor: "pointer" }}
+                  // onClick={() => handleAccountOption()}
+                  onClick={() => handleDropdownToggle("account")}
                 >
-                  Login
-                </p>
+                  <FaUser size={40} />
+                </div>
 
-                <p
-                  className="account-option"
-                  onClick={() => {
-                    handleSignupForm();
-                    setActiveDropdown(null);
-                  }}
+                {activeDropdown === "account" && (
+                  // {isAccount && (
+                  <div className="account-details1">
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        handleLoginClick();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                      Login
+                    </p>
+
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        handleSignupForm();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                      Register as Individual
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        goToDetailPage();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                      Register as An Agent
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        goToDashboard();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                      Dashboard
+                    </p>
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <div
+                  style={{ cursor: "pointer" }}
+                  // onClick={() => handleAccountOption()}
+                  onClick={() => handleDropdownToggle("account")}
                 >
-                  Register as Individual
-                </p>
-                <p
-                  className="account-option"
-                  onClick={() => {
-                    goToDetailPage();
-                    setActiveDropdown(null);
-                  }}
-                >
-                  Register as An Agent
-                </p>
-                <p
-                  className="account-option"
-                  onClick={() => {
-                    goToDashboard();
-                    setActiveDropdown(null);
-                  }}
-                >
-                  Dashboard
-                </p>
-              </div>
+                  <FaUser size={40} />
+                </div>
+
+                {activeDropdown === "account" && (
+                  // {isAccount && (
+                  <div className="account-details1">
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        handleLoginClick();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                   My Profile
+                    </p>
+
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        handleSignupForm();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                   Add Family Member  
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        goToDetailPage();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                      My Preferences
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        goToDashboard();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                     My Properties
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        goToDashboard();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                     My Requirements
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        goToDashboard();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                    Calender
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        goToDashboard();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                    History
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        goToDashboard();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                    Find an Agent
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                        goToDashboard();
+                        setActiveDropdown(null);
+                      }}
+                    >
+                     Contact Us
+                    </p>
+                    <p
+                      className="account-option"
+                      onClick={() => {
+                       logout();
+                       handleDropdownToggle(null);
+                      }}
+                    >
+                     Sign Out
+                    </p>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
@@ -839,7 +957,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      <div className="show-pos" ></div>
+      <div className="show-pos"></div>
       {/* ======================================= Home page sticky filter section ======================================= */}
       {showOptionsInNavbar && (
         <div className="home-container">

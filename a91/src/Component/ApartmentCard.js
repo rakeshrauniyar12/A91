@@ -50,14 +50,13 @@ const ApartmentCard = ({
     <div
       className="product-details-div"
       style={{ backgroundColor: product?.bgColor, cursor: "pointer" }}
-      onClick={handleClick}
     >
       {!product?.isAvailable && (
         <div className="noLongerAvailable">
           <p>Property no longer available</p>
         </div>
       )}
-      <div className="main-product-ima">
+      <div className="main-product-ima" onClick={handleClick}>
         <img src={product?.productImage} />
         {product?.isAvailable && hideCheckbox && (
           <div className="bookmark-checkbox-1">

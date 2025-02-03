@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { RiCloseLargeFill } from "react-icons/ri";
 import { registerUser, sendOtp, validateOtp } from "../backend";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../firebase.js";
 
 function Register({ setShowSignupComponent, setAccount, setShowLogin }) {
   const [firstName, setFirstName] = useState("");
@@ -23,6 +25,11 @@ function Register({ setShowSignupComponent, setAccount, setShowLogin }) {
     setShowSignupComponent(false);
     setShowLogin(true);
   };
+   const googleLogin = async () => {
+      signInWithPopup(auth, provider).then(async (result) => {
+       setEmail(result.user.email);
+      });
+    };
   const countryCodes = [
     { code: "+91", label: "India" },
     { code: "+1", label: "USA" },
@@ -299,7 +306,7 @@ function Register({ setShowSignupComponent, setAccount, setShowLogin }) {
                 Login
               </Link>
             </div>
-            <Link className="register-link">
+            <Link className="register-link" onClick={googleLogin}>
               <div>
                 <p>Register with Google</p>
                 <div>
