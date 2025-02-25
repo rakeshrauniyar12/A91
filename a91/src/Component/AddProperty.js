@@ -68,9 +68,15 @@ const AddProperty = () => {
 
       {/* Display Content */}
       <div className="content-container">
-        {selectedOption === "Unique Id" && <ElectricityBill />}
-        {selectedOption === "Property Details" && <AddPropertyDetails />}
-        {selectedOption === "Photographs" && <Photograph />}
+        {selectedOption === "Unique Id" && (
+          <ElectricityBill setSelectedOption={setSelectedOption} />
+        )}
+        {selectedOption === "Property Details" && (
+          <AddPropertyDetails setSelectedOption={setSelectedOption} />
+        )}
+        {selectedOption === "Photographs" && (
+          <Photograph setSelectedOption={setSelectedOption} />
+        )}
         {selectedOption === "Select Agent" && (
           <div className="add-select-agent">
             <SelectAgent />

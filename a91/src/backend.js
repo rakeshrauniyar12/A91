@@ -34,9 +34,6 @@ const loginUser = async (userEmail) => {
 
     // Handle successful login
     if (response) {
-      console.log("Login successful!");
-      console.log("Token:", response.data.token);
-
       // Optionally, store the token in localStorage or cookies
       localStorage.setItem("authToken", response.data.token);
 
@@ -55,53 +52,115 @@ const loginUser = async (userEmail) => {
 };
 
 const sendOtp = async (email) => {
-    try {
-      const response = await axios.post(`${apiUrl}/auth/send-otp`, {
-        email, // dynamically send either email or phone
-      });
-      if (response) {
-        console.log('OTP sent successfully');
-        return true; // Indicating OTP was sent successfully
-      } else {
-        console.error('Failed to send OTP');
-        return false;
-      }
-    } catch (error) {
-      console.error('Error sending OTP:', error);
+  try {
+    const response = await axios.post(`${apiUrl}/auth/send-otp`, {
+      email, // dynamically send either email or phone
+    });
+    if (response) {
+      console.log("OTP sent successfully");
+      return true; // Indicating OTP was sent successfully
+    } else {
+      console.error("Failed to send OTP");
       return false;
     }
-  };
-
-  const validateOtp = async (emailOrPhone, otp, type = 'email') => {
-    try {
-      const response = await axios.post(`${apiUrl}/auth/validate-otp`, {
-        [type]: emailOrPhone, // dynamically use either email or phone
-        otp: otp, // OTP entered by the user
-      });
-      if (response) {
-        console.log('OTP validated successfully');
-        return true; // Indicating OTP is valid
-      } else {
-        console.error('Invalid OTP');
-        return false; // OTP is invalid
-      }
-    } catch (error) {
-      console.error('Error validating OTP:', error);
-      return false; // Error in OTP validation
-    }
-  };
-
-  const fetchUser = async (token) => {
-    try {
-        const response = await axios.get(`${apiUrl}/auth/getuser`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        return response.data;
-    } catch (error) {
-        console.error("Error fetching user:", error.response?.data || error.message);
-        throw error;
-    }
+  } catch (error) {
+    console.error("Error sending OTP:", error);
+    return false;
+  }
 };
-export { registerUser,sendOtp,validateOtp,loginUser,fetchUser };
+
+const validateOtp = async (emailOrPhone, otp, type = "email") => {
+  try {
+    const response = await axios.post(`${apiUrl}/auth/validate-otp`, {
+      [type]: emailOrPhone, // dynamically use either email or phone
+      otp: otp, // OTP entered by the user
+    });
+    if (response) {
+      console.log("OTP validated successfully");
+      return true; // Indicating OTP is valid
+    } else {
+      console.error("Invalid OTP");
+      return false; // OTP is invalid
+    }
+  } catch (error) {
+    console.error("Error validating OTP:", error);
+    return false; // Error in OTP validation
+  }
+};
+
+const fetchUser = async (token) => {
+  try {
+    const response = await axios.get(`${apiUrl}/auth/getuser`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error fetching user:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const addAgent = async (formData) => {
+  try {
+    const response = await axios.post(`${apiUrl}/agent/addAgent`, formData);
+    return response.data;
+  } catch (error) {
+    console.error("Error registering agent", error);
+  }
+};
+
+export const updateAgent = async (agentId,formData) => {
+  try {
+    const response = await axios.put(`${apiUrl}/agent/updateagent/${agentId}`, formData);
+    return response.data;
+  } catch (error) {
+    console.error("Error registering agent", error);
+  }
+};
+
+
+export const getAgentById = async (agentId) => {
+  try {
+    const response = await axios.get(`${apiUrl}/agent/getagent/${agentId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching agent:", error);
+    return null;
+  }
+};
+
+export const getAllAgent = async () => {
+  try {
+    const response = await axios.get(`${apiUrl}/agent/getallagent`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching agent:", error);
+    return null;
+  }
+};
+
+export const addProperty = async (formData) => {
+  try {
+    const response = await axios.post(`${apiUrl}/property/addproperty`, formData);
+    return response;
+  } catch (error) {
+    console.error("Error registering agent", error);
+  }
+};
+
+export const getPropertyByUserIdAndPropertyType = async (userId,propertyType) => {
+  try {
+    const response = await axios.get(`${apiUrl}/property/getproperty/${userId}/${propertyType}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching agent:", error);
+    return null;
+  }
+};
+
+export { registerUser, sendOtp, validateOtp, loginUser, fetchUser };

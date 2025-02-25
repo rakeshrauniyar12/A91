@@ -25,11 +25,11 @@ function Register({ setShowSignupComponent, setAccount, setShowLogin }) {
     setShowSignupComponent(false);
     setShowLogin(true);
   };
-   const googleLogin = async () => {
-      signInWithPopup(auth, provider).then(async (result) => {
-       setEmail(result.user.email);
-      });
-    };
+  const googleLogin = async () => {
+    signInWithPopup(auth, provider).then(async (result) => {
+      setEmail(result.user.email);
+    });
+  };
   const countryCodes = [
     { code: "+91", label: "India" },
     { code: "+1", label: "USA" },

@@ -106,12 +106,16 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 15px 10px;
 }
-.renderGetOnboardedInputDiv > input {
+.renderGetOnboardedInputDiv > input, .upload-label {
   border-radius: 15px;
   outline: none;
   border: 1px solid gray;
   padding: 12px 0;
   padding-left: 10px;
+}
+.renderGetOnboardedInputDiv > .upload-label{
+  font-size: 15px;
+  font-weight: 600;
 }
 .renderGetOnboardedInputDiv > input::placeholder,
 .createProfileRightContainer > input::placeholder,

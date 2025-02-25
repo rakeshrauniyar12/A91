@@ -1,48 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Style/SelectAgent.css";
 import { BiSearchAlt } from "react-icons/bi";
 import primg from "../Asset/Home/primg.png";
 import { FcManager } from "react-icons/fc";
+import { getAgentById, getAllAgent } from "../backend";
 
 const SelectAgent = () => {
-  const agents = [
-    {
-      id: 1,
-      imageUrl: primg,
-      name: "Shrestha Agarwal",
-      consultationRent: "One month rent",
-      consultationSale: "1% of sale value",
-      operatingSince: "2019",
-      noOfProperties: "999",
-    },
-    {
-      id: 2,
-      imageUrl: primg,
-      name: "Rammu Sharma",
-      consultationRent: "One month rent",
-      consultationSale: "1% of sale value",
-      operatingSince: "2019",
-      noOfProperties: "999",
-    },
-    {
-      id: 3,
-      imageUrl: primg,
-      name: "Tom & Jerry",
-      consultationRent: "One month rent",
-      consultationSale: "1% of sale value",
-      operatingSince: "2019",
-      noOfProperties: "999",
-    },
-    {
-      id: 4,
-      imageUrl: primg,
-      name: "Vikas Singh",
-      consultationRent: "One month rent",
-      consultationSale: "1% of sale value",
-      operatingSince: "2019",
-      noOfProperties: "999",
-    },
-  ];
+  const [agents, setAgents] = useState([]);
+
+  const fetchAgentData = async () => {
+    try {
+      const agentRes = await getAllAgent();
+      console.log("Select agent", agentRes);
+      setAgents(agentRes);
+    } catch (error) {
+      console.error("Error fetching agent data:", error);
+    }
+  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchAgentData();
+  }, []);
+  // const agents = [
+  //   {
+  //     id: 1,
+  //     imageUrl: primg,
+  //     name: "Shrestha Agarwal",
+  //     consultationRent: "One month rent",
+  //     consultationSale: "1% of sale value",
+  //     operatingSince: "2019",
+  //     noOfProperties: "999",
+  //   },
+  //   {
+  //     id: 2,
+  //     imageUrl: primg,
+  //     name: "Rammu Sharma",
+  //     consultationRent: "One month rent",
+  //     consultationSale: "1% of sale value",
+  //     operatingSince: "2019",
+  //     noOfProperties: "999",
+  //   },
+  //   {
+  //     id: 3,
+  //     imageUrl: primg,
+  //     name: "Tom & Jerry",
+  //     consultationRent: "One month rent",
+  //     consultationSale: "1% of sale value",
+  //     operatingSince: "2019",
+  //     noOfProperties: "999",
+  //   },
+  //   {
+  //     id: 4,
+  //     imageUrl: primg,
+  //     name: "Vikas Singh",
+  //     consultationRent: "One month rent",
+  //     consultationSale: "1% of sale value",
+  //     operatingSince: "2019",
+  //     noOfProperties: "999",
+  //   },
+  // ];
 
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -73,82 +89,95 @@ const SelectAgent = () => {
       </div>
 
       <div className="select-agent-content">
-        {agents.map((agent) => (
-          <div className="select-agent-content-div" key={agent.id}>
-            <div className="select-agent-content-div_First">
-              <FcManager
-                style={{
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            </div>
-            <div className="select-agent-content-div_Second">
-              <p
-                style={{
-                  color: "var(--primary)",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  marginBottom: 5,
-                }}
-              >
-                {agent.name}
-              </p>
-              <div className="agent-info">
-                <div className="agent-row">
-                  <p className="agent-key">Consultation(Rent):</p>
-                  <p className="agent-value">{agent.consultationRent}</p>
-                </div>
-                <div className="agent-row">
-                  <p className="agent-key">Consultation(Sale):</p>
-                  <p className="agent-value">{agent.consultationSale}</p>
-                </div>
-                <div className="agent-row">
-                  <p className="agent-key">Operating Since:</p>
-                  <p className="agent-value">{agent.operatingSince}</p>
-                </div>
-                <div className="agent-row">
-                  <p className="agent-key">No. Of Properties:</p>
-                  <p className="agent-value">{agent.noOfProperties}</p>
-                </div>
-                <div className="agent-row">
-                  <u>
-                    <p className="agent-key">More Details</p>
-                  </u>
-                </div>
-                <div className="gstAdditionalDiv">
-                  <p>*GST Additional</p>
+        {agents.length === 0 ? (
+          <h1>No Agents Available.</h1>
+        ) : (
+          agents.map((agent) => (
+            <div className="select-agent-content-div" key={agent.id}>
+              <div className="select-agent-content-div_First">
+                <FcManager
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
+                />
+              </div>
+              <div className="select-agent-content-div_Second">
+                <p
+                  style={{
+                    color: "var(--primary)",
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    marginBottom: 5,
+                  }}
+                >
+                  {agent.agentFirstName + " " + agent.agentLastName}
+                </p>
+                <div className="agent-info">
+                  <div className="agent-row">
+                    <p className="agent-key">Consultation(Rent):</p>
+                    <p className="agent-value">
+                      {agent.agentConsultationResidentialRentComission}
+                    </p>
+                  </div>
+                  <div className="agent-row">
+                    <p className="agent-key">Consultation(Sale):</p>
+                    <p className="agent-value">
+                      {agent.agentConsultationResidentialSaleComission}
+                    </p>
+                  </div>
+                  <div className="agent-row">
+                    <p className="agent-key">Operating Since:</p>
+                    <p className="agent-value">{agent.agentOperatingSince}</p>
+                  </div>
+                  <div className="agent-row">
+                    <p className="agent-key">No. Of Properties:</p>
+                    <p className="agent-value">{agent.agentNumberOfProperties
+                    }</p>
+                  </div>
+                  <div className="agent-row">
+                    <u>
+                      <p className="agent-key">More Details</p>
+                    </u>
+                  </div>
+                  <div className="gstAdditionalDiv">
+                    <p>*GST Additional</p>
+                  </div>
                 </div>
               </div>
+              <div className="select-agent-content-div_Third">
+                <input
+                  type="checkbox"
+                  className="circle-checkbox_2"
+                  checked={selectedAgent === agent._id}
+                  onChange={() => handleCheckboxChange(agent._id)}
+                  style={{
+                    marginLeft: "auto",
+                    display: "flex",
+                    width: "18px",
+                    height: "18px",
+                    borderRadius: "50%",
+                  }}
+                />
+              </div>
             </div>
-            <div className="select-agent-content-div_Third">
-              <input
-                type="checkbox"
-                className="circle-checkbox_2"
-                checked={selectedAgent === agent.id}
-                onChange={() => handleCheckboxChange(agent.id)}
-                style={{
-                  marginLeft: "auto",
-                  display: "flex",
-                  width: "18px",
-                  height: "18px",
-                  borderRadius: "50%",
-                }}
-              />
-            </div>
+          ))
+        )}
+      </div>
+      {agents.length !== 0 ? (
+        <div className="selectAgentBtnMainContainer">
+          <div className="agent-show-bottom-button">
+            <button>Show more</button>
           </div>
-        ))}
-      </div>
-      <div className="selectAgentBtnMainContainer">
-        <div className="agent-show-bottom-button">
-          <button>Show more</button>
+          <div className="agent-show-bottom-button">
+            <button onClick={handleSelectAgentClick}>
+              Select Executive Agent
+            </button>
+          </div>
         </div>
-        <div className="agent-show-bottom-button">
-          <button onClick={handleSelectAgentClick}>
-            Select Executive Agent
-          </button>
-        </div>
-      </div>
+      ) : (
+        ""
+      )}
 
       {isModalVisible && (
         <div className="modal_agent">

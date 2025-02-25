@@ -44,7 +44,6 @@ export const UserContext = ({ children }) => {
           setCurrentUser(userData);
           setIsLoggedIn(true);
         })
-        .catch(() => logout());
     }
   }, []);
 

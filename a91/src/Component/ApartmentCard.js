@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiSolidLike, BiSolidDislike } from "react-icons/bi";
 import { IoVideocamOutline } from "react-icons/io5";
 import { LuNotepadText } from "react-icons/lu";
@@ -16,9 +16,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Style/Appointment.css";
 import { useNavigate } from "react-router-dom";
+import { getPropertyByUserIdAndPropertyType } from "../backend";
+import { useAuth } from "./UserContext.js";
 
 const ApartmentCard = ({
-  product,
   isAppointmentStatus,
   isVisitedTab,
   isSelected,
@@ -31,7 +32,8 @@ const ApartmentCard = ({
   const navigate = useNavigate();
   const [calendarVisible, setCalendarVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-
+  const [product, setProduct] = useState([]);
+  const { currentUser, isLoggedIn, logout } = useAuth();
   const today = new Date();
 
   const handleCalendarClick = () => {
@@ -45,7 +47,16 @@ const ApartmentCard = ({
   const handleClick = () => {
     navigate("/propertydetail", { state: { product } });
   };
-
+  const fetchProperty = async () => {
+    const property = await getPropertyByUserIdAndPropertyType(
+      currentUser._id,
+      "Residential"
+    );
+    console.log("Property", property);
+  };
+  useEffect(() => {
+    fetchProperty();
+  }, []);
   return (
     <div
       className="product-details-div"
@@ -58,14 +69,22 @@ const ApartmentCard = ({
       )}
       <div className="main-product-ima" onClick={handleClick}>
         <img src={product?.productImage} />
-        {product?.isAvailable  && (
+        {product?.isAvailable && (
           <div className="bookmark-checkbox-1">
             <input type="checkbox" checked={isSelected} onChange={onSelect} />
           </div>
         )}
       </div>
       <div className="first-div">
-        <div className="first-div-left" style={{ flex: 1,display:"flex",flexDirection:"column",rowGap:"10px" }}>
+        <div
+          className="first-div-left"
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            rowGap: "10px",
+          }}
+        >
           <p
             style={{
               color: "var(--primary)",
@@ -129,24 +148,26 @@ const ApartmentCard = ({
           alignItems: "center",
         }}
       >
-      { (!isInActive && !isActive)? <div className="productDetailsDiv_">
-          <div className="productKey_">
-            <IoLocationSharp size={26} />
+        {!isInActive && !isActive ? (
+          <div className="productDetailsDiv_">
+            <div className="productKey_">
+              <IoLocationSharp size={26} />
+            </div>
+            <div className="productValue_">
+              <p>{product?.productDistance}</p>
+            </div>
           </div>
-          <div className="productValue_">
-            <p>{product?.productDistance}</p>
+        ) : (
+          <div className="productDetailsDiv_">
+            <div className="productKey_">
+              <SlCalender size={26} />
+            </div>
+            <div className="productValue_">
+              <p>{`No of Days Inactive: xx`}</p>
+            </div>
           </div>
-        </div>:
-        <div className="productDetailsDiv_">
-        <div className="productKey_">
-          <SlCalender size={26} />
-        </div>
-        <div className="productValue_">
-          <p>{`No of Days Inactive: xx`}</p>
-        </div>
-      </div>
-        }
-      
+        )}
+
         {!isAppointmentStatus && (
           <div>
             <IoShareSocialSharp size={26} />
@@ -229,12 +250,12 @@ const ApartmentCard = ({
           )}
         </div>
       )}
-       { isInActive && 
-          <div style={{display:"flex",gap:"20px"}}>
-             <TbBellRingingFilled size={26}/>
-             <p>Remind on: dd-mm-yyyy</p>
-          </div>
-       }
+      {isInActive && (
+        <div style={{ display: "flex", gap: "20px" }}>
+          <TbBellRingingFilled size={26} />
+          <p>Remind on: dd-mm-yyyy</p>
+        </div>
+      )}
       {(isActive || isInActive) && (
         <div className="appointmentVisitedContainer">
           <div>

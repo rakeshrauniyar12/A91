@@ -357,165 +357,165 @@ const Header = () => {
             />
           </div>
           {!isLoggedIn ? (
-                     <>
-                       <div
-                         style={{ cursor: "pointer" }}
-                         // onClick={() => handleAccountOption()}
-                         onClick={() => handleDropdownToggle("account")}
-                       >
-                         <FaUser size={40} />
-                       </div>
-       
-                       {activeDropdown === "account" && (
-                         // {isAccount && (
-                         <div className="account-details1">
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               handleLoginClick();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                             Login
-                           </p>
-       
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               handleSignupForm();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                             Register as Individual
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               goToDetailPage();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                             Register as An Agent
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               goToDashboard();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                             Dashboard
-                           </p>
-                         </div>
-                       )}
-                     </>
-                   ) : (
-                     <>
-                       <div
-                         style={{ cursor: "pointer" }}
-                         // onClick={() => handleAccountOption()}
-                         onClick={() => handleDropdownToggle("account")}
-                       >
-                         <FaUser size={40} />
-                       </div>
-       
-                       {activeDropdown === "account" && (
-                         // {isAccount && (
-                         <div className="account-details1">
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               handleLoginClick();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                          My Profile
-                           </p>
-       
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               handleSignupForm();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                          Add Family Member  
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               goToDetailPage();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                             My Preferences
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                              navigate("/property")
-                               setActiveDropdown(null);
-                             }}
-                           >
-                            My Properties
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               goToDashboard();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                            My Requirements
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               goToDashboard();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                           Calender
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               goToDashboard();
-                               setActiveDropdown(null);
-                             }}
-                           >
-                           History
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                              navigate("/detailpage")
-                               setActiveDropdown(null);
-                             }}
-                           >
-                           Find an Agent
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                               setActiveDropdown(null);
-                             }}
-                           >
-                            Contact Us
-                           </p>
-                           <p
-                             className="account-option"
-                             onClick={() => {
-                              logout();
-                              handleDropdownToggle(null);
-                             }}
-                           >
-                            Sign Out
-                           </p>
-                         </div>
-                       )}
-                     </>
-                   )}
+            <>
+              <div
+                style={{ cursor: "pointer" }}
+                // onClick={() => handleAccountOption()}
+                onClick={() => handleDropdownToggle("account")}
+              >
+                <FaUser size={40} />
+              </div>
+
+              {activeDropdown === "account" && (
+                // {isAccount && (
+                <div className="account-details1">
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      handleLoginClick();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    Login
+                  </p>
+
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      handleSignupForm();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    Register as Individual
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      goToDetailPage();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    Register as An Agent
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      goToDashboard();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    Dashboard
+                  </p>
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              <div
+                style={{ cursor: "pointer" }}
+                // onClick={() => handleAccountOption()}
+                onClick={() => handleDropdownToggle("account")}
+              >
+                <FaUser size={40} />
+              </div>
+
+              {activeDropdown === "account" && (
+                // {isAccount && (
+                <div className="account-details1">
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      handleLoginClick();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    My Profile
+                  </p>
+
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      handleSignupForm();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    Add Family Member
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      goToDetailPage();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    My Preferences
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      navigate("/property");
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    My Properties
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      goToDashboard();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    My Requirements
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      goToDashboard();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    Calender
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      goToDashboard();
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    History
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      navigate("/detailpage");
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    Find an Agent
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      setActiveDropdown(null);
+                    }}
+                  >
+                    Contact Us
+                  </p>
+                  <p
+                    className="account-option"
+                    onClick={() => {
+                      logout();
+                      handleDropdownToggle(null);
+                    }}
+                  >
+                    Sign Out
+                  </p>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
       {showLogin && (

@@ -3,7 +3,7 @@ import "../Style/Photograph.css";
 import { IoMdCamera } from "react-icons/io";
 import { GoVideo } from "react-icons/go";
 
-const Photograph = () => {
+const Photograph = ({ setSelectedOption }) => {
   const [photos, setPhotos] = useState([]);
   const [videos, setVideos] = useState([]);
 
@@ -13,17 +13,13 @@ const Photograph = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        const newPhoto = {
-          id: Date.now(),
-          src: e.target.result,
-          alt: file.name,
-        };
+        const newPhoto =  e.target.result;
         setPhotos((prevPhotos) => [...prevPhotos, newPhoto]);
       };
       reader.readAsDataURL(file); // Read the image file as a data URL
     }
   };
-
+console.log("Photograph",photos)
   // Handle video upload
   const handleAddVideo = (event) => {
     const file = event.target.files[0];
@@ -87,7 +83,7 @@ const Photograph = () => {
         </div>
         {photos.map((photo) => (
           <div className="photo-card" key={photo.id}>
-            <img src={photo.src} alt={photo.alt} />
+            <img src={photo} alt={photo.alt} />
             <button
               className="delete-btn"
               onClick={() => handleDeletePhoto(photo.id)}
@@ -149,9 +145,9 @@ const Photograph = () => {
         ))}
       </div>
       <div className="bottom-btn-21" style={{width:"100%"}}>
-        <div className="bottom-btn-21-1">Back</div>
+        <div className="bottom-btn-21-1" onClick={()=>setSelectedOption("Property Details")}>Back</div>
         <div className="bottom-btn-21-2">Save as Draft</div>
-        <div className="bottom-btn-21-2">Continue</div>
+        <div className="bottom-btn-21-2" onClick={()=>setSelectedOption("Select Agent")}>Continue</div>
       </div>
     </div>
   );
